@@ -104,13 +104,16 @@ def search(query: str, *, per_page: int = 12, max_age_days: int = 30) -> List[Di
         return []
 
     url = f"{PEXELS_API}?query={urllib.parse.quote_plus(query)}&per_page={per_page}"
-    req = urllib.request.Request(url, headers={"Authorization": key})
+    req = urllib.request.Request(url, headers={
+        "Authorization": key,
+        "User-Agent": "AutoWebDev-enrich/1.0 (+https://github.com/giuseppegks/AutoWebDev)",
+    })
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
             data = json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
-        if e.code == 401:
-            print("  ⚠️  pexels: API key rejected (401 Unauthorized)", file=sys.stderr)
+        if e.code in (401, 403):
+            print(f"  ⚠️  pexels: API key rejected ({e.code} {e.reason})", file=sys.stderr)
             return []
         if e.code == 429:
             print("  ⚠️  pexels: rate-limited (429), try again in an hour", file=sys.stderr)
