@@ -122,6 +122,12 @@ def build_target(record: Dict[str, Any], *, copy: Optional[Dict[str, Any]] = Non
     since = _g(data, "founding_year")
     if since:
         target["since_year"] = since
+    kvk = _g(data, "kvk")
+    if kvk:
+        target["kvk"] = kvk
+    category = _g(data, "category")
+    if category:
+        target["category"] = category
 
     # WhatsApp from tel (mobile-format only — needs +country)
     tel = target["tel"]
