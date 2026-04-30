@@ -168,8 +168,8 @@ def build_target(record: Dict[str, Any], *, copy: Optional[Dict[str, Any]] = Non
     target["lead"]          = copy_for_shop.get("lead", PLACEHOLDER_LEAD)
     target["about_heading"] = copy_for_shop.get("about_heading", "Wat we doen")
     target["about_body"]    = copy_for_shop.get("about_body", PLACEHOLDER_ABOUT_BODY)
-    # Optional CTA-strip overrides (sensible defaults in template_generator)
-    for k in ("cta_eyebrow", "cta_heading", "cta_body"):
+    # Optional CTA-strip + steps overrides (sensible defaults in template_generator)
+    for k in ("cta_eyebrow", "cta_heading", "cta_body", "steps"):
         if k in copy_for_shop:
             target[k] = copy_for_shop[k]
     if "services" in copy_for_shop:
