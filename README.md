@@ -14,8 +14,14 @@ Gebouwd voor freelance webdesigners en kleine agencies die buurtwinkels, kappers
                  │ CSV
                  ▼
 ┌──────────────────────────────────┐
+│ enrich/ (auto-enrichment)        │  Wanderlog + Oozo + telefoonboek + Pexels
+│                                  │  → CSV → enriched.json → mockups (one cmd)
+└────────────────┬─────────────────┘
+                 │ enriched JSON
+                 ▼
+┌──────────────────────────────────┐
 │ 2. building-prospect-mockups     │  Verify → activity-check → enrich → render
-│                                  │  → 14 branches, Pexels stock, Fraunces
+│                                  │  → 20 branches, Pexels stock, Fraunces
 │                                  │  → 1-page pitch-mockups voor cold outreach
 └────────────────┬─────────────────┘
                  │ winnende prospect → klant
@@ -47,6 +53,31 @@ Pipeline + Python-renderer (`template_generator.py`, ~950 regels) die prospect-d
 - Pexels stockfoto's met licentie-attributie, alle foto's hotlinkable
 - Schema.org JSON-LD per branche (HairSalon, RoofingContractor, JewelryStore, etc.)
 - Footer-disclaimer + `<meta name="robots" content="noindex,nofollow">` — zodat pitch-mockups niet ge-indexeerd raken
+
+### `enrich/` (auto-enrichment pipeline)
+**Bridge tussen skill #1 en skill #2** — pure-Python, geen API-keys verplicht (Pexels optioneel). Neemt een prospect-CSV en produceert renderable mockups in twee commando's.
+
+**Onderdelen:**
+- `parsers/telefoonboek.py` — schema.org microdata: tel, adres, postcode, openingstijden, rating
+- `parsers/oozo.py` — verplichte activity-check ("niet langer actief"), KvK, founding-jaar, branchecode
+- `parsers/wanderlog.py` — embedded JSON-blob: website + Google rating + verbatim 5★ reviews + tel
+- `parsers/verify.py` — search-fallback (Brave + DDG) wanneer Wanderlog leeg is
+- `pexels.py` — branche-aware photo-fetcher met disk-cache (200 req/h gratis tier)
+- `enrich.py` — orchestrator met source-attribution + address-mismatch safeguard
+- `batch_enrich.py` — CSV → enriched.json met status-counts (`ready` / `needs_review` / `skip-inactive` / `skip-no-data` / `has-site`)
+- `render_bridge.py` — enriched.json → mockups via `template_generator.render_all()`
+- `test_shops.py` — 4 known-answer regression tests (Kaashandel, Vinylarchief, Bruining, Oud-West)
+
+**Workflow:**
+```bash
+# 1. Skill #1 produceert prospects.csv (name, addr, city, lat, lon, shop_type, branche)
+# 2. Auto-enrich → JSON met source-attributed velden
+python3 enrich/batch_enrich.py prospects.csv --out enriched.json
+# 3. Render mockups (Claude vult marketing-copy in optionele copy.json)
+python3 enrich/render_bridge.py enriched.json --copy copy.json --output sites/
+```
+
+**Honesty per veld:** elk extracted veld krijgt `{value, source_url, confidence: high|medium|low}` zodat de pipeline weet welke aannames hij doet en welke uit eerste-hand bron komen.
 
 ### 3. `building-local-business-website/`
 Voor zodra een prospect een **echte klant** is. Werkflow voor 4-page presentational sites — Home / Menu / About / Contact — pure HTML+CSS+JS, geen framework, geen backend, statisch hostbaar (Vercel/Netlify/GitHub Pages).
