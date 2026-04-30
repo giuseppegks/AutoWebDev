@@ -33,7 +33,7 @@ from pathlib import Path
 from typing import Optional, Dict, Any, List
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from parsers import telefoonboek, oozo  # noqa: E402
+from parsers import telefoonboek, oozo, wanderlog, verify  # noqa: E402
 
 
 def enrich(
@@ -43,6 +43,7 @@ def enrich(
     addr_hint: Optional[str] = None,
     telefoonboek_url: Optional[str] = None,
     oozo_url: Optional[str] = None,
+    wanderlog_url: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Run the parsers and return a consolidated enrichment record."""
     out: Dict[str, Any] = {
@@ -52,6 +53,25 @@ def enrich(
         "sources": [],
         "warnings": [],
     }
+
+    # 0. WANDERLOG (when listed) — gold mine: gives website, rating(google), tel,
+    #    AND verbatim reviews in one fetch. Run first because it determines verify-status.
+    print(f"  → wanderlog: rich data + reviews for {name}…")
+    w = wanderlog.parse(name, city, listing_url=wanderlog_url)
+    if w["url"]:
+        out["sources"].append("wanderlog.com")
+    out["warnings"].extend(w["warnings"])
+    for k, v in w["data"].items():
+        out["data"][k] = v
+
+    # If wanderlog gave us a website, this shop ALREADY has online presence
+    # → mark for skip (downstream pipeline can decide pitch-mode: refresh vs. new)
+    if "website" in out["data"]:
+        out["data"]["has_site"] = {
+            "value": True,
+            "source_url": out["data"]["website"]["source_url"],
+            "confidence": "high",
+        }
 
     # 1. ACTIVITY CHECK FIRST — saves the rest of the work for inactive businesses
     print(f"  → oozo: activity check for {name}…")
@@ -98,18 +118,42 @@ def enrich(
         out["sources"].append("telefoonboek.nl")
     out["warnings"].extend(t["warnings"])
 
-    # Merge — telefoonboek wins for tel/adres (more reliable than oozo's text-line parse)
+    # Merge — telefoonboek wins for tel/adres (more reliable than oozo's text-line parse).
+    # But don't overwrite wanderlog's tel (Google-sourced, normalized).
     for k, v in t["data"].items():
         if k == "founding_date" and "founding_date" in out["data"]:
-            continue  # oozo's already has it cleaner
+            continue
+        if k == "tel" and "tel" in out["data"] and out["data"]["tel"]["confidence"] == "high":
+            continue  # wanderlog has it from Google
         out["data"][k] = v
 
-    # 3. Decide final status
+    # 3. Optional verify-step (only when no wanderlog → fall back to search)
+    if "has_site" not in out["data"]:
+        print(f"  → verify: search-fallback for {name}…")
+        v_result = verify.parse(name, city)
+        if v_result.get("has_site") is not None:
+            out["data"]["has_site"] = {
+                "value": v_result["has_site"],
+                "source_url": v_result.get("url") or "brave-search",
+                "confidence": "medium",  # search-derived, less reliable than wanderlog
+            }
+        out["warnings"].extend(v_result.get("warnings", []))
+        if v_result.get("has_site"):
+            out["data"]["website"] = {
+                "value": v_result["url"],
+                "source_url": "brave-search",
+                "confidence": "medium",
+            }
+
+    # 4. Decide final status
     has_tel = "tel" in out["data"]
     has_address = "street" in out["data"]
     has_active_check = "is_active" in out["data"]
+    has_existing_site = out["data"].get("has_site", {}).get("value") is True
 
-    if not (has_tel or has_address):
+    if has_existing_site:
+        out["status"] = "has-site"
+    elif not (has_tel or has_address):
         out["status"] = "skip-no-data"
         out["warnings"].append("No tel and no address found — likely wrong listing or shop not indexed")
     elif not has_active_check:
@@ -130,6 +174,7 @@ STATUS_ICON = {
     "needs_review": "⚠️ ",
     "skip-inactive": "❌",
     "skip-no-data": "❓",
+    "has-site": "🌐",
 }
 
 
@@ -150,6 +195,11 @@ def print_summary(record: Dict[str, Any]) -> None:
         if "rating" in d:
             r = d["rating"]["value"]
             print(f"     rating: {r['score']}/{r['max']} op {r['count']} beoordelingen ({r['source']})")
+        if "website" in d:
+            print(f"     site:   {d['website']['value']}")
+        if "reviews" in d:
+            n = len(d["reviews"]["value"])
+            print(f"     reviews:{n} verbatim quotes (wanderlog)")
     if record["warnings"]:
         for w in record["warnings"]:
             print(f"     ⚠ {w}")

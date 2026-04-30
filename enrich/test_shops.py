@@ -27,12 +27,16 @@ TESTS: List[dict] = [
         "city": "Nijmegen",
         "addr_hint": "Lange Hezelstraat 11",
         "telefoonboek_url": "https://www.telefoonboek.nl/bedrijven/t2317813/nijmegen/kaashandel-de-wit/",
-        "oozo_url": None,  # find via search — may legitimately not exist
+        "wanderlog_url": "https://wanderlog.com/place/details/13249094/kaashandel-de-wit",
+        "oozo_url": None,
         "expect": {
             "tel_contains": "024",
             "street_contains": "Hezelstraat",
-            # active may be unknown if oozo search misses — that's OK as long as we have tel+adres
-            "status_in": ("ready", "needs_review"),
+            # has_site=True because wanderlog gave us dewitkaas.nl
+            "status_in": ("has-site",),
+            "has_website": True,
+            "min_reviews": 5,
+            "rating_count_min": 100,  # 284 from Google via wanderlog
         },
     },
     {
@@ -102,6 +106,7 @@ def run_test(spec: dict) -> Tuple[bool, str]:
         addr_hint=spec.get("addr_hint"),
         telefoonboek_url=spec.get("telefoonboek_url"),
         oozo_url=spec.get("oozo_url"),
+        wanderlog_url=spec.get("wanderlog_url"),
     )
     print_summary(rec)
     print()
@@ -126,6 +131,16 @@ def run_test(spec: dict) -> Tuple[bool, str]:
     if "founding_year" in expect:
         actual = rec["data"].get("founding_year", {}).get("value")
         passes.append(assert_eq("founding_year", actual, expect["founding_year"]))
+    if "has_website" in expect:
+        actual = rec["data"].get("has_site", {}).get("value")
+        passes.append(assert_eq("has_website", actual, expect["has_website"]))
+    if "min_reviews" in expect:
+        reviews = rec["data"].get("reviews", {}).get("value", [])
+        passes.append(assert_eq("min_reviews", len(reviews) >= expect["min_reviews"], True))
+    if "rating_count_min" in expect:
+        r = rec["data"].get("rating", {}).get("value", {})
+        actual = r.get("count", 0)
+        passes.append(assert_eq("rating_count_min", actual >= expect["rating_count_min"], True))
 
     return all(passes), spec["name"]
 
