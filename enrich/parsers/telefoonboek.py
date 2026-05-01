@@ -58,14 +58,18 @@ def _extract_microdata(html: str) -> Dict[str, str]:
 
 
 def _normalize_phone(s: str) -> str:
-    """Telefoonboek uses '024-3231975'; normalize to '024 3231975' for display."""
+    """Telefoonboek uses '024-3231975' or '+31 6 2662 6749'; normalize to NL display format.
+
+    - Mobile (06...): "06 26626749"  (2-digit prefix + space + 8 digits)
+    - Landline:        "024 3231975" (3-digit area code + space + 7 digits)
+    """
     s = s.strip()
-    # Keep + and digits only, then space-format common Dutch patterns
     digits = re.sub(r"[^\d+]", "", s)
     if digits.startswith("+31"):
         digits = "0" + digits[3:]
-    if digits.startswith("0") and len(digits) >= 10:
-        # 024-3231975 → 024 3231975
+    if digits.startswith("06") and len(digits) == 10:
+        return f"06 {digits[2:]}"
+    if digits.startswith("0") and len(digits) == 10:
         return f"{digits[:3]} {digits[3:]}"
     return s
 
