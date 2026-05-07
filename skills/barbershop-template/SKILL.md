@@ -48,8 +48,9 @@ barbershop-080/
 4. **Image break** — full-bleed photo separator
 5. **Barbers** — 3-column team cards (photo, role, name, bio)
 6. **Services** — 3 service cards with icon, title, body, price
-7. **Sfeerbeelden** — horizontal scroll gallery of shop ambience
-8. **Visit** — address + contact (left), opening hours + CTAs (right), map card
+7. **Reviews** — Google reviews section: sticky aggregate card (5.0 ★ + Google mark + CTA) on the left, 6-card testimonial grid on the right. Sits between the second image-break and the gallery.
+8. **Sfeerbeelden** — horizontal scroll gallery of shop ambience
+9. **Visit** — address + contact (left), opening hours + CTAs (right), map card
 9. **CTA strip** — big call-to-action band
 10. **Footer** — multi-column with brand, nav, info, socials, Google reviews
 11. **Booking modal** — 4-step Cal.com-driven flow: service → date → time → details → confirmation
@@ -96,6 +97,7 @@ Find-and-replace these in order:
 | Service cards (3) — title, sub, body, price | `.services` |
 | Visit address + contact + opening hours table | `#visit` |
 | Map iframe `src` (URL-encoded address) | `.visit__map-frame` |
+| Reviews — aggregate score, count, shop name in `.reviews__aggregate-shop`, 6 review cards (`.review`) with star count, body, name, time-ago | `#reviews` |
 | Footer brand, address, phone, socials, review links | `.footer` |
 | All `wa.link/...` WhatsApp links | search-replace |
 
@@ -180,6 +182,7 @@ The template covers most appointment-based local businesses with light edits:
 ## Pitfalls to Avoid
 
 - **Don't fabricate content.** If a fact (price, hour, owner name) isn't in their public footprint, ask the client or omit. The single biggest credibility-killer in cold outreach is wrong information on the demo.
+- **Reviews must be real.** The `#reviews` section ships with placeholder testimonials so the layout is intact during pitch — but before client handoff, replace every card with the shop's actual Google reviews (copy reviewer name, stars, time-ago, body verbatim). Update `.reviews__aggregate-shop`, `.reviews__score`, and the `lees op google` href to the shop's real Google place URL. Fake testimonials on a real client site is the same credibility-killer as fake prices.
 - **Don't share API keys in chat or commits.** Cal.com keys go in Vercel env vars only. Never `.env` committed; never pasted in Slack/email/chat.
 - **Don't promise per-barber booking on Cal.com free tier** — it requires Teams plan. Be upfront: single calendar = one booking pipeline.
 - **Don't hand off without testing the full booking flow end-to-end** on the production URL — service → date → time → details → confirmation → ICS download → Cal.com email arrives.
