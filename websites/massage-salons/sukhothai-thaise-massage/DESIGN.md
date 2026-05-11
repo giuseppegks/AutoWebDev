@@ -1,6 +1,6 @@
-# DESIGN.md — Massagesalon Blueprint (Royal Thai instance)
+# DESIGN.md — Sukhothai Thaise Massage
 
-> Design system voor premium massagesalon-websites. Gemodelleerd naar [awesome-design-md](https://github.com/VoltAgent/awesome-design-md). Lees dit bestand voordat je een nieuwe sectie of variant bouwt.
+> Design system voor de Sukhothai pitch-site (Javastraat 9, Nijmegen). Afgeleid van de `premium-spa-template` blueprint, palette ongewijzigd t.o.v. de Royal Thai referentie omdat wine + goud goed past bij de Thaise heritage van Sukhothai. Lees dit bestand voordat je een nieuwe sectie of variant bouwt.
 
 ---
 
