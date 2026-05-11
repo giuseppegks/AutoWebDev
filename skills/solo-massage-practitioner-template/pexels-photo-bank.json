@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "note": "Curated Pexels CDN URLs for massage/wellness sites. Free to hotlink, no API key needed. Append ?auto=compress&cs=tinysrgb&w=1200 for sized variants.",
+    "license": "Pexels License — free for commercial use, attribution optional"
+  },
+  "spa_room": [
+    "https://images.pexels.com/photos/35884502/pexels-photo-35884502.jpeg",
+    "https://images.pexels.com/photos/3681801/pexels-photo-3681801.jpeg",
+    "https://images.pexels.com/photos/6560312/pexels-photo-6560312.jpeg",
+    "https://images.pexels.com/photos/6560308/pexels-photo-6560308.jpeg",
+    "https://images.pexels.com/photos/11024140/pexels-photo-11024140.jpeg",
+    "https://images.pexels.com/photos/433626/pexels-photo-433626.jpeg",
+    "https://images.pexels.com/photos/18120171/pexels-photo-18120171.jpeg",
+    "https://images.pexels.com/photos/35546242/pexels-photo-35546242.jpeg"
+  ],
+  "oil_massage": [
+    "https://images.pexels.com/photos/5888075/pexels-photo-5888075.jpeg",
+    "https://images.pexels.com/photos/6628606/pexels-photo-6628606.jpeg",
+    "https://images.pexels.com/photos/6560267/pexels-photo-6560267.jpeg",
+    "https://images.pexels.com/photos/6560283/pexels-photo-6560283.jpeg",
+    "https://images.pexels.com/photos/3998013/pexels-photo-3998013.jpeg",
+    "https://images.pexels.com/photos/6628597/pexels-photo-6628597.jpeg",
+    "https://images.pexels.com/photos/6628696/pexels-photo-6628696.jpeg"
+  ],
+  "foot_massage": [
+    "https://images.pexels.com/photos/6187855/pexels-photo-6187855.jpeg",
+    "https://images.pexels.com/photos/6188041/pexels-photo-6188041.jpeg",
+    "https://images.pexels.com/photos/6628697/pexels-photo-6628697.jpeg",
+    "https://images.pexels.com/photos/3865561/pexels-photo-3865561.jpeg",
+    "https://images.pexels.com/photos/5793888/pexels-photo-5793888.jpeg",
+    "https://images.pexels.com/photos/9146383/pexels-photo-9146383.jpeg"
+  ],
+  "thai_massage": [
+    "https://images.pexels.com/photos/6188115/pexels-photo-6188115.jpeg",
+    "https://images.pexels.com/photos/6186750/pexels-photo-6186750.jpeg",
+    "https://images.pexels.com/photos/6188042/pexels-photo-6188042.jpeg",
+    "https://images.pexels.com/photos/6186747/pexels-photo-6186747.jpeg",
+    "https://images.pexels.com/photos/34821383/pexels-photo-34821383.jpeg"
+  ],
+  "wellness_interior": [
+    "https://images.pexels.com/photos/18408806/pexels-photo-18408806.jpeg",
+    "https://images.pexels.com/photos/7598359/pexels-photo-7598359.jpeg",
+    "https://images.pexels.com/photos/7598363/pexels-photo-7598363.jpeg",
+    "https://images.pexels.com/photos/14172328/pexels-photo-14172328.jpeg",
+    "https://images.pexels.com/photos/16571743/pexels-photo-16571743.jpeg",
+    "https://images.pexels.com/photos/7598366/pexels-photo-7598366.jpeg"
+  ],
+  "massage_general": [
+    "https://images.pexels.com/photos/31234759/pexels-photo-31234759.jpeg",
+    "https://images.pexels.com/photos/19641818/pexels-photo-19641818.jpeg",
+    "https://images.pexels.com/photos/6187290/pexels-photo-6187290.jpeg",
+    "https://images.pexels.com/photos/10893352/pexels-photo-10893352.jpeg",
+    "https://images.pexels.com/photos/7239303/pexels-photo-7239303.jpeg",
+    "https://images.pexels.com/photos/9336025/pexels-photo-9336025.jpeg",
+    "https://images.pexels.com/photos/5221036/pexels-photo-5221036.jpeg",
+    "https://images.pexels.com/photos/6629608/pexels-photo-6629608.jpeg"
+  ]
+}

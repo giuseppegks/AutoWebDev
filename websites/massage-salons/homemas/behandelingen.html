@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Behandelingen &amp; tarieven — HomeMas Nijmegen</title>
+  <meta name="description" content="Chinese massage (Tui Na), voetreflex, hotstone, ontspanningsmassage, taping en pedicure bij HomeMas in Nijmegen. Tarieven vanaf €32 voor 30 minuten." />
+  <meta name="theme-color" content="#FAF8EE" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg:     { deep: '#FAF8EE', surface: '#FFFFFF', elevated: '#EFEEDB' },
+            border: { subtle: '#D5D2B0' },
+            ink:    { primary: '#2B2C1A', muted: '#5E5F3F', faint: '#A2A282' },
+            gold:   { DEFAULT: '#7E8B3A', soft: '#5F6B25' },
+            botanical: '#B89953',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans:    ['Manrope', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: { kicker: '0.18em' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { color-scheme: light; }
+    html, body { background: #FAF8EE; color: #2B2C1A; font-family: 'Manrope', system-ui, sans-serif; }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .reveal { opacity: 0; transform: translateY(28px); }
+    .reveal-img { clip-path: inset(0 100% 0 0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-img { opacity: 1; transform: none; clip-path: none; }
+    }
+    ::selection { background: #7E8B3A; color: #FAF8EE; }
+    .leaf-deco { position: absolute; pointer-events: none; opacity: 0.10; }
+    .link-gold { position: relative; display: inline-block; }
+    .link-gold::after {
+      content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px;
+      background: currentColor; transform: scaleX(0); transform-origin: right;
+      transition: transform 350ms cubic-bezier(0.4,0,0.2,1);
+    }
+    .link-gold:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav-scrolled {
+      background: rgba(250,248,238,0.82);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 24px rgba(43,44,26,0.06);
+    }
+    .cta-gold { position: relative; overflow: hidden; isolation: isolate; }
+    .cta-gold::before {
+      content: ''; position: absolute; top: 0; left: -120%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      transition: left 800ms cubic-bezier(0.4,0,0.2,1); z-index: 1;
+    }
+    .cta-gold:hover::before { left: 130%; }
+    .cta-gold > * { position: relative; z-index: 2; }
+    .logo-mark { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; letter-spacing: 0.02em; }
+
+    .icon-tile {
+      background: linear-gradient(135deg, rgba(126,139,58,0.06), rgba(126,139,58,0.02));
+      border: 1px solid rgba(126,139,58,0.18);
+    }
+  </style>
+</head>
+<body class="bg-bg-deep text-ink-primary antialiased">
+
+  <!-- ============ NAV ============ -->
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 nav-scrolled">
+    <nav class="max-w-[1280px] mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <span class="w-9 h-9 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-lg">np</span>
+        <span class="hidden sm:inline logo-mark text-xl text-ink-primary">Nienke Poiesz <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Massage</span></span>
+      </a>
+      <ul class="hidden lg:flex items-center gap-9 text-[13px] font-semibold tracking-kicker uppercase">
+        <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over Nienke</a></li>
+        <li><a href="behandelingen.html" class="link-gold text-gold">Behandelingen</a></li>
+        <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Praktijk</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <a data-book href="index.html#boeken" class="cta-gold hidden sm:inline-flex items-center gap-2 bg-gold text-white px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+          <span>Afspraak maken</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <button id="mobile-toggle" class="lg:hidden p-2 -mr-2" aria-label="Menu openen">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-drawer" class="lg:hidden fixed inset-0 bg-white/95 backdrop-blur-lg z-40 hidden">
+      <div class="flex flex-col items-center justify-center h-full gap-8 font-display text-3xl">
+        <a href="over-ons.html">Over Nienke</a>
+        <a href="behandelingen.html" class="text-gold">Behandelingen</a>
+        <a href="locaties.html">Praktijk</a>
+        <a data-book href="index.html#boeken" class="cta-gold bg-gold text-white rounded-full px-8 py-3 text-base font-sans font-semibold tracking-wide mt-4">Afspraak maken</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="pt-36 pb-16 lg:pt-44 lg:pb-24 relative overflow-hidden">
+    <svg class="leaf-deco -top-20 -left-20 w-[420px] h-[420px]" viewBox="0 0 200 200" fill="#7E8B3A"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12 relative">
+      <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Behandelingen &amp; tarieven</p>
+      <h1 class="reveal font-display text-5xl lg:text-7xl xl:text-8xl leading-[1.02] max-w-4xl">
+        Chinese massage<br/>en <em class="italic text-gold/90">meer.</em>
+      </h1>
+      <p class="reveal text-ink-muted text-lg leading-relaxed max-w-2xl mt-7">
+        Ik combineer Traditionele Chinese Massage (Tui Na) met westerse ontspanningsvormen. Hieronder elke behandeling die ik aanbied, met tarieven per duur.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ TARIEVEN STRIP ============ -->
+  <section class="pb-16 lg:pb-24">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="reveal grid grid-cols-2 sm:grid-cols-4 gap-4 bg-bg-surface border border-border-subtle rounded-[24px] p-6 lg:p-8">
+        <div class="text-center sm:border-r sm:border-border-subtle/60">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">30 min</p>
+          <div class="font-display text-3xl lg:text-4xl text-ink-primary leading-none mb-1">€32</div>
+          <p class="text-xs text-ink-muted">tapen / kort</p>
+        </div>
+        <div class="text-center sm:border-r sm:border-border-subtle/60">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">45 min</p>
+          <div class="font-display text-3xl lg:text-4xl text-ink-primary leading-none mb-1">€43</div>
+          <p class="text-xs text-ink-muted">deelmassage</p>
+        </div>
+        <div class="text-center sm:border-r sm:border-border-subtle/60">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">60 min</p>
+          <div class="font-display text-3xl lg:text-4xl text-ink-primary leading-none mb-1">€55</div>
+          <p class="text-xs text-ink-muted">standaard</p>
+        </div>
+        <div class="text-center">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">90 min</p>
+          <div class="font-display text-3xl lg:text-4xl text-ink-primary leading-none mb-1">€77</div>
+          <p class="text-xs text-ink-muted">uitgebreid</p>
+        </div>
+      </div>
+      <p class="reveal text-center text-sm text-ink-muted mt-5">
+        <span class="text-gold font-semibold">Strippenkaart:</span> 5× massage vanaf €144 · 10× massage vanaf €288. <span class="text-gold font-semibold">Studenten/minderbedeelden</span> 20% korting in overleg.
+      </p>
+      <p class="reveal text-center text-xs text-ink-faint mt-2">
+        Pedicure standaard 60 min · €35 — losse onderdelen vanaf €15 in overleg. Voor behandeling aan huis komen voorrijkosten erbij (€15 binnen Nijmegen).
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ BEHANDELINGEN ============ -->
+  <section id="massages" class="py-16 lg:py-24 bg-bg-surface/50 border-y border-border-subtle/50">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-20">
+        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Vakgebieden</p>
+        <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05]">
+          Wat heeft je lichaam<br/><em class="italic text-gold/90">nu nodig?</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+          <div class="flex items-start gap-5 mb-5">
+            <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7E8B3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Traditioneel Chinees</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Chinese massage (Tui Na)</h3>
+            </div>
+          </div>
+          <p class="text-ink-muted leading-relaxed mb-6">
+            Onderdeel van de Traditionele Chinese Geneeskunde, al meer dan 3000 jaar in China. Werkt op meridianen en acupunctuurpunten om de lichaamsenergie te beïnvloeden. Effectief bij rug-, nek- en hoofdpijn, stress, slaapproblemen, menstruatieklachten, allergieën en zwangerschapsklachten zoals bekkeninstabiliteit.
+          </p>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €55</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €77</span>
+          </div>
+          <a data-book data-service="tuina" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+            <span>Boek deze behandeling</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+          <div class="flex items-start gap-5 mb-5">
+            <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7E8B3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c0 4 0 8 2 12 1 2 1 4 0 6M16 4c0 4 0 8-2 12-1 2-1 4 0 4"/><circle cx="8" cy="4" r="1"/><circle cx="16" cy="6" r="1"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Drukpunten</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Voetreflexmassage</h3>
+            </div>
+          </div>
+          <p class="text-ink-muted leading-relaxed mb-6">
+            Via drukpunten onder op de voet worden lichaamsfuncties gestimuleerd en de algehele doorstroom verbeterd. Soms heerlijk, soms pijnlijk, maar altijd effectief — en het werkt nog lang na. Goede keuze voor wie niet vertrouwd is met een hele lichaamsmassage. Geen zorgen: het kietelt niet.
+          </p>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">45 min · €43</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €55</span>
+          </div>
+          <a data-book data-service="voetreflex" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+            <span>Boek deze behandeling</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+          <div class="flex items-start gap-5 mb-5">
+            <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7E8B3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="14" r="2.5"/><circle cx="12" cy="9" r="2"/><circle cx="17" cy="13" r="2.5"/><circle cx="10" cy="17" r="1.5"/><circle cx="15" cy="17" r="1.5"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Warmte</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Hotstonemassage</h3>
+            </div>
+          </div>
+          <p class="text-ink-muted leading-relaxed mb-6">
+            Gepolijste basaltstenen, verwarmd. Geen statische stenen-op-de-rug — ik beweeg ze als hulpstukken voor een volwaardige massage en volg de meridianen. Hierdoor kan ik de stenen heter gebruiken en yang (warmte) toevoegen aan plekken die het nodig hebben. Ontspanningsmassage plus.
+          </p>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €55</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €77</span>
+          </div>
+          <a data-book data-service="hotstone" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+            <span>Boek deze behandeling</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+          <div class="flex items-start gap-5 mb-5">
+            <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7E8B3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 11-7 11z"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Algemene rust</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Ontspanningsmassage</h3>
+            </div>
+          </div>
+          <p class="text-ink-muted leading-relaxed mb-6">
+            Massage hoeft niet altijd een specifieke klacht te behandelen. Huid en spieren raken beter doorbloed, het lichaam wordt soepeler en stress neemt af. Veel klanten komen regelmatig voor onderhoud — om zichzelf gezond en fit te houden. Ook leuk als cadeau (cadeaubon mogelijk).
+          </p>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">45 min · €43</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €55</span>
+          </div>
+          <a data-book data-service="ontspanning" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+            <span>Boek deze behandeling</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+          <div class="flex items-start gap-5 mb-5">
+            <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7E8B3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l8 8M8 4l8 8M12 4l8 8M4 12l8 8"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Ondersteuning</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Medical taping</h3>
+            </div>
+          </div>
+          <p class="text-ink-muted leading-relaxed mb-6">
+            Elastische tape op specifieke spieren, gewrichten of meridianen. Ondersteunt herstel na een blessure, vermindert pijn en helpt houding corrigeren. Vaak in combinatie met een massagebehandeling — op zichzelf ook mogelijk.
+          </p>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">30 min · €32</span>
+          </div>
+          <a data-book data-service="taping" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+            <span>Boek deze behandeling</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+          <div class="flex items-start gap-5 mb-5">
+            <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7E8B3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 3-5 6-5 10s3 8 5 10c2-2 5-6 5-10s-2-7-5-10z"/><path d="M12 12v10"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Voetverzorging</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Pedicurebehandeling</h3>
+            </div>
+          </div>
+          <p class="text-ink-muted leading-relaxed mb-6">
+            Volledige verzorging van nagels, eelt, likdoorns en kloven. Nagels knippen en vijlen, nagelwal schoonmaken, eelt en likdoorns verwijderen, voeten insmeren. Je loopt letterlijk op wolkjes weer naar buiten. Bij veel eelt of kloven evt. een tweede afspraak. Losse onderdelen vanaf €15 in overleg.
+          </p>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €35</span>
+          </div>
+          <a data-book data-service="pedicure" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+            <span>Boek deze behandeling</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+
+      <p class="reveal text-center text-sm text-ink-muted mt-10 max-w-2xl mx-auto italic">
+        Naast deze behandelingen geef ik ook <a href="#" class="text-gold link-gold">homeopathisch advies</a> in een aparte afspraak — vraag hiervoor rechtstreeks via WhatsApp.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ZWANGERSCHAP STRIP ============ -->
+  <section class="py-16 lg:py-20 relative">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="reveal bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/30 rounded-[28px] p-8 lg:p-12 grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-3">Specialisatie</p>
+          <h2 class="font-display text-3xl lg:text-4xl leading-tight mb-3">Chinese massage <em class="italic text-gold/90">tijdens zwangerschap.</em></h2>
+          <p class="text-ink-muted leading-relaxed max-w-xl">Misselijkheid, vermoeidheid, bekkeninstabiliteit, vochtophopingen, rusteloosheid — Chinese massage kan deze klachten behandelen zonder medicijn en zonder risico voor je baby. Door behandeling van de zogenaamde wondermeridianen wordt stagnatie opgeheven en energie geactiveerd.</p>
+        </div>
+        <div class="lg:col-span-4 lg:text-right">
+          <a data-book data-service="tuina" href="index.html#boeken" class="cta-gold inline-flex items-center gap-2 bg-gold text-white px-7 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+            <span>Boek een Tui Na sessie</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRAKTISCH ============ -->
+  <section class="py-20 lg:py-28 bg-bg-surface/50 border-y border-border-subtle/50">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Praktisch</p>
+        <h2 class="reveal font-display text-4xl lg:text-5xl leading-[1.05]">
+          Goed om <em class="italic text-gold/90">te weten.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Afspraken</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Volledig op afspraak. <strong class="text-ink-primary">Sms of WhatsApp heeft de voorkeur</strong> — stuur een terugbelverzoek voor persoonlijk contact.</p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Aan huis</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Behandeling thuis is mogelijk in overleg. Voorrijkosten €15 binnen Nijmegen (tot 20 km); daarbuiten €0,20 per kilometer.</p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Annuleren</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Tot 24 uur voor je afspraak kosteloos annuleren. <span class="italic">PLACEHOLDER: bevestig annuleringsbeleid met Nienke.</span></p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Eerste keer</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Reken op een korte intake vooraf. Vertel wat speelt — daar stem ik de behandeling op af. Specialiteit: "vage klachten" die voortkomen uit stagnerende energie.</p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Strippenkaart &amp; korting</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">5× of 10× kaarten met voordeel (vanaf €144 voor 5× 30 min). Studenten en minderbedeelden 20% korting in overleg.</p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Geen erotische diensten</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">HomeMas is een gezondheids- en wellnesspraktijk. Erotische diensten worden niet verstrekt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA STRIP ============ -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="reveal bg-gradient-to-br from-bg-elevated via-bg-surface to-bg-elevated border border-gold/20 rounded-[32px] p-10 lg:p-16 text-center relative overflow-hidden">
+        <svg class="leaf-deco -top-10 -left-10 w-[300px] h-[300px]" viewBox="0 0 200 200" fill="#7E8B3A"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <svg class="leaf-deco -bottom-10 -right-10 w-[300px] h-[300px] rotate-180" viewBox="0 0 200 200" fill="#7E8B3A"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <div class="relative">
+          <h2 class="font-display text-3xl lg:text-5xl leading-[1.1] mb-6 max-w-2xl mx-auto">
+            Niet zeker welke behandeling? <em class="italic text-gold/90">Vraag het me.</em>
+          </h2>
+          <p class="text-ink-muted max-w-xl mx-auto mb-9">Stuur een WhatsApp of sms — ik denk graag mee over wat nu passend is. <strong class="text-ink-primary font-semibold">Sms of WhatsApp heeft de voorkeur.</strong></p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="tel:+31628809149" class="cta-gold inline-flex items-center gap-2 bg-gold text-white px-7 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+              <span>Bel 06 28 80 91 49</span>
+            </a>
+            <a href="https://wa.me/31628809149" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-border-subtle text-ink-primary px-7 py-4 rounded-full text-sm font-semibold hover:border-gold hover:text-gold transition-colors">
+              Stuur WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-border-subtle/50 py-14">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-xl">np</span>
+            <span class="logo-mark text-2xl text-ink-primary">Nienke Poiesz <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Massage</span></span>
+          </div>
+          <p class="text-ink-muted text-sm leading-relaxed max-w-md">
+            Traditionele Chinese massage, voetreflex, hotstone, ontspanningsmassage, taping en pedicure in het centrum van Nijmegen. Volledig op afspraak.
+          </p>
+        </div>
+        <div>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Praktijk</p>
+          <ul class="space-y-3 text-sm text-ink-muted">
+            <li>Tweede Walstraat 85<br/>Nijmegen</li>
+            <li><a href="tel:+31628809149" class="link-gold text-ink-primary">06 28 80 91 49</a></li>
+            <li><a href="mailto:homemasmassage@gmail.com" class="link-gold text-ink-primary">homemasmassage@gmail.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Menu</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over Nienke</a></li>
+            <li><a href="behandelingen.html" class="link-gold text-ink-primary/90 hover:text-gold">Behandelingen</a></li>
+            <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Praktijk</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-border-subtle/50 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-muted">
+        <p>© <span id="year"></span> HomeMas · <span class="italic">PLACEHOLDER: KvK-nummer verifiëren</span></p>
+        <div class="flex items-center gap-5">
+          <span class="text-ink-faint italic">PLACEHOLDER: social-links indien aanwezig</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced && window.Lenis) {
+      const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      lenis.on('scroll', () => ScrollTrigger.update());
+    }
+    const nav = document.getElementById('site-nav');
+    const onScroll = () => {
+      if (window.scrollY > 40) nav.classList.add('nav-scrolled');
+      else nav.classList.remove('nav-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    const toggle = document.getElementById('mobile-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    toggle?.addEventListener('click', () => {
+      const hidden = drawer.classList.contains('hidden');
+      if (hidden) { drawer.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+      else { drawer.classList.add('hidden'); document.body.style.overflow = ''; }
+    });
+    drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.classList.add('hidden'); document.body.style.overflow = '';
+    }));
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('.reveal').forEach(el => {
+        gsap.fromTo(el, { opacity: 0, y: 28 }, {
+          opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+        });
+      });
+      gsap.utils.toArray('.reveal-img').forEach(el => {
+        gsap.fromTo(el, { clipPath: 'inset(0 100% 0 0)' }, {
+          clipPath: 'inset(0 0% 0 0)', duration: 1.1, ease: 'power3.inOut',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        });
+      });
+    }
+  </script>
+  <script src="js/booking.js" defer></script>
+
+  <!-- ============ FLOATING BOOK CTA ============ -->
+  <a data-book href="#boeken" aria-label="Boek nu" class="cta-gold fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 inline-flex items-center gap-2 bg-gold text-white pl-4 pr-5 py-3 sm:pl-5 sm:pr-6 sm:py-3.5 rounded-full font-semibold text-sm tracking-wide shadow-xl hover:bg-gold-soft hover:-translate-y-0.5 transition-all" style="box-shadow: 0 10px 30px -8px rgba(0,0,0,0.25);">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <span>Boek nu</span>
+  </a>
+
+</body>
+</html>

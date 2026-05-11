@@ -211,3 +211,106 @@ Same as `premium-spa-template` plus:
 - [ ] LocalBusiness + MedicalBusiness Schema.org JSON-LD for SEO
 - [ ] Multi-language variant (e.g. `/en/` mirror) — only if a clear use case
 - [ ] Stripe checkout for cadeaubonnen
+
+---
+
+## Workflow refinements (from real-world batch builds)
+
+When building 5 sites in one batch (May 2026 — Edith Libbers, Massages InBalans, Kanta Massage, B-KwieK, HomeMas — see `websites/massage-salons/`), these patterns emerged. Apply them BEFORE starting a new site.
+
+### 1. Source-palette audit (NOT one-size-fits-all)
+
+The cream + terracotta default works for Gerrit because his identity is holistic-body-therapeutic. For ANY new site, inspect the source-site's actual palette first:
+
+```bash
+curl -s -L -A "Mozilla/5.0" "<bron-url>/" -o /tmp/src.html
+# Pull CSS hrefs, then fetch each, then count hex colors:
+grep -oE '#[0-9a-fA-F]{3,6}' /tmp/style.css | sort | uniq -c | sort -rn | head -15
+```
+
+Identify the practitioner's signature non-default colors (the ones that aren't `#fff`, `#000`, browser-default greys, or framework defaults like WordPress blue `#1982d1`, Divi blue `#2ea3f2`, or W3CSS theme colors). Those are the brand.
+
+Then pick a "similar but better" variant — same family, slightly refined for WCAG accessibility on a light-cream background. Tested examples:
+
+| Site | Source signature | Refined palette accent |
+|---|---|---|
+| Edith Libbers | `#629a93` (muted teal in WP custom) | `#5C8784` jade |
+| Massages InBalans | `#a8b691` (soft sage in Divi) + `#103455` (deep navy) | `#6B8A52` deeper sage + navy ink |
+| Kanta Massage | `#cbd18f` + `#e3b448` + `#543636` (Simplybook brand colors) | `#A8911E` mustard + `#543636` brown |
+| B-KwieK | `#fa9b16` (vibrant orange in Elementor) | `#D77E1F` refined amber |
+| HomeMas | `#808040` (olive — old-school WP) | `#7E8B3A` refined olive |
+
+**Why this matters:** The Tailwind class name `gold` stays — only the hex values change. So the markup is reusable across sites; only the palette block in `tailwind.config` + the inline SVG `fill=` / `stroke=` attributes differ.
+
+### 2. Real reviews — Google first, bron-site fallback
+
+The user wants real testimonials, never PLACEHOLDER. Order of preference:
+1. **Google Maps reviews** via Places API (paid, but most authentic). For each site, scrape `https://www.google.com/maps/place/<name>/` — note this hits a consent-redirect via WebFetch, so requires the API.
+2. **Bron-site recensies/aanbevelingen page** — many WP-based practitioner sites have a `/recensies/`, `/reviews/`, `/aanbevolen/` or similar page with real client quotes. Scrape and reuse verbatim, with a "Recensies overgenomen van [bron]" footer link.
+3. **If nothing exists** — REMOVE the reviews section entirely (don't ship PLACEHOLDERs). Also remove the "Reviews" nav link on all pages. Note in README that the client should provide Google reviews when they have them.
+
+### 3. Pexels integration for duplicate photo prevention
+
+Solo-practitioner sites often have only 3–5 real photos. The blueprint has ~13 image slots across 4 pages, so duplication is inevitable without supplementation.
+
+**Photo bank**: `skills/solo-massage-practitioner-template/pexels-photo-bank.json` — curated Pexels CDN URLs (no API key needed for hot-linking) in 6 themes:
+- `spa_room` — interior spa shots
+- `oil_massage` — oil-on-back, hands-on-shoulders
+- `foot_massage` — voetreflex closeups
+- `thai_massage` — Thai massage poses (stretches, wooden tools)
+- `wellness_interior` — calm interiors, plants, candles
+- `massage_general` — fallback variety
+
+**Usage strategy per site:**
+1. Audit: `grep -hoE 'src="https?://[^"]+\.(jpg|jpeg|png|webp)"' *.html | sort | uniq -c | sort -rn`
+2. Keep real practitioner photos at **identity moments** (hero primary, over-ons intro, locaties primary card)
+3. Replace within-page duplicates (same URL appearing 2+ times on one page) with thematic Pexels photos
+4. Append `?auto=compress&cs=tinysrgb&w=1200` to Pexels URLs for sized variants
+
+**Don't** replace empty-slot PLACEHOLDERs that say "vragen aan klant" — those are intentionally visible to the client during review.
+
+### 4. Praktijk-teaser layout (6/6 with card on right)
+
+The blueprint's original index.html had:
+```html
+<div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-14">
+  <div class="lg:col-span-7">[kicker + heading]</div>
+  <div class="lg:col-span-5">[paragraph]</div>
+</div>
+<a class="...block max-w-3xl mx-auto">[card]</a>   <!-- below, full-width -->
+```
+
+Better — 50/50 split with card on the right of the text content:
+```html
+<div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+  <div class="lg:col-span-6">[kicker + heading + paragraph]</div>
+  <div class="lg:col-span-6"><a class="..." block>[card]</a></div>
+</div>
+```
+
+This is now the canonical layout in all 6 sites.
+
+### 5. Floating "Boek nu" FAB
+
+Persistent fixed bottom-right call-to-action on every page. Uses the site's accent color automatically (via Tailwind `bg-gold` class). Opens the existing booking modal via the `data-book` mechanism — no extra JS wiring needed.
+
+Snippet to inject just before `</body>` on every page:
+```html
+<!-- ============ FLOATING BOOK CTA ============ -->
+<a data-book href="#boeken" aria-label="Boek nu" class="cta-gold fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 inline-flex items-center gap-2 bg-gold text-white pl-4 pr-5 py-3 sm:pl-5 sm:pr-6 sm:py-3.5 rounded-full font-semibold text-sm tracking-wide shadow-xl hover:bg-gold-soft hover:-translate-y-0.5 transition-all" style="box-shadow: 0 10px 30px -8px rgba(0,0,0,0.25);">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+  <span>Boek nu</span>
+</a>
+```
+
+z-40 keeps it under the booking modal (which is z-100) so it disappears behind the modal overlay automatically. Modal CSS doesn't need changes.
+
+### 6. Reference builds
+
+Five completed sites in `websites/massage-salons/` showcase these patterns:
+- `gerrit-jonker-massage` — canonical blueprint (cream + terracotta, oncology specialization)
+- `edith-libbers` — soft white + jade teal, NGS sportmasseur
+- `massages-inbalans` — cream + deep navy + sage, Peace & Calming signature
+- `kanta-massage` — cream + mustard + brown, Thai-style with 7 services
+- `b-kwiek` — warm cream + refined amber, thin-content with explicit "vragen aan klant" markers
+- `homemas` — olive cream + olive, Chinese Tui Na with pedicure

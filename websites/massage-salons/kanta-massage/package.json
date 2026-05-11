@@ -1,0 +1,11 @@
+{
+  "name": "kanta-massage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Kanta Massage — Thaise massagepraktijk Pimchaya in Nijmegen — site + Cal.com booking proxy",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  }
+}

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Over Gerrit — Gerrit Jonker Massage</title>
-  <meta name="description" content="Het verhaal achter Gerrit Jonker Massage: opleidingen, achtergrond en de manier waarop ik werk. Sinds 2008 lichaamsgericht aan de slag." />
-  <meta name="theme-color" content="#FAF6EF" />
+  <title>Over B-KwieK — Sport- & Herstelmassages Zwolle</title>
+  <meta name="description" content="B-KwieK is een massagepraktijk in Zwolle-Stadshagen, gespecialiseerd in sport- en herstelmassage, hoofdpijnmassage, bindweefseltechnieken en therapeutisch tapen." />
+  <meta name="theme-color" content="#FDFAF4" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,11 +17,11 @@
       theme: {
         extend: {
           colors: {
-            bg:     { deep: '#FAF6EF', surface: '#FFFFFF', elevated: '#F3ECDF' },
-            border: { subtle: '#DDD0BC' },
-            ink:    { primary: '#2A2620', muted: '#6F6557', faint: '#A89D8C' },
-            gold:   { DEFAULT: '#B8654B', soft: '#9C5239' },
-            botanical: '#7A8B6F',
+            bg:     { deep: '#FDFAF4', surface: '#FFFFFF', elevated: '#F7EFE0' },
+            border: { subtle: '#E5D8BD' },
+            ink:    { primary: '#1F1A15', muted: '#5A5145', faint: '#A89E8B' },
+            gold:   { DEFAULT: '#D77E1F', soft: '#A85F12' },
+            botanical: '#6B8A52',
           },
           fontFamily: {
             display: ['"Cormorant Garamond"', 'serif'],
@@ -35,7 +35,7 @@
 
   <style>
     :root { color-scheme: light; }
-    html, body { background: #FAF6EF; color: #2A2620; font-family: 'Manrope', system-ui, sans-serif; }
+    html, body { background: #FDFAF4; color: #1F1A15; font-family: 'Manrope', system-ui, sans-serif; }
     html.lenis, html.lenis body { height: auto; }
     .lenis.lenis-smooth { scroll-behavior: auto !important; }
     .reveal { opacity: 0; transform: translateY(28px); }
@@ -43,7 +43,7 @@
     @media (prefers-reduced-motion: reduce) {
       .reveal, .reveal-img { opacity: 1; transform: none; clip-path: none; }
     }
-    ::selection { background: #B8654B; color: #FAF6EF; }
+    ::selection { background: #D77E1F; color: #FDFAF4; }
     .leaf-deco { position: absolute; pointer-events: none; opacity: 0.10; }
     .link-gold { position: relative; display: inline-block; }
     .link-gold::after {
@@ -55,13 +55,13 @@
     .img-vignette { position: relative; }
     .img-vignette::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 55%, rgba(42,38,32,0.18));
+      background: linear-gradient(180deg, transparent 55%, rgba(31,26,21,0.18));
       pointer-events: none; border-radius: inherit;
     }
     .nav-scrolled {
-      background: rgba(250,246,239,0.82);
+      background: rgba(253,250,244,0.82);
       backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 4px 24px rgba(42,38,32,0.06);
+      box-shadow: 0 4px 24px rgba(31,26,21,0.06);
     }
     .cta-gold { position: relative; overflow: hidden; isolation: isolate; }
     .cta-gold::before {
@@ -76,7 +76,7 @@
     .timeline-year {
       font-family: 'Cormorant Garamond', serif;
       font-size: 88px; line-height: 1; font-weight: 500;
-      color: rgba(184,101,75,0.22);
+      color: rgba(215,126,31,0.22);
     }
   </style>
 </head>
@@ -86,15 +86,13 @@
   <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 nav-scrolled">
     <nav class="max-w-[1280px] mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 group">
-        <span class="w-9 h-9 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-lg">gj</span>
-        <span class="hidden sm:inline logo-mark text-xl text-ink-primary">Gerrit Jonker <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Massage</span></span>
+        <span class="w-9 h-9 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-lg">bk</span>
+        <span class="hidden sm:inline logo-mark text-xl text-ink-primary">B-KwieK <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Sport- & Herstelmassages</span></span>
       </a>
       <ul class="hidden lg:flex items-center gap-9 text-[13px] font-semibold tracking-kicker uppercase">
-        <li><a href="over-ons.html" class="link-gold text-gold">Over Gerrit</a></li>
+        <li><a href="over-ons.html" class="link-gold text-gold">Over</a></li>
         <li><a href="behandelingen.html" class="link-gold text-ink-primary/90 hover:text-gold">Massages</a></li>
-        <li><a href="behandelingen.html#kanker" class="link-gold text-ink-primary/90 hover:text-gold">Bij kanker</a></li>
         <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Praktijk</a></li>
-        <li><a href="index.html#reviews" class="link-gold text-ink-primary/90 hover:text-gold">Reviews</a></li>
       </ul>
       <div class="flex items-center gap-3">
         <a data-book href="index.html#boeken" class="cta-gold hidden sm:inline-flex items-center gap-2 bg-gold text-white px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
@@ -108,11 +106,9 @@
     </nav>
     <div id="mobile-drawer" class="lg:hidden fixed inset-0 bg-white/95 backdrop-blur-lg z-40 hidden">
       <div class="flex flex-col items-center justify-center h-full gap-8 font-display text-3xl">
-        <a href="over-ons.html" class="text-gold">Over Gerrit</a>
+        <a href="over-ons.html" class="text-gold">Over</a>
         <a href="behandelingen.html">Massages</a>
-        <a href="behandelingen.html#kanker">Bij kanker</a>
         <a href="locaties.html">Praktijk</a>
-        <a href="index.html#reviews">Reviews</a>
         <a data-book href="index.html#boeken" class="cta-gold bg-gold text-white rounded-full px-8 py-3 text-base font-sans font-semibold tracking-wide mt-4">Afspraak maken</a>
       </div>
     </div>
@@ -120,11 +116,11 @@
 
   <!-- ============ PAGE HERO ============ -->
   <section class="pt-36 pb-16 lg:pt-44 lg:pb-24 relative overflow-hidden">
-    <svg class="leaf-deco -top-20 -left-20 w-[420px] h-[420px]" viewBox="0 0 200 200" fill="#B8654B"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+    <svg class="leaf-deco -top-20 -left-20 w-[420px] h-[420px]" viewBox="0 0 200 200" fill="#D77E1F"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
     <div class="max-w-[1280px] mx-auto px-6 lg:px-12 relative">
-      <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Over Gerrit</p>
+      <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Over B-KwieK</p>
       <h1 class="reveal font-display text-5xl lg:text-7xl xl:text-8xl leading-[1.02] max-w-4xl">
-        Lichaamsgericht <em class="italic text-gold/90">werken,</em><br/>al meer dan zestien jaar.
+        Een praktijk gericht op<br/><em class="italic text-gold/90">herstel</em> en preventie.
       </h1>
     </div>
   </section>
@@ -133,24 +129,24 @@
   <section class="py-16 lg:py-24">
     <div class="max-w-[1280px] mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
       <div class="lg:col-span-6 relative">
-        <div class="reveal-img img-vignette overflow-hidden rounded-[32px] aspect-[4/5]">
-          <img src="https://gerritjonkermassage.nl/wp-content/uploads/2023/12/foto-gerrit-jonker-massage.jpg" alt="Gerrit Jonker, masseur in Nijmegen" class="w-full h-full object-cover" />
+        <div class="reveal-img img-vignette overflow-hidden rounded-[32px] aspect-[4/5] bg-bg-elevated flex items-center justify-center">
+          <p class="text-ink-muted text-sm text-center px-8">[PLACEHOLDER: foto van therapeut — vragen aan klant]</p>
         </div>
       </div>
       <div class="lg:col-span-6 lg:pt-12">
-        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Mijn verhaal</p>
+        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Het verhaal</p>
         <h2 class="reveal font-display text-4xl lg:text-5xl leading-[1.05] mb-8">
-          Een goed contact is de<br/><em class="italic text-gold/90">voorwaarde</em> voor het werk.
+          Specialist in <em class="italic text-gold/90">sport</em><br/>en hersteltechnieken.
         </h2>
         <div class="reveal space-y-5 text-ink-muted leading-relaxed text-lg">
           <p>
-            Mensen komen bij me met spanningsklachten — hoofdpijn, nek- en rugpijn, vermoeidheid, burn-out — of als sporter met stijfheid of een blessure. Wat ze met elkaar gemeen hebben: ze zoeken contact met hun lichaam terug.
+            B-KwieK is een massagepraktijk die zich met name richt op het herstel van het lichaam. Specifiek voor hardlopers, wandelaars en mensen met gewrichtspijn of stijfheid — maar ook voor iedereen die last heeft van spier­spanning of langdurige klachten.
           </p>
           <p>
-            Ik werk niet vanuit een vast protocol. Sommige momenten vragen om diepe, stevige druk; andere om lichte, energetische aanraking. Ik laat me leiden door wat ik onder mijn handen voel — en wat jij vertelt, met of zonder woorden.
+            Naast sport- en herstelmassage werk ik met bindweefseltechnieken, hoofdpijnmassage, artrose-therapie en therapeutisch elastisch tapen. Door deze brede basis kan ik per klant kiezen wat het meeste oplevert — preventie, behandeling of herstel.
           </p>
-          <p>
-            Een goed contact tussen de gemasseerde en de masseur is voor mij de voorwaarde. Daarom werk ik 1-op-1, met alle aandacht, en neem ik vooraf de tijd om te horen waarmee je komt.
+          <p class="text-sm text-ink-faint">
+            [PLACEHOLDER: persoonlijk verhaal en achtergrond — vragen aan klant. Bron-site noemt een knieblessure in februari 2024 waarna de praktijk tijdelijk is gestopt; daarna weer opgestart met nieuwe specialisaties.]
           </p>
         </div>
       </div>
@@ -159,15 +155,15 @@
 
   <!-- ============ AANPAK (numbered method cards) ============ -->
   <section class="py-20 lg:py-32 bg-bg-surface/50 border-y border-border-subtle/50 relative overflow-hidden">
-    <svg class="leaf-deco top-10 right-0 w-[400px] h-[400px] rotate-12" viewBox="0 0 200 200" fill="#B8654B"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+    <svg class="leaf-deco top-10 right-0 w-[400px] h-[400px] rotate-12" viewBox="0 0 200 200" fill="#D77E1F"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
     <div class="max-w-[1280px] mx-auto px-6 lg:px-12 relative">
       <div class="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
-        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Mijn aanpak</p>
+        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">De aanpak</p>
         <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05] mb-6">
-          Aandacht,<br/><em class="italic text-gold/90">aanraking,</em> en ademhaling.
+          Intake, behandeling,<br/><em class="italic text-gold/90">en preventie.</em>
         </h2>
         <p class="reveal text-ink-muted leading-relaxed">
-          Vier principes die elke sessie dragen — ongeacht welke techniek het lichaam op dat moment nodig blijkt te hebben.
+          Vier vaste stappen in iedere sessie — ongeacht of het om sport, herstel of een specifieke klacht gaat.
         </p>
       </div>
 
@@ -175,36 +171,36 @@
         <article class="reveal relative bg-bg-surface border border-border-subtle rounded-[24px] p-8 lg:p-10 overflow-hidden hover:border-gold/40 transition-all">
           <span class="absolute top-[-10px] right-[-10px] font-display text-[180px] leading-none text-gold/10 pointer-events-none">1</span>
           <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Intake</p>
-          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Eerst luisteren</h3>
+          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Eerst de klacht in kaart</h3>
           <p class="text-ink-muted leading-relaxed">
-            Voor we beginnen nemen we de tijd. Welke klachten spelen er? Wat speelt er verder in je leven? Bij specifieke situaties — zoals tijdens of na kanker — bespreken we uitgebreid wat veilig en passend is.
+            Welke sport beoefen je, welke blessures of klachten spelen er? Bij eerste afspraken neem ik kort de tijd om je doel en lichamelijke conditie te bespreken, zodat de behandeling daar precies op aansluit.
           </p>
         </article>
 
         <article class="reveal relative bg-bg-surface border border-border-subtle rounded-[24px] p-8 lg:p-10 overflow-hidden hover:border-gold/40 transition-all">
           <span class="absolute top-[-10px] right-[-10px] font-display text-[180px] leading-none text-gold/10 pointer-events-none">2</span>
-          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Aanraking</p>
-          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Op gevoel werken</h3>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Behandeling</p>
+          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">De juiste techniek kiezen</h3>
           <p class="text-ink-muted leading-relaxed">
-            Ik volg wat jouw lichaam laat zien. Soms zacht en houdend, soms diep en stevig. Aanraking is communicatie — jouw spieren vertellen wat ze nodig hebben en daar antwoord ik op.
+            Sportmassage activeert vóór inspanning, herstelmassage helpt na inspanning. Daarnaast inzet van bindweefselmassage, hoofdpijntechnieken of artrose-aanpak — afhankelijk van wat het meest oplevert.
           </p>
         </article>
 
         <article class="reveal relative bg-bg-surface border border-border-subtle rounded-[24px] p-8 lg:p-10 overflow-hidden hover:border-gold/40 transition-all">
           <span class="absolute top-[-10px] right-[-10px] font-display text-[180px] leading-none text-gold/10 pointer-events-none">3</span>
-          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Ademhaling</p>
-          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Spanning loslaten</h3>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Tape &amp; advies</p>
+          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Ondersteuning na de sessie</h3>
           <p class="text-ink-muted leading-relaxed">
-            Via aandacht voor je ademhaling kun je vastzittende spanning loslaten. Bij dieper werk — zoals bij MER of psoas-massage — wordt ademhaling een actieve partner van de behandeling.
+            Waar nuttig wordt therapeutisch elastische tape toegepast — voor spier­ontspanning, gewricht­stabilisatie en preventie. De tape blijft tot 5 dagen zitten en is waterbestendig.
           </p>
         </article>
 
         <article class="reveal relative bg-bg-surface border border-border-subtle rounded-[24px] p-8 lg:p-10 overflow-hidden hover:border-gold/40 transition-all">
           <span class="absolute top-[-10px] right-[-10px] font-display text-[180px] leading-none text-gold/10 pointer-events-none">4</span>
-          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Verbinding</p>
-          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Weer thuis in je lijf</h3>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Preventie</p>
+          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Blessures voor zijn</h3>
           <p class="text-ink-muted leading-relaxed">
-            Het doel is dat je na de sessie meer voelt, meer aanwezig bent in je lichaam. Niet alleen ontspannen — maar opnieuw verbonden. Dat is wat preventief werkt op de langere termijn.
+            Voor risicosporten — fitness, voetbal, hardlopen, hockey, tennis — preventief tapen en bandageren. EHBO &amp; AED gediplomeerd. Voor verenigingen en evenementen aparte sportverzorgings­pakketten op aanvraag.
           </p>
         </article>
       </div>
@@ -216,14 +212,14 @@
     <div class="max-w-[1280px] mx-auto px-6 lg:px-12 relative">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-14 lg:mb-16">
         <div class="lg:col-span-7">
-          <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Opleidingen</p>
+          <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Opleidingen &amp; certificeringen</p>
           <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05]">
-            Bijgeschoold,<br/><em class="italic text-gold/90">jaar na jaar.</em>
+            Specifiek opgeleid,<br/><em class="italic text-gold/90">jaar na jaar.</em>
           </h2>
         </div>
         <div class="lg:col-span-5">
           <p class="reveal text-ink-muted leading-relaxed">
-            Massage is een vak waar je in blijft groeien. Elke opleiding heeft mijn manier van werken verrijkt — soms subtiel, soms drastisch.
+            Vier specialisaties en een topsportmasseur-opleiding in afronding. Plus EHBO &amp; AED gediplomeerd.
           </p>
         </div>
       </div>
@@ -231,68 +227,65 @@
       <div class="space-y-4 lg:space-y-5">
         <article class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-6 lg:p-8 grid grid-cols-12 gap-4 items-center hover:border-gold/40 transition-all">
           <div class="col-span-12 sm:col-span-3 lg:col-span-2">
-            <div class="timeline-year">2008</div>
+            <div class="timeline-year">'25</div>
           </div>
           <div class="col-span-12 sm:col-span-9 lg:col-span-7">
-            <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Intuïtieve Massage</h3>
-            <p class="text-ink-muted text-sm leading-relaxed">Driejarige basisopleiding bij Margrit Siemerink (2008&ndash;2011). Het fundament onder alles wat ik doe.</p>
+            <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Sportmassage voor hardlopers</h3>
+            <p class="text-ink-muted text-sm leading-relaxed">Specialisatie afgerond in mei 2025. Gericht op blessurepreventie en herstel bij hardlopers en wandelaars.</p>
           </div>
           <div class="hidden lg:block lg:col-span-3 text-right">
-            <span class="text-xs tracking-kicker uppercase text-gold/70">Margrit Siemerink</span>
+            <span class="text-xs tracking-kicker uppercase text-gold/70">Specialisatie</span>
           </div>
         </article>
 
         <article class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-6 lg:p-8 grid grid-cols-12 gap-4 items-center hover:border-gold/40 transition-all">
           <div class="col-span-12 sm:col-span-3 lg:col-span-2">
-            <div class="timeline-year">2012</div>
+            <div class="timeline-year">'24</div>
           </div>
           <div class="col-span-12 sm:col-span-9 lg:col-span-7">
-            <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Oncologische Massage</h3>
-            <p class="text-ink-muted text-sm leading-relaxed">Specialisatie in massage tijdens en na kanker. Veilig werken in elke fase van behandeling en herstel.</p>
+            <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Artrose-massage en therapie</h3>
+            <p class="text-ink-muted text-sm leading-relaxed">Zacht gewrichtswerk voor mensen met artrose-klachten in handen, polsen, ellebogen, schouders, voeten, enkels, knieën of heupen.</p>
           </div>
           <div class="hidden lg:block lg:col-span-3 text-right">
-            <span class="text-xs tracking-kicker uppercase text-gold/70">Helder &amp; Kadira</span>
+            <span class="text-xs tracking-kicker uppercase text-gold/70">Januari 2024</span>
           </div>
         </article>
 
         <article class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-6 lg:p-8 grid grid-cols-12 gap-4 items-center hover:border-gold/40 transition-all">
           <div class="col-span-12 sm:col-span-3 lg:col-span-2">
-            <div class="timeline-year">2013</div>
+            <div class="timeline-year">'23</div>
           </div>
           <div class="col-span-12 sm:col-span-9 lg:col-span-7">
-            <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Craniosacrale Release</h3>
-            <p class="text-ink-muted text-sm leading-relaxed">Subtiel werk met het centrale zenuwstelsel. Voor wie diepe rust nodig heeft, niet diepe druk.</p>
+            <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Bindweefselmassage</h3>
+            <p class="text-ink-muted text-sm leading-relaxed">Diepe technieken voor weefselverkleving na blessures, slechte houding of operaties — gecombineerd met herstelmassage. Certificering november 2023.</p>
           </div>
           <div class="hidden lg:block lg:col-span-3 text-right">
-            <span class="text-xs tracking-kicker uppercase text-gold/70">Serenora</span>
+            <span class="text-xs tracking-kicker uppercase text-gold/70">November 2023</span>
           </div>
         </article>
 
         <article class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-6 lg:p-8 grid grid-cols-12 gap-4 items-center hover:border-gold/40 transition-all">
           <div class="col-span-12 sm:col-span-3 lg:col-span-2">
-            <div class="timeline-year">2015</div>
+            <div class="timeline-year">'23</div>
           </div>
           <div class="col-span-12 sm:col-span-9 lg:col-span-7">
-            <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Deep Tissue Massage</h3>
-            <p class="text-ink-muted text-sm leading-relaxed">Diepe lagen spierweefsel benaderen zonder onnodig te forceren. Voor sporters en hardnekkige spanning.</p>
+            <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Hoofdpijnmassage en therapie</h3>
+            <p class="text-ink-muted text-sm leading-relaxed">Specifiek voor spanningshoofdpijn, migraine, cervicogene hoofdpijn en medicatie-afhankelijke hoofdpijn. Specialisatie september 2023.</p>
           </div>
           <div class="hidden lg:block lg:col-span-3 text-right">
-            <span class="text-xs tracking-kicker uppercase text-gold/70">Positive Touch</span>
+            <span class="text-xs tracking-kicker uppercase text-gold/70">September 2023</span>
           </div>
         </article>
 
-        <article class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-6 lg:p-8 grid grid-cols-12 gap-4 items-center hover:border-gold/40 transition-all">
-          <div class="col-span-12 sm:col-span-3 lg:col-span-2">
-            <div class="timeline-year">2019</div>
-          </div>
-          <div class="col-span-12 sm:col-span-9 lg:col-span-7">
-            <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Myofasciale Energetic Release (MER)</h3>
-            <p class="text-ink-muted text-sm leading-relaxed">Werken met het bindweefsel via diepe druk en adem. Een krachtige techniek om houding en energie te veranderen.</p>
-          </div>
-          <div class="hidden lg:block lg:col-span-3 text-right">
-            <span class="text-xs tracking-kicker uppercase text-gold/70">MER-opleiding</span>
-          </div>
+        <article class="reveal bg-gradient-to-br from-gold/10 to-gold/5 border border-gold/30 rounded-[20px] p-6 lg:p-8">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">In afronding</p>
+          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-2">Topsportmasseur</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Bezig met de opleiding tot topsportmasseur — de hoogste kwalificatie in de sportmassage.</p>
         </article>
+
+        <p class="reveal text-sm text-ink-faint text-center mt-6">
+          [PLACEHOLDER: volledige opleidingstijdlijn — vragen aan klant. Bovenstaande certificeringen zijn afgeleid van de bron-site (b-kwiek.nl/about). Eventueel ontbrekende of vroegere opleidingen aanvullen.]
+        </p>
       </div>
     </div>
   </section>
@@ -304,28 +297,29 @@
         <div class="lg:col-span-7">
           <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">De praktijk</p>
           <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05]">
-            Een ruimte met<br/><em class="italic text-gold/90">licht en uitzicht.</em>
+            B-KwieK in<br/><em class="italic text-gold/90">Zwolle-Stadshagen.</em>
           </h2>
         </div>
         <div class="lg:col-span-5">
           <p class="reveal text-ink-muted leading-relaxed">
-            Aan de Cees de Jongstraat in Nijmegen-Oost. Rustig, met een ruime, lichte behandelkamer en een wijds uitzicht. Een plek waar je makkelijk landt.
+            Gevestigd in Zwolle-Stadshagen — een rustige plek voor je behandeling.
+            <span class="block mt-2 text-sm text-ink-faint">[PLACEHOLDER: korte omschrijving van de praktijkruimte — vragen aan klant]</span>
           </p>
         </div>
       </div>
 
       <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-        <div class="reveal-img img-vignette overflow-hidden rounded-[20px] aspect-[3/4] lg:row-span-2">
-          <img src="https://gerritjonkermassage.nl/wp-content/uploads/2023/11/20171129-staande-foto-medium-klein-edited.jpg" alt="Gerrit in zijn praktijk" class="w-full h-full object-cover" loading="lazy" />
+        <div class="reveal-img img-vignette overflow-hidden rounded-[20px] aspect-[3/4] lg:row-span-2 bg-bg-elevated flex items-center justify-center">
+          <p class="text-ink-muted text-xs text-center px-4">[PLACEHOLDER: praktijkfoto 1]</p>
         </div>
-        <div class="reveal-img img-vignette overflow-hidden rounded-[20px] aspect-[4/3] col-span-2">
-          <img src="https://gerritjonkermassage.nl/wp-content/uploads/2023/10/20171129-breedte-foto-klein.jpg" alt="Praktijkruimte met uitzicht" class="w-full h-full object-cover" loading="lazy" />
+        <div class="reveal-img img-vignette overflow-hidden rounded-[20px] aspect-[4/3] col-span-2 bg-bg-elevated flex items-center justify-center">
+          <p class="text-ink-muted text-xs text-center px-4">[PLACEHOLDER: praktijkfoto 2 — behandelruimte]</p>
         </div>
-        <div class="reveal-img img-vignette overflow-hidden rounded-[20px] aspect-square">
-          <img src="https://gerritjonkermassage.nl/wp-content/uploads/2023/12/foto-gerrit-jonker-massage-1.jpg" alt="Massage in uitvoering" class="w-full h-full object-cover" loading="lazy" />
+        <div class="reveal-img img-vignette overflow-hidden rounded-[20px] aspect-square bg-bg-elevated flex items-center justify-center">
+          <p class="text-ink-muted text-xs text-center px-4">[PLACEHOLDER: foto behandeling of tape-werk]</p>
         </div>
-        <div class="reveal-img img-vignette overflow-hidden rounded-[20px] aspect-square">
-          <img src="https://gerritjonkermassage.nl/wp-content/uploads/2023/12/foto-gerrit-jonker-massage.jpg" alt="Portret Gerrit Jonker" class="w-full h-full object-cover" loading="lazy" />
+        <div class="reveal-img img-vignette overflow-hidden rounded-[20px] aspect-square bg-bg-elevated flex items-center justify-center">
+          <img src="https://b-kwiek.nl/wp-content/uploads/2023/09/230827-Logo-B-KwieK.png" alt="B-KwieK logo" class="w-2/3 h-2/3 object-contain" loading="lazy" />
         </div>
       </div>
     </div>
@@ -335,11 +329,11 @@
   <section class="py-20 lg:py-28">
     <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
       <div class="reveal bg-gradient-to-br from-bg-elevated via-bg-surface to-bg-elevated border border-gold/20 rounded-[32px] p-10 lg:p-16 text-center relative overflow-hidden">
-        <svg class="leaf-deco -top-10 -left-10 w-[300px] h-[300px]" viewBox="0 0 200 200" fill="#B8654B"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
-        <svg class="leaf-deco -bottom-10 -right-10 w-[300px] h-[300px] rotate-180" viewBox="0 0 200 200" fill="#B8654B"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <svg class="leaf-deco -top-10 -left-10 w-[300px] h-[300px]" viewBox="0 0 200 200" fill="#D77E1F"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <svg class="leaf-deco -bottom-10 -right-10 w-[300px] h-[300px] rotate-180" viewBox="0 0 200 200" fill="#D77E1F"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
         <div class="relative">
           <h2 class="font-display text-3xl lg:text-5xl leading-[1.1] mb-6 max-w-2xl mx-auto">
-            Klaar om het zelf te <em class="italic text-gold/90">ervaren?</em>
+            Aan de slag met je <em class="italic text-gold/90">herstel?</em>
           </h2>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="behandelingen.html" class="cta-gold inline-flex items-center gap-2 bg-gold text-white px-7 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
@@ -361,37 +355,35 @@
       <div class="grid md:grid-cols-4 gap-10 mb-12">
         <div class="md:col-span-2">
           <div class="flex items-center gap-3 mb-6">
-            <span class="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-xl">gj</span>
-            <span class="logo-mark text-2xl text-ink-primary">Gerrit Jonker <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Massage</span></span>
+            <span class="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-xl">bk</span>
+            <span class="logo-mark text-2xl text-ink-primary">B-KwieK <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Sport- & Herstelmassages</span></span>
           </div>
           <p class="text-ink-muted text-sm leading-relaxed max-w-md">
-            Lichaamsgerichte massage in Nijmegen-Oost. Voor spanning, herstel, sport en in elke fase van het leven na kanker. Volledig op afspraak.
+            B-KwieK is een massagepraktijk in Zwolle-Stadshagen, gericht op het herstel van het lichaam. Voor sporters, wandelaars en iedereen met spier- of gewrichtsklachten.
           </p>
         </div>
         <div>
           <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Praktijk</p>
           <ul class="space-y-3 text-sm text-ink-muted">
-            <li>Cees de Jongstraat 6<br/>Nijmegen-Oost</li>
-            <li><a href="tel:+31654200528" class="link-gold text-ink-primary">06 542 005 28</a></li>
-            <li><a href="mailto:gerritjonkermassage@gmail.com" class="link-gold text-ink-primary">gerritjonkermassage@gmail.com</a></li>
+            <li>[PLACEHOLDER: adres]<br/>Zwolle-Stadshagen</li>
+            <li><span class="text-ink-primary">[PLACEHOLDER: telefoon]</span></li>
+            <li><a href="mailto:info@b-kwiek.nl" class="link-gold text-ink-primary">info@b-kwiek.nl</a></li>
           </ul>
         </div>
         <div>
           <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Menu</p>
           <ul class="space-y-2 text-sm">
-            <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over Gerrit</a></li>
-            <li><a href="behandelingen.html" class="link-gold text-ink-primary/90 hover:text-gold">Massages</a></li>
-            <li><a href="behandelingen.html#kanker" class="link-gold text-ink-primary/90 hover:text-gold">Massage bij kanker</a></li>
+            <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over B-KwieK</a></li>
+            <li><a href="behandelingen.html" class="link-gold text-ink-primary/90 hover:text-gold">Massages &amp; tarieven</a></li>
             <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Praktijk</a></li>
-            <li><a href="index.html#reviews" class="link-gold text-ink-primary/90 hover:text-gold">Recensies</a></li>
           </ul>
         </div>
       </div>
       <div class="pt-8 border-t border-border-subtle/50 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-muted">
-        <p>© <span id="year"></span> Gerrit Jonker Massage · KvK 09201686</p>
+        <p>© <span id="year"></span> B-KwieK Sport- & Herstelmassages · [PLACEHOLDER: KvK-nummer]</p>
         <div class="flex items-center gap-5">
-          <a href="https://www.linkedin.com/in/gerrit-jonker-39994611/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">LinkedIn</a>
-          <a href="https://www.facebook.com/gerritjonkermassage" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
+          <a href="https://www.instagram.com/bkwiek01" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Instagram</a>
+          <a href="https://www.facebook.com/BKwieK01" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
         </div>
       </div>
     </div>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Massages — Gerrit Jonker Massage Nijmegen</title>
-  <meta name="description" content="Zes massagevormen: sportmassage, intuïtieve massage, MER, psoas, craniosacrale ontspanning en stoelmassage. Inclusief massage bij kanker. Tarieven 30/60/90 minuten." />
-  <meta name="theme-color" content="#FAF6EF" />
+  <title>Massages &amp; tarieven — Kanta Massage Nijmegen</title>
+  <meta name="description" content="Zeven Thaise massagevormen in Nijmegen: traditionele Thai, hotstone, kruidenstempel, deep tissue, anti-migraine, zwangerschapsmassage en olie. Tarieven €50–€165." />
+  <meta name="theme-color" content="#FBF7EA" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,11 +17,11 @@
       theme: {
         extend: {
           colors: {
-            bg:     { deep: '#FAF6EF', surface: '#FFFFFF', elevated: '#F3ECDF' },
-            border: { subtle: '#DDD0BC' },
-            ink:    { primary: '#2A2620', muted: '#6F6557', faint: '#A89D8C' },
-            gold:   { DEFAULT: '#B8654B', soft: '#9C5239' },
-            botanical: '#7A8B6F',
+            bg:     { deep: '#FBF7EA', surface: '#FFFFFF', elevated: '#F3ECCC' },
+            border: { subtle: '#D9CFA0' },
+            ink:    { primary: '#543636', muted: '#7A5C5C', faint: '#B1908F' },
+            gold:   { DEFAULT: '#A8911E', soft: '#876F18' },
+            botanical: '#3A6B35',
           },
           fontFamily: {
             display: ['"Cormorant Garamond"', 'serif'],
@@ -35,7 +35,7 @@
 
   <style>
     :root { color-scheme: light; }
-    html, body { background: #FAF6EF; color: #2A2620; font-family: 'Manrope', system-ui, sans-serif; }
+    html, body { background: #FBF7EA; color: #543636; font-family: 'Manrope', system-ui, sans-serif; }
     html.lenis, html.lenis body { height: auto; }
     .lenis.lenis-smooth { scroll-behavior: auto !important; }
     .reveal { opacity: 0; transform: translateY(28px); }
@@ -43,7 +43,7 @@
     @media (prefers-reduced-motion: reduce) {
       .reveal, .reveal-img { opacity: 1; transform: none; clip-path: none; }
     }
-    ::selection { background: #B8654B; color: #FAF6EF; }
+    ::selection { background: #A8911E; color: #FBF7EA; }
     .leaf-deco { position: absolute; pointer-events: none; opacity: 0.10; }
     .link-gold { position: relative; display: inline-block; }
     .link-gold::after {
@@ -53,9 +53,9 @@
     }
     .link-gold:hover::after { transform: scaleX(1); transform-origin: left; }
     .nav-scrolled {
-      background: rgba(250,246,239,0.82);
+      background: rgba(251,247,234,0.82);
       backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 4px 24px rgba(42,38,32,0.06);
+      box-shadow: 0 4px 24px rgba(84,54,54,0.06);
     }
     .cta-gold { position: relative; overflow: hidden; isolation: isolate; }
     .cta-gold::before {
@@ -68,8 +68,8 @@
     .logo-mark { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; letter-spacing: 0.02em; }
 
     .icon-tile {
-      background: linear-gradient(135deg, rgba(184,101,75,0.06), rgba(184,101,75,0.02));
-      border: 1px solid rgba(184,101,75,0.18);
+      background: linear-gradient(135deg, rgba(168,145,30,0.06), rgba(168,145,30,0.02));
+      border: 1px solid rgba(168,145,30,0.18);
     }
   </style>
 </head>
@@ -79,15 +79,13 @@
   <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 nav-scrolled">
     <nav class="max-w-[1280px] mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 group">
-        <span class="w-9 h-9 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-lg">gj</span>
-        <span class="hidden sm:inline logo-mark text-xl text-ink-primary">Gerrit Jonker <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Massage</span></span>
+        <span class="w-9 h-9 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-lg">km</span>
+        <span class="hidden sm:inline logo-mark text-xl text-ink-primary">Pimchaya <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Massage</span></span>
       </a>
       <ul class="hidden lg:flex items-center gap-9 text-[13px] font-semibold tracking-kicker uppercase">
-        <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over Gerrit</a></li>
+        <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over Pimchaya</a></li>
         <li><a href="behandelingen.html" class="link-gold text-gold">Massages</a></li>
-        <li><a href="#kanker" class="link-gold text-ink-primary/90 hover:text-gold">Bij kanker</a></li>
         <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Praktijk</a></li>
-        <li><a href="index.html#reviews" class="link-gold text-ink-primary/90 hover:text-gold">Reviews</a></li>
       </ul>
       <div class="flex items-center gap-3">
         <a data-book href="index.html#boeken" class="cta-gold hidden sm:inline-flex items-center gap-2 bg-gold text-white px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
@@ -101,11 +99,9 @@
     </nav>
     <div id="mobile-drawer" class="lg:hidden fixed inset-0 bg-white/95 backdrop-blur-lg z-40 hidden">
       <div class="flex flex-col items-center justify-center h-full gap-8 font-display text-3xl">
-        <a href="over-ons.html">Over Gerrit</a>
+        <a href="over-ons.html">Over Pimchaya</a>
         <a href="behandelingen.html" class="text-gold">Massages</a>
-        <a href="#kanker">Bij kanker</a>
         <a href="locaties.html">Praktijk</a>
-        <a href="index.html#reviews">Reviews</a>
         <a data-book href="index.html#boeken" class="cta-gold bg-gold text-white rounded-full px-8 py-3 text-base font-sans font-semibold tracking-wide mt-4">Afspraak maken</a>
       </div>
     </div>
@@ -113,14 +109,14 @@
 
   <!-- ============ PAGE HERO ============ -->
   <section class="pt-36 pb-16 lg:pt-44 lg:pb-24 relative overflow-hidden">
-    <svg class="leaf-deco -top-20 -left-20 w-[420px] h-[420px]" viewBox="0 0 200 200" fill="#B8654B"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+    <svg class="leaf-deco -top-20 -left-20 w-[420px] h-[420px]" viewBox="0 0 200 200" fill="#A8911E"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
     <div class="max-w-[1280px] mx-auto px-6 lg:px-12 relative">
       <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Massages &amp; tarieven</p>
       <h1 class="reveal font-display text-5xl lg:text-7xl xl:text-8xl leading-[1.02] max-w-4xl">
-        Zes vormen<br/>van <em class="italic text-gold/90">aanraking.</em>
+        Zeven Thaise<br/>vormen van <em class="italic text-gold/90">aanraking.</em>
       </h1>
       <p class="reveal text-ink-muted text-lg leading-relaxed max-w-2xl mt-7">
-        Geen vast protocol — ik combineer technieken op basis van wat jouw lichaam vraagt. Dit zijn de vakgebieden waar ik in opgeleid ben.
+        Van de klassieke traditionele Thai tot warme hotstone of kruidenstempel. Ik combineer technieken op basis van wat jouw lichaam op dit moment vraagt. Hieronder de vakgebieden waar ik in opgeleid ben — alle prijzen geldig per 1 januari 2026.
       </p>
     </div>
   </section>
@@ -128,25 +124,35 @@
   <!-- ============ TARIEVEN STRIP ============ -->
   <section class="pb-16 lg:pb-24">
     <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
-      <div class="reveal grid sm:grid-cols-3 gap-4 bg-bg-surface border border-border-subtle rounded-[24px] p-6 lg:p-8">
+      <div class="reveal grid sm:grid-cols-3 lg:grid-cols-5 gap-4 bg-bg-surface border border-border-subtle rounded-[24px] p-6 lg:p-8">
         <div class="text-center sm:border-r sm:border-border-subtle/60 pb-4 sm:pb-0">
-          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Stoelmassage</p>
-          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€37,<span class="text-3xl">50</span></div>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Kort</p>
+          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€50</div>
           <p class="text-sm text-ink-muted">30 minuten</p>
         </div>
         <div class="text-center sm:border-r sm:border-border-subtle/60 py-4 sm:py-0">
-          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Massage</p>
-          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€65</div>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Standaard</p>
+          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€60</div>
           <p class="text-sm text-ink-muted">60 minuten</p>
         </div>
-        <div class="text-center pt-4 sm:pt-0">
-          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Uitgebreid</p>
-          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€90</div>
+        <div class="text-center sm:border-r-0 lg:border-r sm:border-border-subtle/60 pt-4 sm:pt-0">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Verdiepend</p>
+          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€85</div>
           <p class="text-sm text-ink-muted">90 minuten</p>
+        </div>
+        <div class="text-center sm:border-r sm:border-border-subtle/60 py-4 lg:py-0">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Uitgebreid</p>
+          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€115</div>
+          <p class="text-sm text-ink-muted">120 minuten</p>
+        </div>
+        <div class="text-center pt-4 lg:pt-0">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Volledig</p>
+          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€165</div>
+          <p class="text-sm text-ink-muted">180 minuten</p>
         </div>
       </div>
       <p class="reveal text-center text-sm text-ink-muted mt-5">
-        <span class="text-gold font-semibold">Stamgastvoordeel:</span> na 10 massages een korting van €25 op je elfde sessie.
+        Bovenstaande tarieven gelden voor de traditionele Thaise massage. <span class="text-gold font-semibold">Hotstone en kruidenstempel</span> kosten €105 per 90 minuten.
       </p>
     </div>
   </section>
@@ -166,21 +172,24 @@
         <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
           <div class="flex items-start gap-5 mb-5">
             <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B8654B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4 4 4 4-4"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="8" r="2"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A8911E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 4 5 5 8 5-3 1-5 4-5 8-1-4-4-5-8-5 4-1 5-4 5-8z"/></svg>
             </div>
             <div>
-              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Sport &amp; herstel</p>
-              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Sportmassage</h3>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Klassiek · Thai</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Traditionele Thaise massage</h3>
             </div>
           </div>
           <p class="text-ink-muted leading-relaxed mb-6">
-            Stimuleert de doorbloeding zodat afvalstoffen sneller worden afgevoerd en je sneller herstelt. Goed voor of na een zware inspanning — of bij stijfheid en sportblessures.
+            De klassieke Thaise massage, uitgevoerd op een matras op de grond. Drukpunten langs de energielijnen (sen) afgewisseld met passieve strekkingen. Volledig gekleed in losse kleding — geen olie. Ontspant het hele lichaam en herstelt de soepelheid.
           </p>
-          <div class="flex items-center gap-2 text-xs">
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €65</span>
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €90</span>
+          <div class="flex items-center flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">30 min · €50</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €60</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €85</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">120 min · €115</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">180 min · €165</span>
           </div>
-          <a data-book data-service="sport" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+          <a data-book data-service="thai" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
             <span>Boek deze massage</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -189,21 +198,20 @@
         <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
           <div class="flex items-start gap-5 mb-5">
             <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B8654B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 11-7 11z"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A8911E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="14" r="3"/><circle cx="12" cy="7" r="2"/></svg>
             </div>
             <div>
-              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Lichaamsgericht</p>
-              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Intuïtieve massage</h3>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Warm · stenen</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Hotstone massage</h3>
             </div>
           </div>
           <p class="text-ink-muted leading-relaxed mb-6">
-            Kwaliteit van aanraking als uitgangspunt. Combineert technieken uit verschillende stromingen tot één behandeling die aandacht, verbinding en harmonie brengt.
+            Verwarmde basaltstenen worden langs energielijnen en op spierknopen geplaatst en zachtjes in cirkels bewogen. De diepe warmte ontspant het zenuwstelsel en weekt opgebouwde spanning los — ideaal voor wie geen zware druk verdraagt maar wel diepe ontspanning zoekt.
           </p>
           <div class="flex items-center gap-2 text-xs">
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €65</span>
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €90</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €105</span>
           </div>
-          <a data-book data-service="intuitief" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+          <a data-book data-service="hotstone" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
             <span>Boek deze massage</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -212,21 +220,43 @@
         <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
           <div class="flex items-start gap-5 mb-5">
             <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B8654B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12c6 0 6 6 12 0M3 12c6 0 6-6 12 0"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A8911E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="4"/><path d="M12 13v9M9 16h6"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Kruiden · Lu'k Pra Kob</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Kruidenstempel massage</h3>
+            </div>
+          </div>
+          <p class="text-ink-muted leading-relaxed mb-6">
+            Linnen stempels gevuld met Thaise kruiden — gember, kurkuma, citroengras, kamfer — worden gestoomd en warm op het lichaam gedrukt en gerold. Een eeuwenoude techniek die spanning losweekt, de bloedsomloop stimuleert en de huid voedt. Inclusief Thaise massage als basis.
+          </p>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €105</span>
+          </div>
+          <a data-book data-service="kruidenstempel" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+            <span>Boek deze massage</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+          <div class="flex items-start gap-5 mb-5">
+            <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A8911E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12c6 0 6 6 12 0M3 12c6 0 6-6 12 0"/></svg>
             </div>
             <div>
               <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Bindweefsel</p>
-              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Myofasciale Release (MER)</h3>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Deep tissue massage</h3>
             </div>
           </div>
           <p class="text-ink-muted leading-relaxed mb-6">
-            Diepe, intense druk op de myofascia — het bindweefsel rond je spieren. Via ademhaling laat je vastzittende spanning los. Houding en energieverdeling veranderen merkbaar.
+            Diepe, gerichte druk op de onderliggende spierlagen en bindweefsel. Voor chronische spanning in nek, schouders en lage rug. Stevig maar nooit forceren — ik werk laag voor laag tot je voelt dat het loslaat. PLACEHOLDER: verify of olie wordt gebruikt.
           </p>
           <div class="flex items-center gap-2 text-xs">
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €65</span>
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €90</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €60</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €85</span>
           </div>
-          <a data-book data-service="mer" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+          <a data-book data-service="deeptissue" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
             <span>Boek deze massage</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -235,21 +265,20 @@
         <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
           <div class="flex items-start gap-5 mb-5">
             <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B8654B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M8 6c2 2 6 2 8 0M8 18c2-2 6-2 8 0"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A8911E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M9 16c0 2 1 4 3 4s3-2 3-4"/></svg>
             </div>
             <div>
-              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Diepe kern</p>
-              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Psoas-massage</h3>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Hoofdpijn · spanning</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Anti-migraine massage</h3>
             </div>
           </div>
           <p class="text-ink-muted leading-relaxed mb-6">
-            De psoas is de diepe bekkenspier die boven- en onderlichaam verbindt. Hier slaat stress vaak op — angst en boosheid manifesteren zich als lage rugpijn, buikklachten of moeilijk doorademen. Verrassend snel resultaat mogelijk.
+            Gerichte druk op hoofd, nek, schouders en gezicht — de gebieden waar spanningshoofdpijn en migraine vaak ontstaan. Een combinatie van acupressuur, zachte rekkingen en aandacht voor de ademhaling. Voor wie regelmatig met hoofdpijn worstelt.
           </p>
           <div class="flex items-center gap-2 text-xs">
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €65</span>
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €90</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €60</span>
           </div>
-          <a data-book data-service="psoas" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+          <a data-book data-service="antimigraine" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
             <span>Boek deze massage</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -258,102 +287,47 @@
         <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
           <div class="flex items-start gap-5 mb-5">
             <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B8654B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 014 4v3a4 4 0 008 0M12 3a4 4 0 00-4 4v3a4 4 0 01-8 0"/><circle cx="12" cy="14" r="2"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A8911E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 015 5c0 3-3 5-3 9a2 2 0 11-4 0c0-4-3-6-3-9a5 5 0 015-5z"/></svg>
             </div>
             <div>
-              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Subtiel</p>
-              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Craniosacrale ontspanning</h3>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Zwangerschap</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Zwangerschapsmassage</h3>
             </div>
           </div>
           <p class="text-ink-muted leading-relaxed mb-6">
-            Met zachte technieken werk ik aan de stroom van hersenvloeistof en de werking van het zenuwstelsel. Subtiel, maar diep doorwerkend. Voor wie geen sterke druk verdraagt — of juist diepe rust zoekt.
+            Veilige, zachte massage in zijligging — met extra kussens voor goede ondersteuning. Verlicht de typische klachten van zwangerschap: rugpijn, gespannen schouders, gezwollen voeten en benen. Vanaf het tweede trimester. Altijd in overleg met je verloskundige.
           </p>
           <div class="flex items-center gap-2 text-xs">
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €65</span>
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €90</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €60</span>
           </div>
-          <a data-book data-service="cranio" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+          <a data-book data-service="zwangerschap" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
             <span>Boek deze massage</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </article>
 
-        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+        <article class="reveal md:col-span-2 bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
           <div class="flex items-start gap-5 mb-5">
             <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B8654B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V11l4-4h6l4 4v10M9 21v-7h6v7"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A8911E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 3 4 5 4 9a4 4 0 11-8 0c0-4 3-6 4-9z"/></svg>
             </div>
             <div>
-              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Gekleed</p>
-              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Stoelmassage</h3>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Ontspanning · olie</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Olie ontspanningsmassage</h3>
             </div>
           </div>
-          <p class="text-ink-muted leading-relaxed mb-6">
-            Volledig gekleed op een speciale stoel. Hoofd, nek, schouders, rug, armen en handen — een effectieve onderbreking van een drukke werkdag. Ook op locatie inzetbaar bij bedrijven.
+          <p class="text-ink-muted leading-relaxed mb-6 max-w-3xl">
+            Langzame, vloeiende strijkbewegingen met warme massage-olie. Geen drukpunten of strekkingen — puur ontspanning. Verlaagt de hartslag, kalmeert het zenuwstelsel en herstelt de huidbeleving. Ideaal na een drukke periode of bij overbelasting.
           </p>
           <div class="flex items-center gap-2 text-xs">
-            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">30 min · €37,50</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €60</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · €85</span>
           </div>
-          <a data-book data-service="stoel" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+          <a data-book data-service="olie" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
             <span>Boek deze massage</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MASSAGE BIJ KANKER ============ -->
-  <section id="kanker" class="py-20 lg:py-32 relative overflow-hidden">
-    <svg class="leaf-deco -top-20 right-0 w-[420px] h-[420px]" viewBox="0 0 200 200" fill="#B8654B"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
-    <div class="max-w-[1280px] mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-10 lg:gap-16 items-start relative">
-      <div class="lg:col-span-5 lg:sticky lg:top-32">
-        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Specialisatie</p>
-        <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05] mb-7">
-          Massage <em class="italic text-gold/90">bij kanker</em><br/>en in het herstel.
-        </h2>
-        <p class="reveal text-ink-muted leading-relaxed text-lg">
-          Sinds 2012 ben ik gespecialiseerd in massage bij oncologie. Een gebied waarin zorgvuldigheid, kennis van behandeling en een rustig contact onmisbaar zijn.
-        </p>
-      </div>
-
-      <div class="lg:col-span-7 space-y-6 lg:space-y-8">
-        <div class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9">
-          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Vertrouwen in je lichaam terugbouwen</h3>
-          <p class="text-ink-muted leading-relaxed">
-            Veel mensen verliezen door de ziekte en de behandelingen het vertrouwen in hun lichaam. Massage kan een weg zijn om jezelf weer tegen te komen — soms krachtiger dan alleen praten over wat er gebeurd is.
-          </p>
-        </div>
-
-        <div class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9">
-          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Contact herstellen met je hele lichaam</h3>
-          <p class="text-ink-muted leading-relaxed">
-            Sommige gebieden voelen vreemd, niet meer van jou. Er kunnen energetische blokkades ontstaan. Door aandacht en aanraking groeit het zelfgenezend vermogen — samen oefenen we om gevoel en sensatie terug toe te laten.
-          </p>
-        </div>
-
-        <div class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9">
-          <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-4">Uitgebreide intake vooraf</h3>
-          <p class="text-ink-muted leading-relaxed mb-4">
-            Voor we beginnen bespreken we uitgebreid wat veilig en passend is. Behandeling wordt afgestemd op:
-          </p>
-          <ul class="space-y-2 text-ink-muted text-sm">
-            <li class="flex items-start gap-3"><span class="text-gold mt-1">·</span><span>Fase van ziekte en behandeling</span></li>
-            <li class="flex items-start gap-3"><span class="text-gold mt-1">·</span><span>Algemene fysieke conditie en energieniveau</span></li>
-            <li class="flex items-start gap-3"><span class="text-gold mt-1">·</span><span>Medicatie en specifieke klachten</span></li>
-            <li class="flex items-start gap-3"><span class="text-gold mt-1">·</span><span>Welke lichaamsgebieden veilig te behandelen zijn</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/30 rounded-[24px] p-7 lg:p-9">
-          <p class="text-ink-muted leading-relaxed italic mb-4">
-            "Door aandacht en aanraking groeit het zelfgenezend vermogen van lichaam en geest."
-          </p>
-          <a data-book data-service="intake" href="index.html#boeken" class="cta-gold inline-flex items-center gap-2 bg-gold text-white px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
-            <span>Plan een vrijblijvend intakegesprek</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -371,7 +345,7 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
           <h3 class="font-display text-xl leading-tight mb-3">Afspraken</h3>
-          <p class="text-ink-muted text-sm leading-relaxed">Doordeweeks van 08:00 tot 18:00. Volledig op afspraak — per telefoon, e-mail of WhatsApp.</p>
+          <p class="text-ink-muted text-sm leading-relaxed">Ma — wo en vr — zo van 09:00 tot 21:00. Donderdag gesloten. Volledig op afspraak — per telefoon, e-mail of WhatsApp.</p>
         </div>
         <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
           <h3 class="font-display text-xl leading-tight mb-3">Annuleren</h3>
@@ -379,19 +353,19 @@
         </div>
         <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
           <h3 class="font-display text-xl leading-tight mb-3">Betalen</h3>
-          <p class="text-ink-muted text-sm leading-relaxed">Contant of via Tikkie na afloop. Voor stoelmassages op locatie maak ik graag een offerte op maat.</p>
+          <p class="text-ink-muted text-sm leading-relaxed">Contant of via Tikkie na afloop. PLACEHOLDER: verify betaalmethoden met Pimchaya.</p>
         </div>
         <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
           <h3 class="font-display text-xl leading-tight mb-3">Eerste keer</h3>
-          <p class="text-ink-muted text-sm leading-relaxed">Reken op een korte intake vooraf. Vertel wat speelt — daar stem ik de behandeling op af.</p>
+          <p class="text-ink-muted text-sm leading-relaxed">Reken op een korte intake vooraf. Vertel wat speelt en welke vorm je voor ogen hebt — daar stem ik de behandeling op af.</p>
         </div>
         <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
-          <h3 class="font-display text-xl leading-tight mb-3">Stamgastvoordeel</h3>
-          <p class="text-ink-muted text-sm leading-relaxed">Na 10 massages krijg je op de elfde sessie €25 korting. Ik houd dit voor je bij.</p>
+          <h3 class="font-display text-xl leading-tight mb-3">Cadeaubon</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Een Thaise massage als cadeau geven? Cadeaubonnen zijn beschikbaar voor elk bedrag of behandeling — vraag ernaar via mail of WhatsApp.</p>
         </div>
         <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
-          <h3 class="font-display text-xl leading-tight mb-3">Onderneming</h3>
-          <p class="text-ink-muted text-sm leading-relaxed">KvK 09201686. Voor zakelijke afspraken — bijvoorbeeld stoelmassages op kantoor — neem gerust contact op.</p>
+          <h3 class="font-display text-xl leading-tight mb-3">Praktische tips</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Voor de traditionele Thaise massage: kom in losse, comfortabele kleding. Voor olie- of hotstone: ondergoed kan aan, ik werk met handdoeken.</p>
         </div>
       </div>
     </div>
@@ -401,18 +375,18 @@
   <section class="py-20 lg:py-28">
     <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
       <div class="reveal bg-gradient-to-br from-bg-elevated via-bg-surface to-bg-elevated border border-gold/20 rounded-[32px] p-10 lg:p-16 text-center relative overflow-hidden">
-        <svg class="leaf-deco -top-10 -left-10 w-[300px] h-[300px]" viewBox="0 0 200 200" fill="#B8654B"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
-        <svg class="leaf-deco -bottom-10 -right-10 w-[300px] h-[300px] rotate-180" viewBox="0 0 200 200" fill="#B8654B"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <svg class="leaf-deco -top-10 -left-10 w-[300px] h-[300px]" viewBox="0 0 200 200" fill="#A8911E"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <svg class="leaf-deco -bottom-10 -right-10 w-[300px] h-[300px] rotate-180" viewBox="0 0 200 200" fill="#A8911E"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
         <div class="relative">
           <h2 class="font-display text-3xl lg:text-5xl leading-[1.1] mb-6 max-w-2xl mx-auto">
             Niet zeker welke vorm? <em class="italic text-gold/90">Laat ons overleggen.</em>
           </h2>
           <p class="text-ink-muted max-w-xl mx-auto mb-9">Een korte vraag via WhatsApp of telefoon — ik denk graag mee over wat op dit moment passend is.</p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="tel:+31654200528" class="cta-gold inline-flex items-center gap-2 bg-gold text-white px-7 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
-              <span>Bel 06 542 005 28</span>
+            <a href="tel:+31681620217" class="cta-gold inline-flex items-center gap-2 bg-gold text-white px-7 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+              <span>Bel 06 81 62 02 17</span>
             </a>
-            <a href="https://wa.me/31654200528" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-border-subtle text-ink-primary px-7 py-4 rounded-full text-sm font-semibold hover:border-gold hover:text-gold transition-colors">
+            <a href="https://wa.me/31681620217" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-border-subtle text-ink-primary px-7 py-4 rounded-full text-sm font-semibold hover:border-gold hover:text-gold transition-colors">
               Stuur WhatsApp
             </a>
           </div>
@@ -427,37 +401,35 @@
       <div class="grid md:grid-cols-4 gap-10 mb-12">
         <div class="md:col-span-2">
           <div class="flex items-center gap-3 mb-6">
-            <span class="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-xl">gj</span>
-            <span class="logo-mark text-2xl text-ink-primary">Gerrit Jonker <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Massage</span></span>
+            <span class="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-xl">km</span>
+            <span class="logo-mark text-2xl text-ink-primary">Pimchaya <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Massage</span></span>
           </div>
           <p class="text-ink-muted text-sm leading-relaxed max-w-md">
-            Lichaamsgerichte massage in Nijmegen-Oost. Voor spanning, herstel, sport en in elke fase van het leven na kanker. Volledig op afspraak.
+            Authentieke Thaise massage in Nijmegen. Traditioneel, hotstone, kruidenstempel, deep tissue, anti-migraine, zwangerschap en olie. Volledig op afspraak.
           </p>
         </div>
         <div>
           <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Praktijk</p>
           <ul class="space-y-3 text-sm text-ink-muted">
-            <li>Cees de Jongstraat 6<br/>Nijmegen-Oost</li>
-            <li><a href="tel:+31654200528" class="link-gold text-ink-primary">06 542 005 28</a></li>
-            <li><a href="mailto:gerritjonkermassage@gmail.com" class="link-gold text-ink-primary">gerritjonkermassage@gmail.com</a></li>
+            <li>Danielsplein 3D<br/>Nijmegen</li>
+            <li><a href="tel:+31681620217" class="link-gold text-ink-primary">06 81 62 02 17</a></li>
+            <li><a href="mailto:kantamassage@gmail.com" class="link-gold text-ink-primary">kantamassage@gmail.com</a></li>
           </ul>
         </div>
         <div>
           <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Menu</p>
           <ul class="space-y-2 text-sm">
-            <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over Gerrit</a></li>
+            <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over Pimchaya</a></li>
             <li><a href="behandelingen.html" class="link-gold text-ink-primary/90 hover:text-gold">Massages</a></li>
-            <li><a href="behandelingen.html#kanker" class="link-gold text-ink-primary/90 hover:text-gold">Massage bij kanker</a></li>
             <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Praktijk</a></li>
-            <li><a href="index.html#reviews" class="link-gold text-ink-primary/90 hover:text-gold">Recensies</a></li>
           </ul>
         </div>
       </div>
       <div class="pt-8 border-t border-border-subtle/50 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-muted">
-        <p>© <span id="year"></span> Gerrit Jonker Massage · KvK 09201686</p>
+        <p>© <span id="year"></span> Kanta Massage · PLACEHOLDER: verify KvK-nummer</p>
         <div class="flex items-center gap-5">
-          <a href="https://www.linkedin.com/in/gerrit-jonker-39994611/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">LinkedIn</a>
-          <a href="https://www.facebook.com/gerritjonkermassage" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
+          <a href="https://wa.me/31681620217" target="_blank" rel="noopener" class="hover:text-gold transition-colors">WhatsApp</a>
+          <a href="mailto:kantamassage@gmail.com" class="hover:text-gold transition-colors">E-mail</a>
         </div>
       </div>
     </div>

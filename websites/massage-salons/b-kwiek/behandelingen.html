@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Massages &amp; Tarieven — B-KwieK Zwolle-Stadshagen</title>
+  <meta name="description" content="Sport- en herstelmassage, hoofdpijnmassage, bindweefselmassage, artrose-therapie en therapeutisch elastisch tapen bij B-KwieK in Zwolle-Stadshagen." />
+  <meta name="theme-color" content="#FDFAF4" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg:     { deep: '#FDFAF4', surface: '#FFFFFF', elevated: '#F7EFE0' },
+            border: { subtle: '#E5D8BD' },
+            ink:    { primary: '#1F1A15', muted: '#5A5145', faint: '#A89E8B' },
+            gold:   { DEFAULT: '#D77E1F', soft: '#A85F12' },
+            botanical: '#6B8A52',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans:    ['Manrope', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: { kicker: '0.18em' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { color-scheme: light; }
+    html, body { background: #FDFAF4; color: #1F1A15; font-family: 'Manrope', system-ui, sans-serif; }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .reveal { opacity: 0; transform: translateY(28px); }
+    .reveal-img { clip-path: inset(0 100% 0 0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-img { opacity: 1; transform: none; clip-path: none; }
+    }
+    ::selection { background: #D77E1F; color: #FDFAF4; }
+    .leaf-deco { position: absolute; pointer-events: none; opacity: 0.10; }
+    .link-gold { position: relative; display: inline-block; }
+    .link-gold::after {
+      content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px;
+      background: currentColor; transform: scaleX(0); transform-origin: right;
+      transition: transform 350ms cubic-bezier(0.4,0,0.2,1);
+    }
+    .link-gold:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav-scrolled {
+      background: rgba(253,250,244,0.82);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 24px rgba(31,26,21,0.06);
+    }
+    .cta-gold { position: relative; overflow: hidden; isolation: isolate; }
+    .cta-gold::before {
+      content: ''; position: absolute; top: 0; left: -120%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      transition: left 800ms cubic-bezier(0.4,0,0.2,1); z-index: 1;
+    }
+    .cta-gold:hover::before { left: 130%; }
+    .cta-gold > * { position: relative; z-index: 2; }
+    .logo-mark { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; letter-spacing: 0.02em; }
+
+    .icon-tile {
+      background: linear-gradient(135deg, rgba(215,126,31,0.06), rgba(215,126,31,0.02));
+      border: 1px solid rgba(215,126,31,0.18);
+    }
+  </style>
+</head>
+<body class="bg-bg-deep text-ink-primary antialiased">
+
+  <!-- ============ NAV ============ -->
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 nav-scrolled">
+    <nav class="max-w-[1280px] mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <span class="w-9 h-9 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-lg">bk</span>
+        <span class="hidden sm:inline logo-mark text-xl text-ink-primary">B-KwieK <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Sport- & Herstelmassages</span></span>
+      </a>
+      <ul class="hidden lg:flex items-center gap-9 text-[13px] font-semibold tracking-kicker uppercase">
+        <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over</a></li>
+        <li><a href="behandelingen.html" class="link-gold text-gold">Massages</a></li>
+        <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Praktijk</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <a data-book href="index.html#boeken" class="cta-gold hidden sm:inline-flex items-center gap-2 bg-gold text-white px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+          <span>Afspraak maken</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <button id="mobile-toggle" class="lg:hidden p-2 -mr-2" aria-label="Menu openen">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-drawer" class="lg:hidden fixed inset-0 bg-white/95 backdrop-blur-lg z-40 hidden">
+      <div class="flex flex-col items-center justify-center h-full gap-8 font-display text-3xl">
+        <a href="over-ons.html">Over</a>
+        <a href="behandelingen.html" class="text-gold">Massages</a>
+        <a href="locaties.html">Praktijk</a>
+        <a data-book href="index.html#boeken" class="cta-gold bg-gold text-white rounded-full px-8 py-3 text-base font-sans font-semibold tracking-wide mt-4">Afspraak maken</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="pt-36 pb-16 lg:pt-44 lg:pb-24 relative overflow-hidden">
+    <svg class="leaf-deco -top-20 -left-20 w-[420px] h-[420px]" viewBox="0 0 200 200" fill="#D77E1F"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12 relative">
+      <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Massages &amp; tarieven</p>
+      <h1 class="reveal font-display text-5xl lg:text-7xl xl:text-8xl leading-[1.02] max-w-4xl">
+        Twee vormen<br/>één <em class="italic text-gold/90">doel: herstel.</em>
+      </h1>
+      <p class="reveal text-ink-muted text-lg leading-relaxed max-w-2xl mt-7">
+        Sport- en herstelmassage staan centraal bij B-KwieK. Daarnaast werk ik met bindweefseltechnieken, hoofdpijnmassage, artrose-therapie en therapeutisch elastisch tapen — een breed pakket voor preventie, behandeling en herstel.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ TARIEVEN STRIP ============ -->
+  <section class="pb-16 lg:pb-24">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="reveal grid sm:grid-cols-3 gap-4 bg-bg-surface border border-border-subtle rounded-[24px] p-6 lg:p-8">
+        <div class="text-center sm:border-r sm:border-border-subtle/60 pb-4 sm:pb-0">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Deelmassage</p>
+          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€40</div>
+          <p class="text-sm text-ink-muted">30 minuten — benen / rug-schouders-nek</p>
+        </div>
+        <div class="text-center sm:border-r sm:border-border-subtle/60 py-4 sm:py-0">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Hele rug</p>
+          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€70</div>
+          <p class="text-sm text-ink-muted">60 minuten</p>
+        </div>
+        <div class="text-center pt-4 sm:pt-0">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Tape — intake</p>
+          <div class="font-display text-4xl lg:text-5xl text-ink-primary leading-none mb-1">€17,<span class="text-3xl">50</span></div>
+          <p class="text-sm text-ink-muted">vervolg €12,50</p>
+        </div>
+      </div>
+      <p class="reveal text-center text-sm text-ink-muted mt-5">
+        [PLACEHOLDER: 90-min tarief en eventuele strippenkaart / pakketten — vragen aan klant. Voor verenigingen en evenementen: maatwerk via info@b-kwiek.nl.]
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============ MASSAGE-VORMEN ============ -->
+  <section id="massages" class="py-16 lg:py-24 bg-bg-surface/50 border-y border-border-subtle/50">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-20">
+        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Twee vormen</p>
+        <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05]">
+          Sport- of <em class="italic text-gold/90">herstelmassage?</em>
+        </h2>
+        <p class="reveal text-ink-muted leading-relaxed mt-5">
+          Het verschil zit in het moment en het doel — vóór de inspanning activeren, óf na de inspanning ontspannen.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+          <div class="flex items-start gap-5 mb-5">
+            <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D77E1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4 4 4 4-4"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="8" r="2"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Vóór inspanning</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Sportmassage</h3>
+            </div>
+          </div>
+          <p class="text-ink-muted leading-relaxed mb-6">
+            Krachtige, indringende en stimulerende technieken activeren je spierweefsel en zenuwstelsel. Het effect is het grootst als je binnen 20 minuten na de massage met je sport begint. Geschikt voor hardlopers, wandelaars en (recreatieve) sporters in alle disciplines.
+          </p>
+          <div class="flex items-center gap-2 text-xs flex-wrap">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €70 (hele rug)</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · [PLACEHOLDER: tarief]</span>
+          </div>
+          <a data-book data-service="sport" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+            <span>Boek deze massage</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-7 lg:p-9 hover:border-gold/40 transition-all">
+          <div class="flex items-start gap-5 mb-5">
+            <div class="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D77E1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-1">Na inspanning</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight">Herstelmassage</h3>
+            </div>
+          </div>
+          <p class="text-ink-muted leading-relaxed mb-6">
+            Ontspannende technieken verminderen spierpijn en helpen afvalstoffen sneller afvoeren. Niet alleen voor sporters: ook bij algemene spierspanning, stijfheid of een hectische werkweek werkt een herstelmassage uitstekend.
+          </p>
+          <div class="flex items-center gap-2 text-xs flex-wrap">
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">60 min · €70 (hele rug)</span>
+            <span class="px-3 py-1 rounded-full border border-border-subtle text-ink-muted">90 min · [PLACEHOLDER: tarief]</span>
+          </div>
+          <a data-book data-service="herstel" href="index.html#boeken" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-soft transition-colors">
+            <span>Boek deze massage</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+
+      <!-- Aanvullende specialisaties -->
+      <div class="reveal mt-14 lg:mt-20">
+        <p class="text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5 text-center">Aanvullende behandelingen</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-bg-surface border border-border-subtle rounded-[20px] p-6">
+            <h4 class="font-display text-xl leading-tight mb-2">Therapeutisch tapen</h4>
+            <p class="text-ink-muted text-sm leading-relaxed mb-3">Kinesio-tape voor spier­ontspanning, gewricht­stabilisatie en preventie. Tot 5 dagen werkzaam, waterbestendig.</p>
+            <p class="text-[11px] text-gold font-semibold">Intake €17,50 · Vervolg €12,50</p>
+          </div>
+          <div class="bg-bg-surface border border-border-subtle rounded-[20px] p-6">
+            <h4 class="font-display text-xl leading-tight mb-2">Hoofdpijnmassage</h4>
+            <p class="text-ink-muted text-sm leading-relaxed mb-3">Specifiek bij spanningshoofdpijn, migraine en cervicogene hoofdpijn. Inclusief herstelmassage rug, schouders en nek.</p>
+            <p class="text-[11px] text-gold font-semibold">60 min · €70</p>
+          </div>
+          <div class="bg-bg-surface border border-border-subtle rounded-[20px] p-6">
+            <h4 class="font-display text-xl leading-tight mb-2">Bindweefselmassage</h4>
+            <p class="text-ink-muted text-sm leading-relaxed mb-3">Diep weefsel­werk bij verklevingen na blessure, slechte houding of operatie. Gecombineerd met herstelmassage.</p>
+            <p class="text-[11px] text-gold font-semibold">60 min · €70</p>
+          </div>
+          <div class="bg-bg-surface border border-border-subtle rounded-[20px] p-6">
+            <h4 class="font-display text-xl leading-tight mb-2">Artrose-therapie</h4>
+            <p class="text-ink-muted text-sm leading-relaxed mb-3">Zachte behandeling van gewrichten — handen/polsen/ellebogen/schouders of voeten/enkels/knieën/heupen.</p>
+            <p class="text-[11px] text-gold font-semibold">60 min · €70</p>
+          </div>
+        </div>
+        <p class="text-center text-xs text-ink-faint mt-6">EHBO &amp; AED gediplomeerd. Voor verenigingen / evenementen / sportverzorging — maatwerk via info@b-kwiek.nl.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRAKTISCH ============ -->
+  <section class="py-20 lg:py-28 bg-bg-surface/50 border-y border-border-subtle/50">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Praktisch</p>
+        <h2 class="reveal font-display text-4xl lg:text-5xl leading-[1.05]">
+          Goed om <em class="italic text-gold/90">te weten.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Afspraken</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Volledig op afspraak via online boeking (Setmore) of via info@b-kwiek.nl. <span class="text-ink-faint">[PLACEHOLDER: openingstijden — vragen aan klant]</span></p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Annuleren</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">[PLACEHOLDER: annuleringsbeleid — vragen aan klant. Voorstel: kosteloos tot 24 uur vooraf.]</p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Betalen</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">[PLACEHOLDER: betaalmethodes — Tikkie, contant, pin? — vragen aan klant]</p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Eerste keer</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Korte intake vooraf. Vertel wat speelt — bestaande blessures, sportdoelen of langdurige klachten. De behandeling stem ik daarop af.</p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Sportverzorging</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Preventief tapen en bandageren voor risicosporten (fitness, voetbal, hardlopen, hockey, tennis). EHBO &amp; AED gediplomeerd.</p>
+        </div>
+        <div class="reveal bg-bg-surface border border-border-subtle rounded-[20px] p-7">
+          <h3 class="font-display text-xl leading-tight mb-3">Voor verenigingen</h3>
+          <p class="text-ink-muted text-sm leading-relaxed">Maatwerk voor clubs, evenementen en sportverzorging — neem contact op via info@b-kwiek.nl voor een offerte. <span class="text-ink-faint">[PLACEHOLDER: KvK-nummer]</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA STRIP ============ -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="reveal bg-gradient-to-br from-bg-elevated via-bg-surface to-bg-elevated border border-gold/20 rounded-[32px] p-10 lg:p-16 text-center relative overflow-hidden">
+        <svg class="leaf-deco -top-10 -left-10 w-[300px] h-[300px]" viewBox="0 0 200 200" fill="#D77E1F"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <svg class="leaf-deco -bottom-10 -right-10 w-[300px] h-[300px] rotate-180" viewBox="0 0 200 200" fill="#D77E1F"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <div class="relative">
+          <h2 class="font-display text-3xl lg:text-5xl leading-[1.1] mb-6 max-w-2xl mx-auto">
+            Niet zeker welke vorm? <em class="italic text-gold/90">Laat het me weten.</em>
+          </h2>
+          <p class="text-ink-muted max-w-xl mx-auto mb-9">Stuur een korte mail met je klachten of sportdoelen — ik denk graag mee over wat passend is.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="mailto:info@b-kwiek.nl" class="cta-gold inline-flex items-center gap-2 bg-gold text-white px-7 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+              <span>Mail info@b-kwiek.nl</span>
+            </a>
+            <a href="https://bkwieksportherstelmassages.setmore.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-border-subtle text-ink-primary px-7 py-4 rounded-full text-sm font-semibold hover:border-gold hover:text-gold transition-colors">
+              Boek via Setmore
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-border-subtle/50 py-14">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-gold logo-mark text-xl">bk</span>
+            <span class="logo-mark text-2xl text-ink-primary">B-KwieK <span class="text-ink-muted not-italic font-sans font-normal text-sm tracking-kicker uppercase ml-1">Sport- & Herstelmassages</span></span>
+          </div>
+          <p class="text-ink-muted text-sm leading-relaxed max-w-md">
+            B-KwieK is een massagepraktijk in Zwolle-Stadshagen, gericht op het herstel van het lichaam. Voor sporters, wandelaars en iedereen met spier- of gewrichtsklachten.
+          </p>
+        </div>
+        <div>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Praktijk</p>
+          <ul class="space-y-3 text-sm text-ink-muted">
+            <li>[PLACEHOLDER: adres]<br/>Zwolle-Stadshagen</li>
+            <li><span class="text-ink-primary">[PLACEHOLDER: telefoon]</span></li>
+            <li><a href="mailto:info@b-kwiek.nl" class="link-gold text-ink-primary">info@b-kwiek.nl</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Menu</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over B-KwieK</a></li>
+            <li><a href="behandelingen.html" class="link-gold text-ink-primary/90 hover:text-gold">Massages &amp; tarieven</a></li>
+            <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Praktijk</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-border-subtle/50 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-muted">
+        <p>© <span id="year"></span> B-KwieK Sport- & Herstelmassages · [PLACEHOLDER: KvK-nummer]</p>
+        <div class="flex items-center gap-5">
+          <a href="https://www.instagram.com/bkwiek01" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Instagram</a>
+          <a href="https://www.facebook.com/BKwieK01" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced && window.Lenis) {
+      const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      lenis.on('scroll', () => ScrollTrigger.update());
+    }
+    const nav = document.getElementById('site-nav');
+    const onScroll = () => {
+      if (window.scrollY > 40) nav.classList.add('nav-scrolled');
+      else nav.classList.remove('nav-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    const toggle = document.getElementById('mobile-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    toggle?.addEventListener('click', () => {
+      const hidden = drawer.classList.contains('hidden');
+      if (hidden) { drawer.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+      else { drawer.classList.add('hidden'); document.body.style.overflow = ''; }
+    });
+    drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.classList.add('hidden'); document.body.style.overflow = '';
+    }));
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('.reveal').forEach(el => {
+        gsap.fromTo(el, { opacity: 0, y: 28 }, {
+          opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+        });
+      });
+      gsap.utils.toArray('.reveal-img').forEach(el => {
+        gsap.fromTo(el, { clipPath: 'inset(0 100% 0 0)' }, {
+          clipPath: 'inset(0 0% 0 0)', duration: 1.1, ease: 'power3.inOut',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        });
+      });
+    }
+  </script>
+  <script src="js/booking.js" defer></script>
+
+  <!-- ============ FLOATING BOOK CTA ============ -->
+  <a data-book href="#boeken" aria-label="Boek nu" class="cta-gold fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 inline-flex items-center gap-2 bg-gold text-white pl-4 pr-5 py-3 sm:pl-5 sm:pr-6 sm:py-3.5 rounded-full font-semibold text-sm tracking-wide shadow-xl hover:bg-gold-soft hover:-translate-y-0.5 transition-all" style="box-shadow: 0 10px 30px -8px rgba(0,0,0,0.25);">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <span>Boek nu</span>
+  </a>
+
+</body>
+</html>

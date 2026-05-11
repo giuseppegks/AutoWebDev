@@ -1,0 +1,11 @@
+{
+  "name": "massages-inbalans",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Massages InBalans (Gaiane Abrahamian, Nijmegen) — site + Cal.com booking proxy",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  }
+}
