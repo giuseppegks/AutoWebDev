@@ -198,3 +198,45 @@ Single-barber-account shops should keep the current setup — the barber field i
 | Site build + integration | Shop pays you | One-time fee |
 
 **Your value prop in pitch**: "Premium-looking, fully integrated booking — no monthly fee to me, you pay Cal.com directly only if you have multiple barbers. The site is yours."
+## Reference Implementation (drop-in template)
+
+The `template/` folder next to this SKILL.md ships a working, generic implementation of everything described above. To wire booking into a new site:
+
+```
+template/
+├── api/
+│   ├── _cal.js          # shared Bearer + version header helper
+│   ├── event-types.js   # GET — list event types (slug → ID map)
+│   ├── slots.js         # GET — available slots per day
+│   └── bookings.js      # POST — create a booking
+├── js/
+│   └── booking.js       # multi-step branded modal (~580 lines)
+└── package.json         # type: module — Vercel uses native ESM here
+```
+
+### Step-by-step usage
+
+1. `cp -r skills/booking-system/template/api    websites/<niche>/<slug>/api`
+2. `cp -r skills/booking-system/template/js     websites/<niche>/<slug>/js`
+3. `cp    skills/booking-system/template/package.json websites/<niche>/<slug>/`
+4. Open `js/booking.js` and edit ONLY the `SHOP_CONFIG` block at the top (shopName, phone, domain, addressICS, hours, services, price). Nothing below the `═══` divider needs editing for normal customization.
+5. In every HTML page that should have a booking button:
+   - Include the script before `</body>`: `<script src="js/booking.js" defer></script>`
+   - Add `data-book` to any CTA `<a>` or `<button>`. Optional `data-service="<service.key>"` pre-selects a service (used by per-service "Book this one" links).
+6. Deploy with the env var (see "Setup Workflow" §6 above).
+
+### Design system assumptions
+
+The modal markup uses Tailwind utility classes that the host site is assumed to provide via Tailwind Play CDN config. Specifically these custom colors must exist:
+
+- `bg-bg-deep` `bg-bg-surface` `bg-bg-elevated`  — page → card → hover backgrounds
+- `border-border-subtle`                          — divider/card borders
+- `text-ink-primary` `text-ink-muted` `text-ink-faint` — body / secondary / fine-print
+- `bg-gold` `text-gold` `bg-gold-soft`             — accent color (CTAs, kickers)
+- `tracking-kicker`                               — 0.18em letter-spacing for the stepper
+
+If the host site uses different token names, find/replace inside `template/js/booking.js`. The classes appear in `viewService`, `viewDuration`, `viewDate`, `viewTime`, `viewDetails`, `viewConfirm` and the `ensureModal` markup.
+
+### Reference site
+
+`websites/massage-salons/gerrit-jonker-massage` is a complete site built on this template — single-practitioner massage practice with 12 event-types (6 massages × 2 durations, plus stoel-30 and intake-30). Use it as a sanity check that the integration is wired correctly.

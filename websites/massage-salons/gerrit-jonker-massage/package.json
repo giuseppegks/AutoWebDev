@@ -1,0 +1,11 @@
+{
+  "name": "gerrit-jonker-massage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Massagepraktijk Gerrit Jonker — site + Cal.com booking proxy",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  }
+}
