@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Thai Massage &amp; Spa — Authentieke Thaise rituelen in Arnhem &amp; Nijmegen</title>
+  <meta name="description" content="Authentieke Thaise massages en spa-rituelen door ervaren therapeuten. Twee studio's in Arnhem en Nijmegen. Zeven dagen per week geopend." />
+  <meta name="theme-color" content="#1A0E14" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: {
+              deep:     '#1A0E14',
+              surface:  '#28161E',
+              elevated: '#371F2A',
+            },
+            border: {
+              subtle:   '#4A2935',
+            },
+            ink: {
+              primary:  '#EFE5D2',
+              muted:    '#B09A82',
+              faint:    '#6F5C4F',
+            },
+            gold: {
+              DEFAULT:  '#D4A55A',
+              soft:     '#A88542',
+            },
+            burgundy: {
+              DEFAULT:  '#6B1F3B',
+              soft:     '#8B2C4B',
+            },
+            botanical: '#C49A6E',
+            thaired:   '#6B1F3B',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans:    ['Manrope', 'system-ui', 'sans-serif'],
+            thai:    ['"Noto Serif Thai"', 'serif'],
+          },
+          letterSpacing: {
+            kicker: '0.18em',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    html, body {
+      background: #1A0E14;
+      color: #EFE5D2;
+      font-family: 'Manrope', system-ui, sans-serif;
+    }
+    /* Smooth scroll handled by Lenis */
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+    /* Reveal initial state */
+    .reveal { opacity: 0; transform: translateY(28px); }
+    .reveal-img { clip-path: inset(0 100% 0 0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-img { opacity: 1; transform: none; clip-path: none; }
+    }
+
+    /* Custom selection */
+    ::selection { background: #D4A55A; color: #1A0E14; }
+
+    /* Botanical decorative leaf */
+    .leaf-deco {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.06;
+      mix-blend-mode: screen;
+    }
+
+    /* Underline link */
+    .link-gold {
+      position: relative;
+      display: inline-block;
+    }
+    .link-gold::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 100%; height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 350ms cubic-bezier(0.4,0,0.2,1);
+    }
+    .link-gold:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    /* Gradient overlay for hero images */
+    .img-vignette { position: relative; }
+    .img-vignette::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(26,14,20,0.6));
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    /* Nav scrolled */
+    .nav-scrolled {
+      background: rgba(26, 14, 20, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    /* Treatment card price-pill */
+    .price-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border: 1px solid #4A2935;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #EFE5D2;
+      background: rgba(55, 31, 42, 0.4);
+    }
+    .price-pill strong { color: #D4A55A; font-weight: 600; }
+
+    /* Open badge pulse */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+    /* CTA pill shimmer */
+    .cta-gold {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .cta-gold::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -120%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      transition: left 800ms cubic-bezier(0.4,0,0.2,1);
+      z-index: 1;
+    }
+    .cta-gold:hover::before { left: 130%; }
+    .cta-gold > * { position: relative; z-index: 2; }
+  </style>
+</head>
+<body class="bg-bg-deep text-ink-primary antialiased">
+
+  <!-- ============ NAV ============ -->
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <nav class="max-w-[1280px] mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
+      <a href="#top" class="flex items-center group">
+        <img src="images/royal-thai-logo-light.png" alt="Royal Thai Massage &amp; Spa" class="h-12 lg:h-14 w-auto" />
+      </a>
+      <ul class="hidden lg:flex items-center gap-9 text-[13px] font-semibold tracking-kicker uppercase">
+        <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over Ons</a></li>
+        <li><a href="behandelingen.html" class="link-gold text-ink-primary/90 hover:text-gold">Behandelingen</a></li>
+        <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Locaties</a></li>
+        <li><a href="#reviews" class="link-gold text-ink-primary/90 hover:text-gold">Reviews</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <a href="#boeken" class="cta-gold hidden sm:inline-flex items-center gap-2 bg-gold text-bg-deep px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+          <span>Reserveren</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <button id="mobile-toggle" class="lg:hidden p-2 -mr-2" aria-label="Menu openen">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div id="mobile-drawer" class="lg:hidden fixed inset-0 bg-bg-deep/95 backdrop-blur-lg z-40 hidden">
+      <div class="flex flex-col items-center justify-center h-full gap-8 font-display text-3xl">
+        <a href="over-ons.html" class="mobile-link">Over Ons</a>
+        <a href="behandelingen.html" class="mobile-link">Behandelingen</a>
+        <a href="locaties.html" class="mobile-link">Locaties</a>
+        <a href="#reviews" class="mobile-link">Reviews</a>
+        <a href="#boeken" class="mobile-link cta-gold bg-gold text-bg-deep rounded-full px-8 py-3 text-base font-sans font-semibold tracking-wide mt-4">Reserveren</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" class="relative min-h-[100vh] flex items-center pt-28 pb-20 overflow-hidden">
+    <!-- Botanical decoration -->
+    <svg class="leaf-deco -top-20 -left-20 w-[420px] h-[420px]" viewBox="0 0 200 200" fill="#D4A55A" xmlns="http://www.w3.org/2000/svg"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+    <svg class="leaf-deco bottom-0 -right-32 w-[520px] h-[520px] rotate-45" viewBox="0 0 200 200" fill="#D4A55A"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12 w-full grid lg:grid-cols-12 gap-10 lg:gap-16 items-center relative">
+      <!-- Text col -->
+      <div class="lg:col-span-6 z-10">
+        <p class="reveal flex items-center gap-3 text-[12px] tracking-kicker uppercase text-gold font-semibold mb-7">
+          <span class="w-10 h-px bg-gold"></span>
+          <span>นวด · Thai Massage &amp; Spa</span>
+        </p>
+        <h1 class="reveal font-display text-[44px] sm:text-[60px] lg:text-[76px] leading-[1.05] tracking-tight mb-7">
+          Eeuwenoude<br />
+          Thaise <em class="italic text-gold/90">rituelen,</em><br />
+          midden in de stad.
+        </h1>
+        <p class="reveal text-ink-muted text-lg max-w-[46ch] mb-10 leading-relaxed">
+          Authentieke massages en spa-behandelingen door ervaren Thaise therapeuten. Twee studio's, in <span class="text-ink-primary">Arnhem</span> en <span class="text-ink-primary">Nijmegen</span>. Zeven dagen per week geopend, op afspraak.
+        </p>
+        <div class="reveal flex flex-wrap items-center gap-4">
+          <a href="#boeken" class="cta-gold inline-flex items-center gap-2 bg-gold text-bg-deep px-7 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+            <span>Reserveer je behandeling</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="behandelingen.html" class="inline-flex items-center gap-2 px-7 py-4 rounded-full text-sm font-semibold tracking-wide border border-border-subtle hover:border-gold hover:text-gold transition-colors">
+            Bekijk behandelingen
+          </a>
+        </div>
+        <div class="reveal mt-12 flex items-center gap-4 text-sm">
+          <span class="flex items-center gap-2 text-botanical">
+            <span class="w-2 h-2 rounded-full bg-botanical pulse-dot"></span>
+            <span class="font-medium text-ink-primary">Nu geopend</span>
+          </span>
+          <span class="w-px h-4 bg-border-subtle"></span>
+          <span class="text-ink-muted">Dagelijks 10:30 — 22:00</span>
+        </div>
+      </div>
+
+      <!-- Image col -->
+      <div class="lg:col-span-6 relative">
+        <div class="reveal-img img-vignette overflow-hidden rounded-[32px] aspect-[4/5] lg:aspect-[3/4] shadow-2xl">
+          <img src="https://royalthaimassages.nl/wp-content/uploads/2018/03/IMG-20180323-WA0020.jpg" alt="Traditionele Thaise massage bij Royal Thai" class="w-full h-full object-cover" />
+        </div>
+        <div class="reveal-img img-vignette absolute -bottom-10 -left-8 lg:-left-16 w-[55%] aspect-[3/4] overflow-hidden rounded-[24px] border-4 border-bg-deep shadow-2xl hidden sm:block">
+          <img src="https://royalthaimassages.nl/wp-content/uploads/2018/03/IMG-20180323-WA0018.jpg" alt="Hot stone massage" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OVER ONS TEASER ============ -->
+  <section id="over" class="py-20 lg:py-32 relative overflow-hidden">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <!-- Image col -->
+      <div class="lg:col-span-6 relative">
+        <div class="reveal-img img-vignette overflow-hidden rounded-[32px] aspect-[5/4]">
+          <img src="https://royalthaimassages.nl/wp-content/uploads/2017/01/kassa-50.jpg" alt="Receptie van Royal Thai" class="w-full h-full object-cover" />
+        </div>
+        <div class="reveal-img img-vignette absolute -bottom-8 -right-4 lg:-right-10 w-[45%] aspect-[3/4] overflow-hidden rounded-[20px] border-4 border-bg-deep shadow-2xl hidden sm:block">
+          <img src="https://royalthaimassages.nl/wp-content/uploads/2022/04/IMG-20201125-WA0020.jpg" alt="Massageruimte interieur" class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      <!-- Text col -->
+      <div class="lg:col-span-6">
+        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Over Ons</p>
+        <h2 class="reveal font-display text-4xl lg:text-5xl leading-[1.05] mb-7">
+          Een moment van <em class="italic text-gold/90">stilte,</em><br/>in het hart van de stad.
+        </h2>
+        <p class="reveal text-ink-muted leading-relaxed text-lg mb-8 max-w-[46ch]">
+          Bij Royal Thai geloven we dat ontspanning geen luxe is, maar een ritueel. Onze therapeuten zijn opgeleid in Thailand en brengen technieken mee die generaties teruggaan.
+        </p>
+
+        <!-- Mini USP row -->
+        <div class="reveal grid grid-cols-3 gap-4 mb-9">
+          <div>
+            <div class="font-display text-3xl text-gold leading-none mb-2">15+</div>
+            <p class="text-[11px] tracking-kicker uppercase text-ink-muted">Jaar ervaring</p>
+          </div>
+          <div>
+            <div class="font-display text-3xl text-gold leading-none mb-2">2</div>
+            <p class="text-[11px] tracking-kicker uppercase text-ink-muted">Studio's</p>
+          </div>
+          <div>
+            <div class="font-display text-3xl text-gold leading-none mb-2">7/7</div>
+            <p class="text-[11px] tracking-kicker uppercase text-ink-muted">Dagen open</p>
+          </div>
+        </div>
+
+        <a href="over-ons.html" class="reveal cta-gold inline-flex items-center gap-2 bg-gold text-bg-deep px-7 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+          <span>Lees ons verhaal</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEHANDELINGEN TEASER ============ -->
+  <section id="behandelingen" class="py-20 lg:py-32 bg-bg-surface/50 border-y border-border-subtle/50">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-14 lg:mb-16">
+        <div class="lg:col-span-7">
+          <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Programma</p>
+          <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05]">
+            Behandelingen &amp;<br/><em class="italic text-gold/90">rituelen</em>
+          </h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="reveal text-ink-muted leading-relaxed">
+            Twaalf signature-behandelingen — van klassieke Thaise massage tot warme kruidenstempels en spa-pakketten. Hieronder drie favorieten.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        <!-- Featured 1: Traditionele Thai -->
+        <article class="reveal group bg-bg-surface border border-border-subtle rounded-[24px] overflow-hidden hover:border-gold/40 hover:-translate-y-1 transition-all duration-500">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://royalthaimassages.nl/wp-content/uploads/2018/03/IMG-20180323-WA0020.jpg" alt="Traditionele Thaise massage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="p-7">
+            <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Signature</p>
+            <h3 class="font-display text-2xl leading-snug mb-3">Traditionele Thaise massage</h3>
+            <p class="text-ink-muted text-sm leading-relaxed mb-5">Krachtige drukpunten-massage, meestal zonder olie. Stretcht en activeert.</p>
+            <div class="flex items-center justify-between text-sm pt-4 border-t border-border-subtle">
+              <span class="text-ink-muted">vanaf 30 min</span>
+              <span class="text-gold font-semibold">€35</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured 2: Hot Stone -->
+        <article class="reveal group bg-bg-surface border border-border-subtle rounded-[24px] overflow-hidden hover:border-gold/40 hover:-translate-y-1 transition-all duration-500">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://royalthaimassages.nl/wp-content/uploads/2018/03/IMG-20180323-WA0018.jpg" alt="Hot stone massage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="p-7">
+            <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Warmte</p>
+            <h3 class="font-display text-2xl leading-snug mb-3">Hot Stone massage</h3>
+            <p class="text-ink-muted text-sm leading-relaxed mb-5">Warme basaltstenen brengen diepe warmte tot in de spieren. Diepe rust.</p>
+            <div class="flex items-center justify-between text-sm pt-4 border-t border-border-subtle">
+              <span class="text-ink-muted">vanaf 60 min</span>
+              <span class="text-gold font-semibold">€55</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured 3: Kruidenstempel -->
+        <article class="reveal group bg-bg-surface border border-border-subtle rounded-[24px] overflow-hidden hover:border-gold/40 hover:-translate-y-1 transition-all duration-500">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://royalthaimassages.nl/wp-content/uploads/2018/03/IMG-20180323-WA0019.jpg" alt="Kruidenstempel massage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="p-7">
+            <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Botanisch</p>
+            <h3 class="font-display text-2xl leading-snug mb-3">Kruidenstempel massage</h3>
+            <p class="text-ink-muted text-sm leading-relaxed mb-5">Warme bundels gevuld met gember, citroengras en kurkuma. Aromatisch.</p>
+            <div class="flex items-center justify-between text-sm pt-4 border-t border-border-subtle">
+              <span class="text-ink-muted">vanaf 60 min</span>
+              <span class="text-gold font-semibold">€55</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="reveal text-center mt-14">
+        <a href="behandelingen.html" class="cta-gold inline-flex items-center gap-2 bg-gold text-bg-deep px-8 py-4 rounded-full font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+          <span>Bekijk alle 12 behandelingen + pakketten</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CADEAUBON STRIP ============ -->
+  <section class="py-16 lg:py-20 relative">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="reveal bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/30 rounded-[28px] p-8 lg:p-12 grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8">
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-3">Cadeaubon</p>
+          <h2 class="font-display text-3xl lg:text-4xl leading-tight mb-3">Geef het als <em class="italic text-gold/90">geschenk.</em></h2>
+          <p class="text-ink-muted leading-relaxed max-w-xl">Een Royal Thai cadeaubon — voor 30 of 60 minuten massage of spa, of een compleet pakket. Verkrijgbaar in beide studio's.</p>
+        </div>
+        <div class="lg:col-span-4 lg:text-right">
+          <a href="#boeken" class="cta-gold inline-flex items-center gap-2 bg-gold text-bg-deep px-7 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-gold-soft transition-colors">
+            <span>Vraag een cadeaubon aan</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section id="reviews" class="py-20 lg:py-32 bg-bg-surface/50 border-y border-border-subtle/50 relative overflow-hidden">
+    <svg class="leaf-deco top-10 right-0 w-[400px] h-[400px] rotate-12" viewBox="0 0 200 200" fill="#D4A55A"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12 relative">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Reviews</p>
+        <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05] mb-6">
+          Wat onze gasten<br/><em class="italic text-gold/90">vertellen</em>
+        </h2>
+        <p class="reveal text-ink-muted leading-relaxed">
+          Een kleine selectie. Lees alle reviews op onze Google-pagina's voor Arnhem en Nijmegen.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 lg:gap-6">
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-8 lg:p-9">
+          <div class="flex items-center gap-1 text-gold mb-5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+          </div>
+          <p class="font-display text-xl lg:text-2xl leading-snug text-ink-primary mb-6">
+            "Een echte Thaise massage zoals ik die in Bangkok kreeg. Mijn schouders zijn na één behandeling al merkbaar lichter."
+          </p>
+          <div class="pt-5 border-t border-border-subtle">
+            <p class="font-semibold text-sm">Sophie M.</p>
+            <p class="text-xs text-ink-muted tracking-kicker uppercase mt-1">Studio Nijmegen</p>
+          </div>
+        </article>
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-8 lg:p-9">
+          <div class="flex items-center gap-1 text-gold mb-5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+          </div>
+          <p class="font-display text-xl lg:text-2xl leading-snug text-ink-primary mb-6">
+            "Het Signature-pakket was de mooiste verjaardagsverrassing. Twee en een half uur waarin je echt weg bent uit het dagelijkse."
+          </p>
+          <div class="pt-5 border-t border-border-subtle">
+            <p class="font-semibold text-sm">Mark &amp; Lieke</p>
+            <p class="text-xs text-ink-muted tracking-kicker uppercase mt-1">Studio Arnhem</p>
+          </div>
+        </article>
+
+        <article class="reveal bg-bg-surface border border-border-subtle rounded-[24px] p-8 lg:p-9">
+          <div class="flex items-center gap-1 text-gold mb-5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+          </div>
+          <p class="font-display text-xl lg:text-2xl leading-snug text-ink-primary mb-6">
+            "Ik kwam met spanningshoofdpijn binnen en wandelde een uur later een ander mens naar buiten. Inmiddels vaste klant."
+          </p>
+          <div class="pt-5 border-t border-border-subtle">
+            <p class="font-semibold text-sm">Ricardo K.</p>
+            <p class="text-xs text-ink-muted tracking-kicker uppercase mt-1">Anti-Migraine — Arnhem</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATIES TEASER ============ -->
+  <section id="locaties" class="py-20 lg:py-32">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-14">
+        <div class="lg:col-span-7">
+          <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Locaties</p>
+          <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05]">
+            Twee studio's,<br/><em class="italic text-gold/90">één filosofie.</em>
+          </h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="reveal text-ink-muted leading-relaxed">
+            Beide vestigingen werken volledig op afspraak en zijn zeven dagen per week geopend. Kies wat het beste uitkomt.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-5 lg:gap-6">
+        <!-- Arnhem teaser -->
+        <a href="locaties.html#arnhem" class="reveal group bg-bg-surface border border-border-subtle rounded-[28px] overflow-hidden hover:border-gold/40 hover:-translate-y-1 transition-all duration-500 block">
+          <div class="grid grid-cols-5 gap-0">
+            <div class="col-span-2 aspect-square overflow-hidden">
+              <img src="https://royalthaimassages.nl/wp-content/uploads/2022/04/IMG-20211028-WA0015.jpg" alt="Studio Arnhem" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div class="col-span-3 p-6 lg:p-8 flex flex-col justify-center">
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Studio Arnhem</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-3">Steenstraat 61</h3>
+              <p class="text-sm text-ink-muted mb-4">Dagelijks 10:30 — 22:00</p>
+              <span class="inline-flex items-center gap-2 text-gold font-semibold text-sm">
+                Bekijk locatie
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Nijmegen teaser -->
+        <a href="locaties.html#nijmegen" class="reveal group bg-bg-surface border border-border-subtle rounded-[28px] overflow-hidden hover:border-gold/40 hover:-translate-y-1 transition-all duration-500 block">
+          <div class="grid grid-cols-5 gap-0">
+            <div class="col-span-2 aspect-square overflow-hidden">
+              <img src="https://royalthaimassages.nl/wp-content/uploads/2022/04/IMG_20190626_121254_887.jpg" alt="Studio Nijmegen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div class="col-span-3 p-6 lg:p-8 flex flex-col justify-center">
+              <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-2">Studio Nijmegen</p>
+              <h3 class="font-display text-2xl lg:text-3xl leading-tight mb-3">Bloemerstraat 62</h3>
+              <p class="text-sm text-ink-muted mb-4">Dagelijks 10:30 — 22:00</p>
+              <span class="inline-flex items-center gap-2 text-gold font-semibold text-sm">
+                Bekijk locatie
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOEKEN / CTA ============ -->
+  <section id="boeken" class="py-20 lg:py-32 relative overflow-hidden">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="bg-gradient-to-br from-bg-elevated via-bg-surface to-bg-elevated border border-gold/20 rounded-[36px] p-10 lg:p-20 text-center relative overflow-hidden">
+        <svg class="leaf-deco -top-10 -left-10 w-[300px] h-[300px]" viewBox="0 0 200 200" fill="#D4A55A"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <svg class="leaf-deco -bottom-10 -right-10 w-[300px] h-[300px] rotate-180" viewBox="0 0 200 200" fill="#D4A55A"><path d="M100 0c40 60 60 80 100 100-60 40-80 60-100 100C60 140 40 120 0 100 60 60 80 40 100 0z"/></svg>
+        <div class="relative">
+          <p class="reveal text-[12px] tracking-kicker uppercase text-gold font-semibold mb-5">Reserveer</p>
+          <h2 class="reveal font-display text-4xl lg:text-6xl leading-[1.05] mb-6 max-w-3xl mx-auto">
+            Klaar om je <em class="italic text-gold/90">zachte kant</em><br class="hidden sm:inline"/> weer te ontmoeten?
+          </h2>
+          <p class="reveal text-ink-muted leading-relaxed max-w-xl mx-auto mb-10">
+            We werken volledig op afspraak. Bel direct voor beschikbaarheid vandaag, of stuur een berichtje voor langer vooruit plannen.
+          </p>
+          <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="tel:+31246793443" class="cta-gold w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-bg-deep px-8 py-4 rounded-full font-semibold hover:bg-gold-soft transition-colors">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.9.34 1.79.64 2.65a2 2 0 01-.45 2.11L8 9.79a16 16 0 006 6l1.31-1.3a2 2 0 012.11-.45c.86.3 1.75.52 2.65.64A2 2 0 0122 16.92z"/></svg>
+              <span>Bel Nijmegen — 024 679 34 43</span>
+            </a>
+            <a href="tel:+31267601100" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-border-subtle text-ink-primary px-8 py-4 rounded-full font-semibold hover:border-gold hover:text-gold transition-colors">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.9.34 1.79.64 2.65a2 2 0 01-.45 2.11L8 9.79a16 16 0 006 6l1.31-1.3a2 2 0 012.11-.45c.86.3 1.75.52 2.65.64A2 2 0 0122 16.92z"/></svg>
+              <span>Bel Arnhem — 026 760 11 00</span>
+            </a>
+          </div>
+          <p class="reveal text-ink-muted text-sm mt-8">
+            of mail naar <a href="mailto:info@royalthaimassages.nl" class="link-gold text-gold">info@royalthaimassages.nl</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-border-subtle/50 py-14">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <img src="images/royal-thai-logo-light.png" alt="Royal Thai Massage &amp; Spa" class="h-16 w-auto mb-6" />
+          <p class="text-ink-muted text-sm leading-relaxed max-w-md">
+            Authentieke Thaise massages en spa-rituelen in Arnhem en Nijmegen. Geopend zeven dagen per week, op afspraak.
+          </p>
+        </div>
+        <div>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Studio's</p>
+          <ul class="space-y-3 text-sm text-ink-muted">
+            <li>Steenstraat 61, Arnhem<br/><a href="tel:+31267601100" class="link-gold text-ink-primary">026 760 11 00</a></li>
+            <li>Bloemerstraat 62, Nijmegen<br/><a href="tel:+31246793443" class="link-gold text-ink-primary">024 679 34 43</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[11px] tracking-kicker uppercase text-gold font-semibold mb-4">Menu</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="over-ons.html" class="link-gold text-ink-primary/90 hover:text-gold">Over Ons</a></li>
+            <li><a href="behandelingen.html" class="link-gold text-ink-primary/90 hover:text-gold">Behandelingen</a></li>
+            <li><a href="locaties.html" class="link-gold text-ink-primary/90 hover:text-gold">Locaties</a></li>
+            <li><a href="index.html#reviews" class="link-gold text-ink-primary/90 hover:text-gold">Reviews</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-border-subtle/50 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-muted">
+        <p>© <span id="year"></span> Royal Thai Massage &amp; Spa. Alle rechten voorbehouden.</p>
+        <div class="flex items-center gap-5">
+          <a href="https://www.facebook.com/royalthaimassagearnhem/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Facebook</a>
+          <a href="https://www.instagram.com/royal_thai_massages_spa/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---------- Lenis smooth scroll ---------- */
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let lenis;
+    if (!prefersReduced && window.Lenis) {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      lenis.on('scroll', () => ScrollTrigger.update());
+    }
+
+    /* ---------- Nav scrolled state ---------- */
+    const nav = document.getElementById('site-nav');
+    const onScroll = () => {
+      if (window.scrollY > 40) nav.classList.add('nav-scrolled');
+      else nav.classList.remove('nav-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ---------- Mobile drawer ---------- */
+    const toggle = document.getElementById('mobile-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    toggle?.addEventListener('click', () => {
+      const hidden = drawer.classList.contains('hidden');
+      if (hidden) {
+        drawer.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        drawer.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+    drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.classList.add('hidden');
+      document.body.style.overflow = '';
+    }));
+
+    /* ---------- GSAP reveals ---------- */
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* Generic reveal */
+      gsap.utils.toArray('.reveal').forEach(el => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 28 },
+          {
+            opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+          }
+        );
+      });
+
+      /* Image reveal (clip) */
+      gsap.utils.toArray('.reveal-img').forEach(el => {
+        gsap.fromTo(el,
+          { clipPath: 'inset(0 100% 0 0)' },
+          {
+            clipPath: 'inset(0 0% 0 0)', duration: 1.1, ease: 'power3.inOut',
+            scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+          }
+        );
+      });
+    }
+  </script>
+</body>
+</html>
