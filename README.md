@@ -4,6 +4,31 @@ Drie elkaar opvolgende **Claude Code skills** die samen één workflow vormen: v
 
 Gebouwd voor freelance webdesigners en kleine agencies die buurtwinkels, kappers, café's, restaurants en trade-bedrijven (dakdekkers, fysio's, garages) als doelgroep hebben.
 
+## Repo structuur
+
+```
+AutoWebDev/
+├── skills/                       # Alle Claude Code skills (origineel + uitbreidingen)
+│   ├── finding-businesses-without-websites/
+│   ├── building-prospect-mockups/
+│   ├── building-local-business-website/
+│   ├── barbershop-template/      # single-page Cal.com booking
+│   ├── booking-system/
+│   ├── massage-shops-template/   # Aurora editorial (video-heavy + masseuse modals)
+│   └── premium-spa-template/     # dark-luxury wine+gold (Royal Thai reference)
+├── websites/                     # Echte gebouwde sites, gegroepeerd per niche
+│   └── massage-salons/
+│       └── royal-thai-massages/  # → live op royal-thai-massages.vercel.app
+├── enrich/                       # Auto-enrichment helpers (Wanderlog, Oozo, Pexels)
+├── README.md
+└── LICENSE
+```
+
+**Conventie:**
+- **Nieuwe skill?** → `skills/{skill-name}/SKILL.md` (frontmatter `name` + `description`, dan secties)
+- **Nieuwe gebouwde site?** → `websites/{niche}/{salon-slug}/` (clone van een template-skill)
+- **Niches die we opzetten:** `massage-salons/`, en in toekomst bv. `cafes/`, `barbershops/`, `dakdekkers/`, etc.
+
 ## De 3 skills — als pipeline
 
 ```
