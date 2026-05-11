@@ -1,0 +1,12 @@
+{
+  "name": "the-global-beautybar",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Global Beautybar — premium nailstudio in Nijmegen. Multi-page site with Cal.com booking proxy.",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "preview": "npx serve . -l 3000"
+  },
+  "engines": { "node": ">=18" }
+}

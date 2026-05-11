@@ -1,0 +1,12 @@
+node_modules/
+.vercel/
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+*.log
+
+# Build artifacts (regeneratable via Edge headless)
+preview*.png
+preview*.pdf
