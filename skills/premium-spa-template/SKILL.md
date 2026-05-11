@@ -5,6 +5,123 @@ description: Use when spinning up a new massage salon, day spa, or wellness stud
 
 # Premium Spa Template — Spin-Up Workflow
 
+## ⚡ One-prompt spin-up (for `claude --dangerously-skip-permissions` sessions)
+
+When the user pastes a single short prompt like:
+
+> *"Build a massage salon site for **Soyokaze** in **Nijmegen**. Address: **Mariënburg 92, 6511 PS**. Phone: **[verify]**. Vertical: **Japanese head spa**. Bestseller: **kuchi konjac head ritual**."*
+
+…the agent should crank through the whole 4-page build in **one continuous pass**, no checkpoints, no permission prompts. The recipe:
+
+1. **Verify facts in ~30 sec** — single `WebSearch` for the shop name + city. Confirm address, phone, any social handles. If unverified, mark `PLACEHOLDER` in the README and proceed — don't loop.
+
+2. **`cp -r websites/massage-salons/royal-thai-massages websites/massage-salons/<slug>`** — that's the blueprint. Reference build: `websites/massage-salons/sukhothai-thaise-massage` shows what a finished single-location adaptation looks like.
+
+3. **Run the consolidated PowerShell** (template below). It does brand / phone / address / footer-brand / studios-list / social-links / Pexels-photo rotation / Arnhem-removal in one script. Don't do 30 small Edits.
+
+4. **Overwrite `locaties.html`** with the lean single-location template (snippet below). Don't try to regex-delete the Arnhem section from royal-thai's 2-location version — that approach broke last time. Just `Write` a fresh 1-location locaties.html.
+
+5. **Targeted Edits** only for: hero headline (3-line poetic statement in shop's voice), 3 featured-treatment cards (names + descriptions), 3 review cards (placeholder names, shop's bestseller themes), DESIGN.md palette if shifting away from wine/gold.
+
+6. **Rewrite README.md** as shop-specific (use Sukhothai's README at `websites/massage-salons/sukhothai-thaise-massage/README.md` as the template — verified-facts table + placeholder checklist + pitch angle).
+
+7. **Commit + don't push** unless the user explicitly says deploy. `git -C D:/AntiGravity/AutoWebDev add websites/massage-salons/<slug>` and stop.
+
+### Consolidated PowerShell — copy this verbatim, change only the `$cfg` block at top
+
+```powershell
+$cfg = @{
+  slug       = "soyokaze"   # folder name in websites/massage-salons/
+  brandFull  = "Soyokaze"   # display name everywhere
+  street     = "Mariënburg 92"
+  postcode   = "6511 PS"
+  city       = "Nijmegen"
+  phoneRaw   = "+316XXXXXXXX"          # tel: link
+  phoneDisp  = "06 XX XX XX XX"        # human format
+  # Optional palette swap (Japanese sumi+indigo). Leave $null to keep wine/gold.
+  paletteSwap = $null
+}
+$base = "D:\AntiGravity\AutoWebDev\websites\massage-salons\$($cfg.slug)"
+$files = @("index.html","over-ons.html","behandelingen.html","locaties.html")
+
+# Pexels stock rotation for every WP CDN URL.
+$pexels = @(
+  "https://images.pexels.com/photos/3865711/pexels-photo-3865711.jpeg?auto=compress&cs=tinysrgb&w=900",
+  "https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=900",
+  "https://images.pexels.com/photos/3865792/pexels-photo-3865792.jpeg?auto=compress&cs=tinysrgb&w=900",
+  "https://images.pexels.com/photos/3998010/pexels-photo-3998010.jpeg?auto=compress&cs=tinysrgb&w=900",
+  "https://images.pexels.com/photos/3865795/pexels-photo-3865795.jpeg?auto=compress&cs=tinysrgb&w=900",
+  "https://images.pexels.com/photos/6663537/pexels-photo-6663537.jpeg?auto=compress&cs=tinysrgb&w=900"
+)
+
+foreach ($f in $files) {
+  $path = Join-Path $base $f
+  if (-not (Test-Path $path)) { continue }
+  $c = Get-Content $path -Raw -Encoding UTF8
+  $idx = 0
+  $c = [regex]::Replace($c, 'https://royalthaimassages\.nl/wp-content/uploads/[^"]+', {
+    param($m); $url = $pexels[$script:idx % $pexels.Length]; $script:idx++; return $url
+  })
+  # Brand
+  $c = $c.Replace("Royal Thai Massage &amp; Spa", $cfg.brandFull)
+  $c = $c.Replace("Royal Thai", $cfg.brandFull)
+  # Phone
+  $c = $c.Replace("+31246793443", $cfg.phoneRaw)
+  $c = $c.Replace("024 679 34 43", $cfg.phoneDisp)
+  # Address
+  $c = $c.Replace("Bloemerstraat 62", $cfg.street)
+  $c = $c.Replace("6511 EL Nijmegen", "$($cfg.postcode) $($cfg.city)")
+  # Email
+  $c = $c.Replace("info@royalthaimassages.nl", "—")
+  $c = $c.Replace("nijmegen@royalthaimassages.nl", "—")
+  # Arnhem location <li> in footer
+  $c = [regex]::Replace($c, '\s*<li>Steenstraat 61, Arnhem<br/><a href="tel:\+31267601100"[^>]*>026 760 11 00</a></li>', '')
+  # 2nd "Bel Arnhem" CTA button
+  $c = [regex]::Replace($c, '\s*<a href="tel:\+31267601100"[^>]*>[\s\S]*?Bel Arnhem[\s\S]*?</a>', '')
+  # Royal Thai social links → MG Visuals credit
+  $c = [regex]::Replace($c, '<div class="flex items-center gap-5">\s*<a href="https://www\.facebook\.com/royalthaimassagearnhem/"[^>]*>Facebook</a>\s*<a href="https://www\.instagram\.com/royal_thai_massages_spa/"[^>]*>Instagram</a>\s*</div>', '<p>Site by MG Visuals</p>')
+  # In-text "in Arnhem en Nijmegen"
+  $c = $c.Replace(" in Arnhem en Nijmegen", " in $($cfg.city)")
+  $c = $c.Replace("Arnhem en Nijmegen", $cfg.city)
+  $c = $c.Replace("twee studio's", "één studio")
+  $c = $c.Replace("Twee studio's", "Eén studio")
+  # Nav-logo img → text wordmark
+  $navOld = '<img src="images/royal-thai-logo-light.png" alt="' + $cfg.brandFull + '" class="h-12 lg:h-14 w-auto" />'
+  $navNew = '<span class="font-display text-2xl lg:text-[28px] tracking-wide text-ink-primary group-hover:text-gold transition-colors">' + $cfg.brandFull + '</span>'
+  $c = $c.Replace($navOld, $navNew)
+  # Footer-logo img → text wordmark
+  $footerImgOld = '<img src="images/royal-thai-logo-light.png" alt="' + $cfg.brandFull + '" class="h-16 w-auto mb-6" />'
+  $footerImgNew = '<div class="font-display text-4xl text-ink-primary mb-2">' + $cfg.brandFull + '</div>'
+  $c = $c.Replace($footerImgOld, $footerImgNew)
+
+  Set-Content -Path $path -Value $c -Encoding UTF8 -NoNewline
+}
+
+# Sanity sweep — should print 0 for every file
+foreach ($f in $files) {
+  $hits = (Select-String -Path (Join-Path $base $f) -Pattern "Royal Thai|Arnhem|Steenstraat|royalthaimassages|royal-thai-logo").Count
+  Write-Host "$f remaining refs: $hits"
+}
+```
+
+### Lean `locaties.html` — copy this whole file then swap shop facts
+
+The reference implementation lives at `websites/massage-salons/sukhothai-thaise-massage/locaties.html`. It's a single-location, single-section, dark-map page — way cleaner than royal-thai's 2-location version. Read it, copy it, swap:
+- Brand name in nav + footer wordmark
+- Street + postcode + city in hero h1 + page title + Maps iframe `src` + footer studio list
+- Phone in `tel:` links + display text
+
+That's it. No regex deletion needed.
+
+### Lessons from the Sukhothai production run
+
+- **NEVER use `-SimpleMatch` for compound patterns** in Select-String. It treats `|` as a literal character, so `Pattern "Arnhem|Steenstraat" -SimpleMatch` will silently match nothing and report "0 hits". Use regex mode (the default) for verification sweeps.
+- **`<!-- ARNHEM -->[\s\S]*?(?=<!-- NIJMEGEN -->)` regex deletion is brittle.** The lookahead boundary marker may not exist in the file, the comment text might have an extra space, or PowerShell's regex engine may interpret differently than expected. **Just overwrite `locaties.html`** with the lean single-location template — half the lines, no regex risk.
+- **PowerShell `@'...'@` heredocs are whitespace-sensitive.** A trailing newline mismatch will silently fail the `.Replace()`. For multi-line replacements, prefer regex with `[regex]::Replace()` or break into smaller single-line replaces.
+- **The `Royal Thai` → brand replace can produce awkward Dutch.** `"Bij Royal Thai geloven we"` → `"Bij Soyokaze geloven we"` reads fine; `"de Royal Thai studio's"` → `"de Soyokaze studio's"` reads less so. Spot-check after the bulk replace and rewrite a few sentences in the new brand's voice.
+- **Pexels stock IDs** — the 6 in the consolidated PowerShell above are confirmed-working spa/massage photos. Don't guess new IDs without verification.
+- **Subagents inherit a restricted permission sandbox.** Don't dispatch agents for site builds unless the user is in `--dangerously-skip-permissions` mode — they get Read/Bash/WebSearch denials and abort cleanly without producing output. Build sequentially in the main thread instead.
+
 ## Overview
 
 A reusable, deployable **multi-page** template for premium massage salons, Thai spas, day spas, and wellness studios that want a calm, editorial feel. Distinct from `massage-shops-template` (which is Aurora's video-heavy editorial with masseuse profile modals) and from `barbershop-template` (single-page Cal.com).
