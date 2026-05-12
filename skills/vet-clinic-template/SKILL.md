@@ -15,7 +15,7 @@ When the user says something like:
 
 1. **Verify facts in ~30 sec** — single `WebSearch` for the clinic name + city. Confirm address, phone, opening hours, any social handles. Things to look up: is there a real team list anywhere (Facebook, Google Business)? If unverified, mark `PLACEHOLDER` in the README and proceed.
 
-2. **`cp -r websites/vet-clinics/dierenkliniek-pijnappel websites/vet-clinics/<slug>`** — that's the blueprint. The Pijnappel build IS the reference implementation; treat its 4 HTML files + `images/` folder as the canonical baseline.
+2. **`cp -r websites/vet-clinics/dierenkliniek-pijnappel websites/vet-clinics/<slug> && rm -rf websites/vet-clinics/<slug>/.vercel`** — that's the blueprint. The Pijnappel build IS the reference implementation; treat its 4 HTML files + `images/` folder as the canonical baseline. **Critical: strip the inherited `.vercel/` project-link folder** — otherwise the first `vercel --prod` deploy will overwrite the Pijnappel production site instead of creating a new project.
 
 3. **CRITICAL: don't regenerate AI animations.** The `images/` folder includes pre-generated Higgsfield assets (`vet-dog-pixar-story.mp4`, `scene-1-pixar.png`, `vet-dog-cartoon-animation.mp4`, `vet-dog-lego-animation.mp4`) that are **reusable across all vet prospects** — they show a generic vet+dog+assistant Pixar narrative that works for any clinic. Only call Higgsfield API when a prospect converts to a paying client. See "Reuse vs regenerate rule" section below.
 
