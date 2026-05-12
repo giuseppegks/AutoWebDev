@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "note": "Curated Pexels CDN URLs for premium/luxury spa sites. Free to hotlink, no API key needed.",
+    "size_suffix": "?auto=compress&cs=tinysrgb&w=1200",
+    "license": "Pexels License — free for commercial use, attribution optional"
+  },
+  "luxury_spa_interior": [
+    "https://images.pexels.com/photos/14929575/pexels-photo-14929575.jpeg",
+    "https://images.pexels.com/photos/33852650/pexels-photo-33852650.jpeg",
+    "https://images.pexels.com/photos/33224928/pexels-photo-33224928.jpeg",
+    "https://images.pexels.com/photos/35495081/pexels-photo-35495081.jpeg",
+    "https://images.pexels.com/photos/7222170/pexels-photo-7222170.jpeg",
+    "https://images.pexels.com/photos/35884502/pexels-photo-35884502.jpeg",
+    "https://images.pexels.com/photos/19150538/pexels-photo-19150538.jpeg",
+    "https://images.pexels.com/photos/433626/pexels-photo-433626.jpeg",
+    "https://images.pexels.com/photos/6187255/pexels-photo-6187255.jpeg",
+    "https://images.pexels.com/photos/6186740/pexels-photo-6186740.jpeg",
+    "https://images.pexels.com/photos/29962514/pexels-photo-29962514.jpeg",
+    "https://images.pexels.com/photos/6187839/pexels-photo-6187839.jpeg"
+  ]
+}

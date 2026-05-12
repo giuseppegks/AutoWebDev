@@ -226,3 +226,20 @@ skills/coffeeshop-template/
 ```
 
 Photo bank lives in `skills/cafe-bar-template/pexels-cafe-bank.json` — use the `cozy_lounge` + `brown_cafe_bar` themes only.
+
+---
+
+## Cross-cutting patterns
+
+This template uses (or should use, when polishing) the shared patterns documented in [`../_shared-template-patterns.md`](../_shared-template-patterns.md). Skim that file when starting a new build for:
+
+1. **Power-design rules** — ≥40% whitespace, 60-30-10 color, max 4 type sizes, borders-first cards, anti-pattern checklist
+2. **Awesome-design-md DESIGN.md format** — 9 mandatory sections (Visual Theme, Color, Typography, Components, Layout, Depth, Do/Dont, Responsive, Agent Prompt Guide)
+3. **`.vercel` collision protection** — always `rm -rf .vercel` before first `vercel --prod` in a copied folder
+4. **Source-palette workflow** — derive "similar but better" palette from the bron-site CSS instead of reusing the blueprint default
+5. **Pexels photo bank** — see `pexels-<niche>-bank.json` next to this SKILL.md, hot-link without API key
+6. **Floating "Boek nu" FAB** — snippet for templates with online booking
+7. **Reviews fallback chain** — Google Places API → bron-site → manual → remove section (never PLACEHOLDER cards)
+
+See the quick-links table at the bottom of `_shared-template-patterns.md` to find which patterns specifically apply to this template.
+

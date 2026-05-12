@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "note": "Curated Pexels CDN URLs for barbershop sites. Free to hotlink, no API key needed.",
+    "size_suffix": "?auto=compress&cs=tinysrgb&w=1200",
+    "license": "Pexels License — free for commercial use, attribution optional"
+  },
+  "barbershop_interior_groom": [
+    "https://images.pexels.com/photos/34865582/pexels-photo-34865582.jpeg",
+    "https://images.pexels.com/photos/18991957/pexels-photo-18991957.jpeg",
+    "https://images.pexels.com/photos/30911662/pexels-photo-30911662.jpeg",
+    "https://images.pexels.com/photos/19664875/pexels-photo-19664875.jpeg",
+    "https://images.pexels.com/photos/7697642/pexels-photo-7697642.jpeg",
+    "https://images.pexels.com/photos/7697200/pexels-photo-7697200.jpeg",
+    "https://images.pexels.com/photos/18173343/pexels-photo-18173343.jpeg",
+    "https://images.pexels.com/photos/7697445/pexels-photo-7697445.jpeg",
+    "https://images.pexels.com/photos/7697278/pexels-photo-7697278.jpeg",
+    "https://images.pexels.com/photos/32351050/pexels-photo-32351050.jpeg",
+    "https://images.pexels.com/photos/1860567/pexels-photo-1860567.jpeg",
+    "https://images.pexels.com/photos/30668154/pexels-photo-30668154.jpeg"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "note": "Curated Pexels CDN URLs for veterinary clinic sites. Free to hotlink, no API key needed.",
+    "size_suffix": "?auto=compress&cs=tinysrgb&w=1200",
+    "license": "Pexels License — free for commercial use, attribution optional"
+  },
+  "vet_with_pet": [
+    "https://images.pexels.com/photos/6235011/pexels-photo-6235011.jpeg",
+    "https://images.pexels.com/photos/10559203/pexels-photo-10559203.jpeg",
+    "https://images.pexels.com/photos/6235124/pexels-photo-6235124.jpeg",
+    "https://images.pexels.com/photos/6560385/pexels-photo-6560385.jpeg",
+    "https://images.pexels.com/photos/6235650/pexels-photo-6235650.jpeg",
+    "https://images.pexels.com/photos/28644631/pexels-photo-28644631.jpeg",
+    "https://images.pexels.com/photos/6234607/pexels-photo-6234607.jpeg",
+    "https://images.pexels.com/photos/6235107/pexels-photo-6235107.jpeg",
+    "https://images.pexels.com/photos/6235049/pexels-photo-6235049.jpeg",
+    "https://images.pexels.com/photos/6235651/pexels-photo-6235651.jpeg",
+    "https://images.pexels.com/photos/6235005/pexels-photo-6235005.jpeg",
+    "https://images.pexels.com/photos/6234616/pexels-photo-6234616.jpeg"
+  ]
+}
