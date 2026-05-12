@@ -89,6 +89,7 @@ c = c.replace("Nijmegen-Oost", f"{CITY}-{DISTRICT}" if DISTRICT else CITY)
 
 # Email
 c = c.replace("info@dierenkliniekpijnappel.nl", EMAIL)
+c = c.replace("nijmegen@dierenkliniekpijnappel.nl", EMAIL)
 
 # Booking link — replace ALL external afspraak-boeken links with tel: link to phone
 c = re.sub(
@@ -98,6 +99,15 @@ c = re.sub(
 )
 # Catch any leftover variants
 c = c.replace("https://dierenkliniekpijnappel.nl/online-afspraak-boeken", f"tel:{PHONE_RAW}")
+
+# External uitleg-page anchors — Pijnappel has "Lees meer over X" links to
+# /kruisband-uitleg, /lasertherapie, /tandheelkunde_uitleg, /kruisbandoperatie
+# These pages don't exist for the new clinic. Strip the entire <a>...</a> block.
+c = re.sub(
+    r'<a\s+href="https://dierenkliniekpijnappel\.nl/(?:kruisband-uitleg|kruisbandoperatie|lasertherapie|tandheelkunde_uitleg|thuisinslapen|gratis-parkeren)"\s+target="_blank"\s+rel="noopener"\s+class="[^"]*"\s*>\s*[^<]*\s*<svg[^>]*>.*?</svg>\s*</a>',
+    '',
+    c, flags=re.DOTALL
+)
 
 # CTA label swap — "Online afspraak boeken" → "Bel voor afspraak" since no booking system
 c = c.replace("Online afspraak boeken", "Bel voor afspraak")
@@ -109,6 +119,79 @@ c = c.replace("Reserveer 24/7 een tijdstip dat past", "Bel ons direct")
 # Footer "VetPartners" — Pijnappel-specific, remove or replace
 c = c.replace("Onderdeel van VetPartners.", "Persoonlijke zorg, dag in dag uit.")
 c = c.replace(" · Onderdeel van VetPartners.", "")
+c = c.replace(". Onderdeel van VetPartners.", ".")
+
+# Body-copy partial matches the address-replace missed
+# "Aan de Sint Annastraat staat een kliniek" → "Aan de {STREET-base} staat een kliniek"
+# Extract the street name (without house number) for body-copy substitution
+street_base = STREET.split()[0] if STREET else "ons adres"
+c = c.replace("Aan de Sint Annastraat staat", f"Aan de {street_base} staat")
+c = c.replace("We zitten aan de Sint Annastraat", f"We zitten aan de {street_base}")
+
+# Pijnappel-specific landmark — Goffertpark is near Sint Annastraat
+# Replace with a generic "in een rustige woonbuurt" or similar
+c = c.replace(
+    "vlak bij het Goffertpark",
+    "in een rustige woonbuurt"
+)
+
+# Animal-scope claim — Pijnappel treats honden/katten/konijnen/cavia's/ratten.
+# Most prospect clinics only do honden+katten. Trim to be safe (verify per clinic).
+c = c.replace(
+    "Voor honden, katten, konijnen, cavia's en ratten",
+    "Voor honden en katten"
+)
+c = c.replace(
+    "Voor honden, katten, konijnen en knaagdieren.",
+    "Voor honden en katten."
+)
+c = c.replace(
+    "Honden, katten, konijnen, cavia's, hamsters, ratten en andere kleine huisdieren. Geen exoten of paarden.",
+    "Honden en katten. Voor exoten, knaagdieren of paarden verwijzen we door naar gespecialiseerde collega's in de regio."
+)
+c = c.replace(
+    "honden, katten en knaagdieren",
+    "honden en katten"
+)
+
+# Equipment claims in about-teaser — Pijnappel-specific (eigen OK, in-house lab,
+# moderne tandheelkunde-set). Replace with neutral copy that any clinic can claim.
+c = c.replace(
+    "Met eigen OK, in-house lab en moderne tandheelkunde-set — alles wat we nodig hebben om je huisdier hier ter plekke te helpen.",
+    "Een vertrouwd buurtadres met de tijd en aandacht die jouw huisdier verdient."
+)
+
+# Team-count phrase — Pijnappel has 16 staff (4 vets + 7 para + 4 waarnemend + stagiaire).
+# Smaller clinics have fewer. Replace with neutral phrasing.
+c = c.replace(
+    "Vier dierenartsen, zeven paraveterinairen en een team waarnemers — verbonden door één gedeelde liefde voor wat ze doen. Bij ons spreek je geen \"nummer\", maar Yvonne, John of Bouke.",
+    "Een klein, betrokken team van dierenartsen en assistenten — verbonden door één gedeelde liefde voor wat ze doen. Bij ons spreek je geen \"nummer\", maar mensen die je leert kennen."
+)
+c = c.replace(
+    "Zestien mensen, gedreven door dezelfde liefde voor wat ze doen. Geen \"nummers achter het bureau\" — wel Yvonne aan de balie, John in de OK en Bouke met de röntgenfoto's. Hieronder vind je wie je tegenkomt als je langsloopt.",
+    "Een klein, betrokken team van dierenartsen en assistenten. Geen \"nummers achter het bureau\" — wel mensen die je leert kennen bij het eerste bezoek."
+)
+# Meta description team-count
+c = c.replace(
+    "vier dierenartsen, zeven paraveterinairen en een team waarnemers — verbonden door één liefde voor diergeneeskunde.",
+    "een klein, betrokken team voor honden en katten."
+)
+
+# Floating "16+ mensen team" badge — replace with mission-quote variant
+# (or removed if team-count isn't a USP for the new clinic)
+c = re.sub(
+    r'<p class="font-display text-3xl leading-none text-ink-primary">16<span class="text-brand-red">\+</span></p>\s*<p class="text-xs text-ink-muted mt-1">mensen in ons team,<br/>klaar voor je huisdier</p>',
+    f'<p class="font-display text-xl leading-none text-ink-primary">Voor je</p>\n            <p class="font-display text-xl leading-none italic text-brand-red mt-1">hond &amp; kat</p>',
+    c
+)
+
+# Floating "3 specialismen" badge — Pijnappel-specific (laser+kruisband+tand).
+# Replace with neutral "Voor hond & kat" focus.
+c = re.sub(
+    r'<p class="font-display text-4xl leading-none text-ink-primary">3</p>\s*<p class="text-\[10px\] tracking-kicker uppercase text-ink-primary font-semibold mt-1">specialismen</p>',
+    '<p class="font-display text-2xl leading-tight text-ink-primary">Voor je</p>\n            <p class="font-display text-2xl leading-tight italic text-brand-red">hond &amp; kat</p>',
+    c
+)
 
 # Pexels stock rotation for any leftover wp-content URLs (team photos especially)
 idx = [0]
@@ -148,6 +231,122 @@ for f in "${FILES[@]}"; do
   echo "  $f: $hits remaining refs"
 done
 ```
+
+### Specialty-rewrite per clinic-type (CRITICAL fork)
+
+The Pijnappel build advertises **specialist-level** procedures: knieoperaties / lasertherapie / endoscopie / TTA-Rapid surgery. **These are NOT generic vet services** — they require expensive equipment and specialist certification that most small buurtdierenarts clinics don't have. Cloning the Pijnappel build without rewriting these claims = misrepresenting the prospect = embarrassing pitch.
+
+Decide which fork applies BEFORE running the script:
+
+| Clinic type | Approach |
+|---|---|
+| **Specialist praktijk** (multi-vet, has OK, has laser, performs orthopedic surgery, possibly published prices) | Keep Pijnappel-style 5 specialty detail-sections + advanced service icons |
+| **Buurtdierenarts** (small general practice, honden+katten only, no specialist equipment) | Replace 5 specialty sections with general-practice services (default) |
+
+For 90%+ of cold-outreach prospects, the **buurtdierenarts fork** is correct. Use the script below AFTER the consolidated bash script.
+
+#### Buurtdierenarts specialty-rewrite (Python follow-up)
+
+```bash
+python3 - "$BASE/specialiteiten.html" "$BASE/index.html" "$PHONE_RAW" "$PHONE_DISP" <<'PY'
+import sys, re, pathlib
+
+spec_path, idx_path, PHONE_RAW, PHONE_DISP = sys.argv[1:]
+
+# === specialiteiten.html ===
+p = pathlib.Path(spec_path)
+c = p.read_text(encoding="utf-8")
+
+# Hero h1 + subtitle
+c = c.replace(
+    'Waar wij<br/><em class="italic text-brand-red">goed in</em> zijn.',
+    'Wat wij<br/><em class="italic text-brand-red">aanbieden.</em>'
+)
+c = c.replace(
+    "Naast algemene zorg en check-ups hebben we ons in een aantal vakgebieden extra gespecialiseerd. Voor sommige ingrepen worden dieren zelfs vanuit andere klinieken naar ons doorverwezen.",
+    "Algemene zorg voor honden en katten — vaccinaties, sterilisatie, tand- en mondzorg en kleine operaties. Voor specialistische ingrepen werken we samen met collega-klinieken in de regio."
+)
+
+# Meta description
+c = re.sub(
+    r'<meta name="description" content="[^"]*Tandheelkunde[^"]*"',
+    '<meta name="description" content="Algemene zorg, vaccinaties, sterilisatie & castratie, tand- en mondzorg en kleine operaties voor honden en katten."',
+    c
+)
+
+# Anchor pills row — 5 new IDs
+old_pills_marker = 'href="#algemene-zorg"'
+new_pills = '''<a href="#algemene-zorg" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-bg-card border border-border-soft hover:border-indigo hover:text-indigo transition-colors">Algemene zorg</a>
+        <a href="#vaccinaties" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-bg-card border border-border-soft hover:border-indigo hover:text-indigo transition-colors">Vaccinaties</a>
+        <a href="#sterilisatie" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-bg-card border border-border-soft hover:border-indigo hover:text-indigo transition-colors">Sterilisatie</a>
+        <a href="#tandheelkunde" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-bg-card border border-border-soft hover:border-indigo hover:text-indigo transition-colors">Tandheelkunde</a>
+        <a href="#operaties" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-bg-card border border-border-soft hover:border-indigo hover:text-indigo transition-colors">Operaties</a>'''
+c = re.sub(
+    r'<a href="#algemene-zorg"[\s\S]*?>Endoscopie</a>',
+    new_pills,
+    c
+)
+
+# Replace section TANDHEELKUNDE → VACCINATIES, KNIEOPERATIES → STERILISATIE,
+# LASERTHERAPIE → TANDHEELKUNDE, ENDOSCOPIE → OPERATIES
+# (See full snippet templates in vet-clinic-template skill repo, websites/vet-clinics/dierenkliniek-vossenhof for reference)
+
+# Section 02: was Tandheelkunde, becomes VACCINATIES
+SEC_VACCINATIES = '''  <!-- ============ VACCINATIES ============ -->
+  <section id="vaccinaties" class="py-16 lg:py-24 bg-bg-card scroll-mt-32">
+    <div class="max-w-[1240px] mx-auto px-6 lg:px-12">
+      <article class="reveal relative grid lg:grid-cols-12 gap-10 items-center">
+        <span class="specialty-num">02</span>
+        <div class="lg:col-span-5 lg:order-2 relative">
+          <p class="text-[11px] tracking-kicker uppercase text-indigo font-semibold mb-3">Dienst 02</p>
+          <h2 class="font-display text-3xl lg:text-5xl leading-tight mb-6">Vaccinaties &amp; <em class="italic text-brand-red">preventie</em></h2>
+          <div class="space-y-4 text-ink-muted text-base lg:text-lg leading-relaxed">
+            <p>De jaarlijkse vaccinatie is meer dan een prikje — het is het ideale moment voor een algeheel gezondheidschecken.</p>
+          </div>
+        </div>
+        <div class="lg:col-span-7 lg:order-1">
+          <div class="reveal-img overflow-hidden rounded-[28px] aspect-[4/3]">
+            <img src="https://images.pexels.com/photos/6235651/pexels-photo-6235651.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Vaccinaties" class="w-full h-full object-cover bg-peach-light" loading="lazy" />
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+'''
+c = re.sub(
+    r'  <!-- ============ TANDHEELKUNDE ============ -->.*?(?=  <!-- ============ KNIEOPERATIES ============ -->)',
+    SEC_VACCINATIES, c, flags=re.DOTALL
+)
+
+# … and so on for STERILISATIE / TANDHEELKUNDE (rewrite) / OPERATIES sections.
+# Full templates: see websites/vet-clinics/dierenkliniek-vossenhof/specialiteiten.html
+# for the reference structure.
+
+p.write_text(c, encoding="utf-8")
+
+# === index.html service-icons ===
+# 5 icons: Algemene zorg / Vaccinaties / Sterilisatie / Tandheelkunde / Operaties
+# Each with: anchor link to the new section ID + appropriate SVG icon + label
+# See websites/vet-clinics/dierenkliniek-vossenhof/index.html lines 337-377 for the snippet
+print("✓ specialiteiten.html rewritten for buurtdierenarts services")
+print("⚠️  Manual step: verify index.html service-icons row matches new section IDs")
+PY
+```
+
+**Reference implementation:** the complete buurtdierenarts rewrite is in `websites/vet-clinics/dierenkliniek-vossenhof/specialiteiten.html` and `index.html` — copy section blocks from there rather than maintaining them inline in this skill. Saves churn when service-icon icons change.
+
+#### Specialty-icon SVG paths (Lucide-derived, 24×24 viewBox)
+
+For the 5 buurtdierenarts services in `index.html`:
+
+| Service | Anchor | SVG path |
+|---|---|---|
+| Algemene zorg | `#algemene-zorg` | Heart: `M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z` |
+| Vaccinaties | `#vaccinaties` | Syringe (custom): `M16 6l-8 8 4 4 8-8M11 9l-3-3-3 3 3 3M14 12l4 4M9 19a2 2 0 11-2-2` |
+| Sterilisatie | `#sterilisatie` | Cross/medical: `M12 2v8m0 0a5 5 0 105 5h-5V10zM6 16l-2 2M18 16l2 2` |
+| Tandheelkunde | `#tandheelkunde` | Tooth: `M12 2C8 2 6 4 6 7c0 3 1 4 1 7 0 4 1 8 3 8s2-3 2-5 1-3 2-3 0 0 0 0 0 1 0 3 0 5 2 5 3-4 3-8c0-3 1-4 1-7 0-3-2-5-6-5h-2z` |
+| Operaties | `#operaties` | Scalpel: `M14.7 6.3l3 3M5 19l9-9 3 3-9 9H5v-3zM18 5l1.5 1.5` |
 
 ### Lean `team.html` for small clinics
 
@@ -426,6 +625,32 @@ vercel --prod --yes
 ```
 
 Subdomain defaults to `{folder-name}.vercel.app`. For custom domain: `vercel domains add` + DNS prompt.
+
+### 8. Mobile + Lighthouse optimization (post-conversion only)
+
+**Don't bother for prospect mockups** — they're meant to be sent as a quick demo, not to win Lighthouse scores. The Tailwind CDN + external Pexels images are fine for showing the concept.
+
+**When the prospect converts to a paying client**, run the full mobile + Lighthouse optimization workflow before going live. See the dedicated memory entry [`feedback_mobile_lighthouse_workflow.md`](../../../../.claude/projects/-Users-giuseppegeukes-Website-Klanten-Projecten/memory/feedback_mobile_lighthouse_workflow.md) — 7-step recipe that took Pijnappel to mobile Lighthouse 98 across pages.
+
+Summary of the 7 steps:
+
+1. **Tailwind CDN → local CLI build** — `npx tailwindcss@3 -i ./src/input.css -o ./output.css --minify` (~20KB). Strip the `<script src="cdn.tailwindcss.com">` + inline config from every HTML file, replace with `<link rel="stylesheet" href="output.css" />`.
+2. **Async Google Fonts** — `<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">` pattern with `<noscript>` fallback.
+3. **Download all images locally + WebP-convert** — Pexels stock and any client photos. Resize: hero 1600px / portraits 800px / illustrations 1200px. WebP quality 82.
+4. **Rewrite `<img>` tags** in one Python pass — add `width`/`height` to prevent CLS, `loading="lazy" decoding="async"` for below-fold, `fetchpriority="high"` for hero.
+5. **Strip `.reveal` class from above-fold hero elements** — GSAP opacity:0 on the LCP element kills Lighthouse score by 15-30 points. Above-fold gets no reveal animation; below-fold keeps it.
+6. **Mobile UX fixes** — `pt-32 → pt-24 sm:pt-32`, hero h1 smaller on mobile, hamburger `p-2 → p-3` for 44px tap-target, service-grid `sm:grid-cols-3` for tablet.
+7. **Verify with Lighthouse** — `npx lighthouse@12 <url> --form-factor=mobile --throttling.cpuSlowdownMultiplier=4 --quiet --chrome-flags="--headless=new"`. Localhost scores ±10 points noisier than production Vercel.
+
+Lighthouse-killers, in impact order:
+- Tailwind CDN: **-25 to -35 perf**
+- `.reveal` opacity:0 on LCP element: **-15 to -30 perf** (LCP +10s)
+- Render-blocking Google Fonts: **-10 to -15 perf**
+- PNG instead of WebP: -5 to -10 perf per big image
+- Missing width/height on `<img>`: -5 to -10 perf (CLS)
+- External image CDN (no local cache): -5 perf
+
+**Do not** waste time moving GSAP/Lenis (already at body bottom, not render-blocking) or adding `font-display: swap` (already in Google Fonts URL).
 
 ## Verify-before-launch checklist
 
