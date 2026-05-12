@@ -161,11 +161,17 @@ Open Pijnappel's `team.html`, copy the head/nav/footer, replace the body with a 
 
 ### Lessons learned (from Pijnappel + future builds)
 
+- **Scrape the FULL sitemap, not just homepage + 4 obvious pages.** The biggest content-extraction miss on the first Pijnappel pass: we WebFetched home/team/services/contact/about and stopped. The site has **7 more pages** with major USPs — `/thuisinslapen` (home euthanasia), `/kruisband-uitleg` (1000+ words + TTA-Rapid surgeon credential — only 34 worldwide), `/lasertherapie` (€32.50 published price + 15 indications), `/tandheelkunde_uitleg` (specialism since 1995 + 13 dental photos), `/gratis-parkeren` (license-plate auto-system). **Always start with `sitemap_index.xml` and pull every page.** See the sitemap-first scrape recipe in step 1 of the workflow.
+- **Vet clinics often publish prices.** Pijnappel surfaces €1.975 for kniekirurgie and €32.50/laser session publicly. **Surface this in the prospect build** — pricing transparency is a strong differentiator vs. "vraag bij de balie".
+- **Look for specialist credentials.** Pijnappel's John J.L. Pijnappel is 1 of 34 TTA-Rapid surgeons worldwide (3 in NL since 2013). These credentials are buried in `*uitleg*` pages but are massive credibility for the build's "expertise" sections.
+- **Many vet clinics offer home euthanasia.** It's almost never on the main nav but lives as a dedicated page (often `/thuisinslapen`, `/inslapen`, `/euthanasie-thuis`). Worth featuring — emotionally weighty service that customers value.
 - **Don't generate fresh AI animations for prospect mockups.** The Pijnappel `vet-dog-pixar-story.mp4` works for ANY vet clinic — vet+dog+assistant is generic enough. Higgsfield Kling pro is ~$1-2 per 5-sec clip; speculative spend burns budget. See "Reuse vs regenerate rule" below.
 - **The Pijnappel logo is brand-specific** — replace with text wordmark (Fraunces serif, 28px) for prospects without a logo. The script does this automatically.
 - **Booking-link substitution must catch both the URL and the CTA label.** A `<a href="...online-afspraak-boeken" target="_blank">` without label substitution leaves "Boek online" buttons that link to phone. The consolidated script handles both.
 - **"Onderdeel van VetPartners"** is Pijnappel-specific. Most other clinics aren't part of that network — remove or replace with generic line.
 - **Team-page placeholders should look intentional.** Avoid generic stock smiles — use mid-pose pet-handling photos so it reads as "team in action" rather than "we used stock". The Pexels IDs in the script are chosen for that.
+- **Image count sanity check.** A typical Dutch vet clinic has 30-60 unique images in their WP uploads (team portraits + interior + diagrams for any specialism pages). If your scrape returns <15, you missed pages — re-check the sitemap.
+- **Reference content archive:** Pijnappel's complete archive lives at `/Users/giuseppegeukes/Website Klanten Projecten/pijnappel-content/` — 49 images + 12 HTML pages + `CONTENT-INVENTORY.md` summary. Use as a template for building per-clinic content archives BEFORE writing copy.
 
 ## Overview
 
@@ -280,16 +286,91 @@ Default tokens (Pijnappel build, works for ~80% of vet clinics):
 
 ## Spin-Up Workflow (detailed)
 
-### 1. Brand inventory (before code)
+### 1. Brand inventory — go DEEP, not just homepage
 
-`WebFetch` against the clinic's existing site OR their Google Business / Facebook page to extract:
-- **Address** — full street + postcode + city + neighborhood (for "in {City}-{District}" copy)
-- **Phone + email** — exact format (some Dutch clinics use `024 - 123 45 67`, others `024-1234567`)
-- **Opening hours per day** — Pijnappel uses Ma-Vr 9:00-17:00 + extended hour on Friday; many vets have Saturday morning hours
-- **Specialties** — varies per clinic: some only do small-animal general care, some have endoscopy/laser/dental specialties, some treat exotics/horses
-- **Team members** — if listed anywhere (Facebook About is common). Capture: name + role only. Don't fabricate bios.
-- **Partnerships** — KNMVD (Royal Dutch Veterinary Society), LICG (info-center), WVT (Companion Animal Vets Association), VetPartners (chain). Most clinics are members of 1-3.
-- **Photos** — interior, team, clinic exterior. If sparse, fall back to Pexels (the script does this automatically).
+**Critical lesson from the Pijnappel build:** Don't WebFetch only the homepage + the obvious 4 pages (team / services / about / contact). Vet clinic sites consistently have **5-7 hidden detail-pages** with major USPs that the homepage doesn't surface. Pijnappel had a `/thuisinslapen` (home euthanasia) page, three uitleg-pages (`kruisband-uitleg`, `lasertherapie`, `tandheelkunde_uitleg`), and a parkeer-systeem page — none discoverable from the homepage menu.
+
+**Always start with the sitemap.** WordPress sites (which is ~90% of Dutch vet clinics) auto-publish their full sitemap at `sitemap_index.xml`.
+
+#### Sitemap-first scrape recipe
+
+```bash
+DOMAIN="https://dierenkliniekpijnappel.nl"  # adjust per client
+DEST="/Users/{you}/Website Klanten Projecten/{clinic-slug}-content"
+mkdir -p "$DEST/images" "$DEST/copy"
+
+# 1. Get all pages from sitemap
+/usr/bin/curl -sL "$DOMAIN/page-sitemap.xml" \
+  | grep -oE '<loc>[^<]+</loc>' \
+  | sed 's|<[^>]*>||g' \
+  | tee "$DEST/pages.txt"
+
+# 2. Fetch every page's raw HTML
+> "$DEST/all-raw.html"
+while read url; do
+  /usr/bin/curl -sL "$url" >> "$DEST/all-raw.html"
+  fname=$(basename "$url")
+  /usr/bin/curl -sL "$url" -o "$DEST/copy/${fname:-home}.html"
+done < "$DEST/pages.txt"
+
+# 3. Extract all image URLs (dedupe + strip srcset variants)
+grep -oE "$DOMAIN/wp-content/uploads/[^\"]+\.(jpg|jpeg|png|webp|svg)" "$DEST/all-raw.html" \
+  | python3 -c "
+import re, sys
+seen = set()
+for line in sys.stdin:
+    for url in re.split(r'[\s,]+', line.strip()):
+        # Normalize size variants — keep full-res only
+        base = re.sub(r'-\d+x\d+(\.[a-z]+)$', r'\1', url)
+        if base.startswith('http') and base not in seen:
+            seen.add(base)
+            print(base)
+" > "$DEST/images.txt"
+
+# 4. Download all images
+cd "$DEST/images"
+while read url; do
+  fname=$(basename "$url")
+  [ -f "$fname" ] || /usr/bin/curl -sL "$url" -o "$fname"
+done < "$DEST/images.txt"
+
+echo "✓ Archived $(wc -l < $DEST/pages.txt) pages, $(ls "$DEST/images" | wc -l) images"
+```
+
+This takes ~30 seconds per clinic and gives you a complete content archive locally.
+
+#### What to look for in the scraped content (per page-type)
+
+| Page slug | What it might hold | Why it matters |
+|---|---|---|
+| `*uitleg*`, `*detail*`, `*meer*` | 1000+ word condition-explainer pages | Specialism credibility — surgeon certifications, technique names |
+| `thuisinslapen`, `euthanasie`, `inslapen` | Home-euthanasia service | Big emotional service many vets quietly offer |
+| `tarieven`, `prijzen`, `kosten` | Public pricing | Transparency = USP. Many clinics publish prices |
+| `gratis-parkeren`, `parkeren`, `bereikbaarheid` | Access/parking system details | Service-friendliness signal |
+| `kruisband*`, `orthopedie*`, `chirurgie*` | Orthopedic specialism + technique names | If they're TPLO / TTA-Rapid certified, that's rare credibility |
+| `laser*`, `acupunctuur*`, `fysio*` | Alternative-therapy specialism | Often €30-50/session, listed publicly |
+| `tand*`, `gebit*` | Dental specialism — sometimes since-year | "Specialisme sinds 1995" = 30-year track record |
+| `team`, `medewerkers` | Real photos + names — usually 1 page | Don't fabricate; if missing, use placeholder section |
+| `over*`, `historie`, `praktijk` | Founding year, owner names, partnerships | Use if surfaced; never invent |
+| Blog `/post-sitemap.xml` | Mostly placeholder ("hallo wereld"), but occasionally case studies | Skip unless meaty |
+
+#### Sanity check before writing copy
+
+Open the `CONTENT-INVENTORY.md` (write one — see Pijnappel's at `/Users/giuseppegeukes/Website Klanten Projecten/pijnappel-content/CONTENT-INVENTORY.md` for the template). Note specifically:
+
+- Any published **pricing** — surface this prominently. Vet clients HATE pricing-hide-and-seek.
+- Any **specialist credentials** (surgeon certification, society membership, since-year) — these are pitch gold
+- Any **emotional services** (home euthanasia, hospice care) — don't bury, give a dedicated page
+- **All photo URLs** counted — should be 30-60 for a typical Dutch vet clinic. If <15, the original site is sparse and you'll lean more on Pexels stock.
+
+#### What NOT to fabricate
+
+Per the asset-reuse memory + honesty rules:
+- ❌ Don't invent prices that aren't on the source site
+- ❌ Don't invent credentials ("gespecialiseerd in X") if not stated
+- ❌ Don't invent partnerships or memberships
+- ❌ Don't invent team bios beyond name + role
+- ✅ Do mark "placeholder" in the README for anything to verify with the clinic later
 
 ### 2. Run the consolidated script
 
