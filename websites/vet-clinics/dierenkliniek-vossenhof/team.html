@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ons team — Dierenkliniek Vossenhof Nijmegen</title>
+  <meta name="description" content="Ontmoet de dierenartsen en paraveterinairen van Dierenkliniek Vossenhof in Nijmegen-Hatert. Een klein, betrokken team voor honden, katten, konijnen en knaagdieren." />
+  <meta name="theme-color" content="#F7E8D6" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23B7242B%27 d=%27M22 26c-3.3 0-6-3.4-6-7.5S18.7 11 22 11s6 3.4 6 7.5S25.3 26 22 26zm20 0c-3.3 0-6-3.4-6-7.5S38.7 11 42 11s6 3.4 6 7.5S45.3 26 42 26zM10 36c-2.8 0-5-2.7-5-6s2.2-6 5-6 5 2.7 5 6-2.2 6-5 6zm44 0c-2.8 0-5-2.7-5-6s2.2-6 5-6 5 2.7 5 6-2.2 6-5 6zM32 30c-7.7 0-14 6.7-14 15 0 4.6 3.4 8 8 8 2.6 0 3.7-1 6-1s3.4 1 6 1c4.6 0 8-3.4 8-8 0-8.3-6.3-15-14-15z%27/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg:     { base: '#F7E8D6', card: '#FFFFFF', soft: '#FCF1E2', cta: '#5B47F0' },
+            indigo: { DEFAULT: '#5B47F0', deep: '#4839C7' },
+            peach:  { DEFAULT: '#F0B98E', light: '#F8D9BB' },
+            brand:  { red: '#B7242B' },
+            ink:    { primary: '#2A1F1A', muted: '#6B5D54', faint: '#A8978A' },
+            border: { soft: '#EBD9C0' },
+          },
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            sans:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: { kicker: '0.14em' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html, body { background: #F7E8D6; color: #2A1F1A; font-family: 'DM Sans', system-ui, sans-serif; scroll-behavior: smooth; }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .reveal { opacity: 0; transform: translateY(24px); }
+    .reveal-img { clip-path: inset(0 100% 0 0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-img { opacity: 1; transform: none; clip-path: none; }
+    }
+    ::selection { background: #5B47F0; color: #FFFFFF; }
+    .paw-deco { position: absolute; pointer-events: none; opacity: 0.18; }
+    .nav-scrolled {
+      background: rgba(247, 232, 214, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 24px rgba(42,31,26,0.06);
+    }
+    .cta-indigo { position: relative; overflow: hidden; isolation: isolate; }
+    .cta-indigo::before {
+      content: ''; position: absolute; top: 0; left: -120%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 800ms cubic-bezier(0.4,0,0.2,1); z-index: 1;
+    }
+    .cta-indigo:hover::before { left: 130%; }
+    .cta-indigo > * { position: relative; z-index: 2; }
+    .link-indigo { position: relative; display: inline-block; }
+    .link-indigo::after {
+      content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1.5px;
+      background: currentColor; transform: scaleX(0); transform-origin: right;
+      transition: transform 350ms cubic-bezier(0.4,0,0.2,1);
+    }
+    .link-indigo:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    /* Team member card */
+    .member-card { transition: transform 350ms cubic-bezier(0.4,0,0.2,1); }
+    .member-card:hover { transform: translateY(-6px); }
+    .member-photo {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #F0B98E;
+      aspect-ratio: 4/5;
+    }
+    .member-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 500ms cubic-bezier(0.4,0,0.2,1);
+    }
+    .member-card:hover .member-photo img { transform: scale(1.04); }
+    .member-initials {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 100%;
+      font-family: 'Fraunces', serif; font-size: 64px;
+      color: #2A1F1A; background: #F0B98E;
+    }
+  </style>
+</head>
+<body class="bg-bg-base text-ink-primary antialiased">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="paw" viewBox="0 0 64 64">
+      <path fill="currentColor" d="M22 26c-3.3 0-6-3.4-6-7.5S18.7 11 22 11s6 3.4 6 7.5S25.3 26 22 26zm20 0c-3.3 0-6-3.4-6-7.5S38.7 11 42 11s6 3.4 6 7.5S45.3 26 42 26zM10 36c-2.8 0-5-2.7-5-6s2.2-6 5-6 5 2.7 5 6-2.2 6-5 6zm44 0c-2.8 0-5-2.7-5-6s2.2-6 5-6 5 2.7 5 6-2.2 6-5 6zM32 30c-7.7 0-14 6.7-14 15 0 4.6 3.4 8 8 8 2.6 0 3.7-1 6-1s3.4 1 6 1c4.6 0 8-3.4 8-8 0-8.3-6.3-15-14-15z"/>
+    </symbol>
+  </svg>
+
+  <!-- ============ NAV ============ -->
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 nav-scrolled">
+    <nav class="max-w-[1240px] mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center group">
+        <span class="font-display text-2xl lg:text-[28px] text-ink-primary group-hover:text-indigo transition-colors">Dierenkliniek Vossenhof</span>
+      </a>
+      <ul class="hidden lg:flex items-center gap-8 text-[13px] font-semibold tracking-wide">
+        <li><a href="index.html" class="link-indigo text-ink-primary hover:text-indigo">Home</a></li>
+        <li><a href="specialiteiten.html" class="link-indigo text-ink-primary hover:text-indigo">Specialiteiten</a></li>
+        <li><a href="team.html" class="link-indigo text-indigo">Ons team</a></li>
+        <li><a href="contact.html" class="link-indigo text-ink-primary hover:text-indigo">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <a href="tel:+31243559351" class="hidden md:flex items-center gap-2 text-[13px] font-semibold text-brand-red">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.9.34 1.79.64 2.65a2 2 0 01-.45 2.11L8 9.79a16 16 0 006 6l1.31-1.3a2 2 0 012.11-.45c.86.3 1.75.52 2.65.64A2 2 0 0122 16.92z"/></svg>
+          024 - 355 93 51
+        </a>
+        <a href="tel:+31243559351" class="cta-indigo hidden sm:inline-flex items-center gap-2 bg-indigo text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-deep transition-colors">
+          <span>Bel ons</span>
+        </a>
+        <button id="mobile-toggle" class="lg:hidden p-2 -mr-2" aria-label="Menu openen">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-drawer" class="lg:hidden fixed inset-0 bg-bg-base/95 backdrop-blur-lg z-40 hidden">
+      <div class="flex flex-col items-center justify-center h-full gap-7 font-display text-3xl">
+        <a href="index.html">Home</a>
+        <a href="specialiteiten.html">Specialiteiten</a>
+        <a href="team.html" class="text-indigo">Ons team</a>
+        <a href="contact.html">Contact</a>
+        <a href="tel:+31243559351" class="cta-indigo bg-indigo text-white rounded-full px-7 py-3 text-base font-sans font-semibold mt-3">Bel ons</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="pt-32 pb-12 lg:pt-44 lg:pb-16 relative overflow-hidden">
+    <svg class="paw-deco top-32 left-10 w-14 h-14 text-peach rotate-12" aria-hidden="true"><use href="#paw"/></svg>
+    <svg class="paw-deco bottom-10 right-20 w-12 h-12 text-peach -rotate-12" aria-hidden="true"><use href="#paw"/></svg>
+
+    <div class="max-w-[1240px] mx-auto px-6 lg:px-12 relative">
+      <p class="reveal text-[11px] tracking-kicker uppercase text-indigo font-semibold mb-5">Ons team</p>
+      <h1 class="reveal font-display text-5xl lg:text-7xl xl:text-8xl leading-[1.02] max-w-4xl mb-8">
+        De mensen achter<br/>de <em class="italic text-brand-red">witte jas.</em>
+      </h1>
+      <p class="reveal text-ink-muted text-lg lg:text-xl max-w-2xl leading-relaxed">
+        Een klein, betrokken team van dierenartsen en assistenten. Geen "nummers achter het bureau" — wel mensen die je leert kennen bij het eerste bezoek.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ TEAM PLACEHOLDER ============ -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-[1240px] mx-auto px-6 lg:px-12">
+      <div class="reveal bg-bg-card rounded-[32px] p-10 lg:p-16 text-center relative overflow-hidden">
+        <svg class="paw-deco -top-6 -left-6 w-32 h-32 text-peach rotate-12" aria-hidden="true"><use href="#paw"/></svg>
+        <svg class="paw-deco -bottom-6 -right-6 w-28 h-28 text-peach -rotate-12" aria-hidden="true"><use href="#paw"/></svg>
+
+        <div class="relative max-w-2xl mx-auto">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-peach-light flex items-center justify-center text-brand-red">
+            <svg width="32" height="32"><use href="#paw"/></svg>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl leading-tight mb-5">
+            Een kennismaking bij het <em class="italic text-brand-red">eerste bezoek.</em>
+          </h2>
+          <p class="text-ink-muted text-lg leading-relaxed mb-8">
+            Onze dierenartsen en paraveterinairen stellen zich het liefst persoonlijk voor — niet via een geposeerde fotopagina. Vraag bij de balie naar wie er die dag aanwezig is, of bel voor specifieke wensen rondom een vaste behandelaar.
+          </p>
+          <p class="text-sm text-ink-faint mb-8">
+            Een complete team-pagina met foto's en specialismen volgt binnenkort op deze plek.
+          </p>
+          <a href="tel:+31243559351" class="cta-indigo inline-flex items-center gap-2 bg-indigo text-white px-7 py-4 rounded-full font-semibold hover:bg-indigo-deep transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.9.34 1.79.64 2.65a2 2 0 01-.45 2.11L8 9.79a16 16 0 006 6l1.31-1.3a2 2 0 012.11-.45c.86.3 1.75.52 2.65.64A2 2 0 0122 16.92z"/></svg>
+            <span>Bel 024 - 355 93 51</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARTNERSHIPS PLACEHOLDER ============ -->
+  <section class="py-12 lg:py-20 bg-bg-soft">
+    <div class="max-w-[1240px] mx-auto px-6 lg:px-12">
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="reveal text-[11px] tracking-kicker uppercase text-indigo font-semibold mb-4">Aangesloten bij</p>
+        <h2 class="reveal font-display text-2xl lg:text-3xl leading-tight mb-4">
+          Lid van de Nederlandse <em class="italic text-brand-red">veterinaire</em> beroepsverenigingen.
+        </h2>
+        <p class="reveal text-ink-muted text-sm leading-relaxed">
+          Voor de actuele lijst van lidmaatschappen en kwaliteitskeurmerken — vraag ernaar bij de balie.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-[1240px] mx-auto px-6 lg:px-12">
+      <div class="reveal bg-indigo rounded-[36px] p-10 lg:p-16 text-center relative overflow-hidden">
+        <svg class="paw-deco -top-6 -left-6 w-40 h-40 text-white opacity-10 rotate-12" aria-hidden="true"><use href="#paw"/></svg>
+        <svg class="paw-deco -bottom-6 -right-6 w-32 h-32 text-white opacity-10 -rotate-12" aria-hidden="true"><use href="#paw"/></svg>
+        <div class="relative max-w-2xl mx-auto">
+          <h2 class="font-display text-3xl lg:text-5xl leading-tight text-white mb-5">
+            Liever zelf <em class="italic">langslopen?</em>
+          </h2>
+          <p class="text-white/80 leading-relaxed mb-8">
+            Op werkdagen ben je tussen 9:00 en 17:00 welkom. Voor een afspraak bel je direct of boek je online — wij kijken vaak nog dezelfde week.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="tel:+31243559351" class="cta-indigo inline-flex items-center gap-2 bg-white text-indigo px-7 py-4 rounded-full font-semibold hover:bg-peach-light transition-colors">
+              <span>Bel ons</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="contact.html" class="inline-flex items-center gap-2 border-2 border-white/40 text-white px-7 py-3.5 rounded-full font-semibold hover:bg-white/10 transition-colors">
+              <span>Vind ons</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-bg-card border-t border-border-soft py-14">
+    <div class="max-w-[1240px] mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div class="md:col-span-2">
+          <div class="font-display text-3xl text-ink-primary mb-5">Dierenkliniek Vossenhof</div>
+          <p class="text-ink-muted text-sm leading-relaxed max-w-md">
+            Persoonlijke diergeneeskunde in Nijmegen-Hatert. Voor honden, katten, konijnen en knaagdieren. Persoonlijke zorg, dag in dag uit.
+          </p>
+        </div>
+        <div>
+          <p class="text-[11px] tracking-kicker uppercase text-indigo font-semibold mb-4">Bezoek</p>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Vossenhof 46<br/>6534 VH Nijmegen<br/>
+            <a href="tel:+31243559351" class="link-indigo text-ink-primary">024 - 355 93 51</a>
+          </p>
+        </div>
+        <div>
+          <p class="text-[11px] tracking-kicker uppercase text-indigo font-semibold mb-4">Menu</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="link-indigo text-ink-primary hover:text-indigo">Home</a></li>
+            <li><a href="specialiteiten.html" class="link-indigo text-ink-primary hover:text-indigo">Specialiteiten</a></li>
+            <li><a href="team.html" class="link-indigo text-ink-primary hover:text-indigo">Ons team</a></li>
+            <li><a href="contact.html" class="link-indigo text-ink-primary hover:text-indigo">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-border-soft flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-muted">
+        <p>© <span id="year"></span> Dierenkliniek Vossenhof. Persoonlijke zorg, dag in dag uit.</p>
+        <div class="flex items-center gap-5">
+          <img src="images/knmvd.png" alt="KNMVD" class="h-6 w-auto opacity-70" />
+          <img src="images/licg.png" alt="LICG" class="h-6 w-auto opacity-70" />
+          <img src="images/wvt.jpg" alt="WVT" class="h-6 w-auto opacity-70" />
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced && window.Lenis) {
+      const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      lenis.on('scroll', () => ScrollTrigger.update());
+    }
+    const nav = document.getElementById('site-nav');
+    const onScroll = () => {
+      if (window.scrollY > 40) nav.classList.add('nav-scrolled');
+      else nav.classList.remove('nav-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    const toggle = document.getElementById('mobile-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    toggle?.addEventListener('click', () => {
+      const hidden = drawer.classList.contains('hidden');
+      if (hidden) { drawer.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+      else { drawer.classList.add('hidden'); document.body.style.overflow = ''; }
+    });
+    drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.classList.add('hidden'); document.body.style.overflow = '';
+    }));
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('.reveal').forEach(el => {
+        gsap.fromTo(el, { opacity: 0, y: 24 }, {
+          opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+        });
+      });
+      gsap.utils.toArray('.reveal-img').forEach(el => {
+        gsap.fromTo(el, { clipPath: 'inset(0 100% 0 0)' }, {
+          clipPath: 'inset(0 0% 0 0)', duration: 1.0, ease: 'power3.inOut',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
