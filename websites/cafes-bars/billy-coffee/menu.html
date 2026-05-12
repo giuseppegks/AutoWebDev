@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Menu | Billy's Coffee Nijmegen</title>
+  <meta name="description" content="Bekijk het menu van Billy's: koffie, ontbijt, lunch en huisgemaakt gebak in hartje Nijmegen-Oost.">
+  <meta name="theme-color" content="#1C413C">
+  <link rel="icon" type="image/png" href="images/BillysCoffee_icon_RGB.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="index.html" class="nav__brand" aria-label="Billy's Coffee — naar startpagina">
+        <img src="images/BillysCoffee_Logo_RGB.png" alt="Billy's Coffee">
+      </a>
+      <button class="nav__toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="nav__menu" id="primary-nav">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link is-active" href="menu.html">Menu</a></li>
+        <li><a class="nav__link" href="over.html">Over</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+        <li><a class="btn btn--primary nav__cta" href="contact.html#reserveren">Reserveer een tafel</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header__inner reveal">
+        <span class="eyebrow">Wat we maken</span>
+        <h1>Het menu.</h1>
+        <p class="page-header__lead">Onze actuele kaart, lente 2026. Sleep of gebruik de pijltjes om door de pagina's te bladeren.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SLIDER -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="menu-slider reveal">
+        <div class="slider" data-slider>
+          <button class="slider__btn slider__btn--prev" type="button" aria-label="Vorige foto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="slider__btn slider__btn--next" type="button" aria-label="Volgende foto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <div class="slider__track">
+            <div class="slider__slide">
+              <img src="images/menu-1.jpg" alt="Menu lente 2026 — pagina 1" loading="eager">
+            </div>
+            <div class="slider__slide">
+              <img src="images/menu-2.jpg" alt="Menu lente 2026 — pagina 2" loading="lazy">
+            </div>
+            <div class="slider__slide">
+              <img src="images/menu-3.jpg" alt="Menu lente 2026 — pagina 3" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="slider__dots" aria-label="Pagina navigatie"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO INSPIRATION -->
+  <section style="padding-block: 0;">
+    <div class="container">
+      <div class="strip reveal">
+        <img src="images/lunch.jpg" alt="Lunchgerecht" loading="lazy">
+        <img src="images/hangovertosti.jpg" alt="Hangovertosti" loading="lazy">
+        <img src="images/vierkant-02.jpg" alt="Sfeerbeeld" loading="lazy">
+        <img src="images/vierkant-06.jpg" alt="Producten bij Billy's" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO BLOCK -->
+  <section>
+    <div class="container container--narrow text-center">
+      <div class="reveal">
+        <span class="eyebrow">Goed om te weten</span>
+        <h2>Allergieën, dieetwensen, of een groep?</h2>
+        <p class="lead" style="margin: 1rem auto 2rem;">Vraag de bediening gerust naar allergenen of opties die bij je dieet passen. Voor groepen vanaf 6 personen is reserveren handig.</p>
+        <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+          <a class="btn btn--primary" href="contact.html#reserveren">Reserveer voor je groep</a>
+          <a class="btn btn--ghost" href="contact.html">Stuur een vraag</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-coffee">
+    <div class="container container--narrow text-center">
+      <div class="reveal">
+        <h2 class="h-display"><em>Honger gekregen?</em></h2>
+        <p class="lead" style="color: rgba(245,237,224,0.78); margin: 1.5rem auto 2rem;">Loop binnen — open van wo t/m ma, 8:30 — 16:30 (zo vanaf 9:30).</p>
+        <a class="btn btn--accent" href="contact.html">Bezoek plannen</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer__brand">
+        <div class="footer__brand-row">
+          <img src="images/BillysCoffee_Logo_RGB.png" alt="Billy's Coffee">
+        </div>
+        <p class="footer__tag">Specialty coffee, ontbijt, lunch & huisgemaakt zoet. Daalseweg 31, Nijmegen.</p>
+        <div class="socials">
+          <a class="social-btn" href="https://www.instagram.com/billys_specialtycoffee/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=100079065074677" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22V12h3l.5-4H13V5.5c0-1.1.3-1.9 1.9-1.9H17V0h-2.6c-3 0-5.4 1.8-5.4 5.2V8H6v4h3v10h4z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Bezoek</h4><ul><li>Daalseweg 31</li><li>6521 GG Nijmegen</li><li><a href="https://www.google.com/maps/place/Billy's+Coffee/@51.8411338,5.8714085,15z/" target="_blank" rel="noopener">Open in Maps →</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+31645689990">06 45689990</a></li><li><a href="mailto:info@billys.coffee">info@billys.coffee</a></li><li><a href="contact.html#reserveren">Reserveren</a></li></ul></div>
+      <div class="footer-col"><h4>Menu</h4><ul><li><a href="menu.html">Het menu</a></li><li><a href="over.html">Over Billy's</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Billy's Coffee · KVK 86657127</span>
+      <span>Daalseweg 31, Nijmegen</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

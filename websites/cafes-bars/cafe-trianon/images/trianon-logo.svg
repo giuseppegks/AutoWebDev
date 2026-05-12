@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-label="Café Trianon">
+  <style>
+    .word { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 500; fill: #15294F; }
+    .word--em { fill: #B07820; font-style: italic; }
+    .kicker { font-family: 'Inter', system-ui, sans-serif; font-weight: 500; letter-spacing: 0.32em; fill: #4A6394; text-transform: uppercase; }
+  </style>
+  <text x="160" y="14" class="kicker" font-size="10" text-anchor="middle">CAFÉ &middot; PODIUM</text>
+  <text x="160" y="58" class="word" font-size="42" text-anchor="middle">Tri<tspan class="word--em">a</tspan>non</text>
+  <text x="160" y="75" class="kicker" font-size="8" text-anchor="middle">NIJMEGEN-OOST · SINDS 1910</text>
+</svg>

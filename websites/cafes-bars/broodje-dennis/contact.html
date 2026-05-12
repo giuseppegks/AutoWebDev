@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact &amp; Catering | Broodje Dennis</title>
+  <meta name="description" content="Adres, openingstijden en catering aanvragen bij Broodje Dennis. Lange Hezelstraat 96A, Nijmegen.">
+  <meta name="theme-color" content="#3B2613">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="index.html" class="nav__brand" aria-label="Broodje Dennis — naar startpagina">
+        <span class="nav__brand-text">Broodje Dennis</span>
+      </a>
+      <button class="nav__toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="nav__menu" id="primary-nav">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="menu.html">Menu</a></li>
+        <li><a class="nav__link" href="over.html">Over</a></li>
+        <li><a class="nav__link is-active" href="contact.html">Contact</a></li>
+        <li><a class="btn btn--primary nav__cta" href="#bestellen">Catering aanvragen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header__inner reveal">
+        <span class="eyebrow">Tot zo</span>
+        <h1>Tot zo bij <em>Dennis.</em></h1>
+        <p class="page-header__lead">Loop binnen voor een vers broodje, of laat van je horen voor catering. We staan elke ochtend vroeg in de keuken.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO + CATERING -->
+  <section>
+    <div class="container">
+      <div class="info-grid">
+
+        <!-- Left: contact info -->
+        <div class="info-block reveal">
+          <div class="info-row">
+            <span class="info-row__label">Bezoekadres</span>
+            <span class="info-row__value">
+              Lange Hezelstraat 96A<br>
+              6511 CN Nijmegen
+            </span>
+            <a href="https://www.google.com/maps?q=Lange+Hezelstraat+96A,+Nijmegen" target="_blank" rel="noopener" style="font-size:.95rem;color:var(--caramel);text-decoration:underline;text-underline-offset:3px;margin-top:.4rem;">Open in Google Maps →</a>
+          </div>
+
+          <div class="info-row">
+            <span class="info-row__label">Telefoon</span>
+            <span class="info-row__value" style="opacity:.7;">[PLACEHOLDER telefoonnummer]</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-row__label">E-mail</span>
+            <span class="info-row__value" style="opacity:.7;">[PLACEHOLDER e-mailadres]</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-row__label">Instagram</span>
+            <a class="info-row__value" href="https://www.instagram.com/broodje_dennis/" target="_blank" rel="noopener">@broodje_dennis</a>
+          </div>
+
+          <div class="info-row">
+            <span class="info-row__label">Facebook</span>
+            <a class="info-row__value" href="https://www.facebook.com/broodjebijdennis" target="_blank" rel="noopener">broodjebijdennis</a>
+          </div>
+
+          <div class="info-row">
+            <span class="info-row__label">Openingstijden</span>
+            <div class="hours-table">
+              <div class="hours-row is-closed" data-day="ma"><span>Maandag</span><span>Gesloten</span></div>
+              <div class="hours-row is-closed" data-day="di"><span>Dinsdag</span><span>Gesloten</span></div>
+              <div class="hours-row is-closed" data-day="wo"><span>Woensdag</span><span>Gesloten</span></div>
+              <div class="hours-row" data-day="do"><span>Donderdag</span><span>10:00 — 17:00</span></div>
+              <div class="hours-row" data-day="vr"><span>Vrijdag</span><span>10:00 — 17:00</span></div>
+              <div class="hours-row" data-day="za"><span>Zaterdag</span><span>10:00 — 17:00</span></div>
+              <div class="hours-row" data-day="zo"><span>Zondag</span><span>10:00 — 17:00</span></div>
+            </div>
+            <p class="text-muted" style="font-size:.85rem; margin-top:.5rem;">Openingstijden Lange Hezelstraat 96A. Wijzigingen op feestdagen — check Instagram of Facebook.</p>
+          </div>
+        </div>
+
+        <!-- Right: catering form -->
+        <div class="contact-card reveal" id="bestellen">
+          <div>
+            <span class="eyebrow">Catering &amp; grote bestellingen</span>
+            <h2 style="margin-top:.5rem;">Lunch voor het team? <em>BBQ voor de zaak?</em></h2>
+            <p class="text-muted mt-2" style="font-size:.95rem;">Via Partyservice Milder verzorgen we broodjes-platters, bedrijfsbarbecues en evenementen door heel Nederland. Stuur ons een mailtje — dan komen we er zo snel mogelijk op terug.</p>
+          </div>
+
+          <form class="form" data-mailto-form novalidate>
+            <div class="form-row">
+              <label for="naam">Naam</label>
+              <input id="naam" name="naam" type="text" required autocomplete="name">
+            </div>
+            <div class="form-row__split">
+              <div class="form-row">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" required autocomplete="email">
+              </div>
+              <div class="form-row">
+                <label for="telefoon">Telefoon (optioneel)</label>
+                <input id="telefoon" name="telefoon" type="tel" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-row__split">
+              <div class="form-row">
+                <label for="datum">Datum &amp; tijd</label>
+                <input id="datum" name="datum" type="text" placeholder="bijv. vr 22 mei, 12:30" required>
+              </div>
+              <div class="form-row">
+                <label for="personen">Aantal personen</label>
+                <select id="personen" name="personen" required>
+                  <option value="">Kies aantal</option>
+                  <option>5 — 10 personen</option>
+                  <option>10 — 25 personen</option>
+                  <option>25 — 50 personen</option>
+                  <option>50 — 100 personen</option>
+                  <option>100+ personen</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="bericht">Berichtje (wat zoek je? allergieën?)</label>
+              <textarea id="bericht" name="bericht" rows="4" placeholder="Broodjes-platter, BBQ, lunch op locatie?"></textarea>
+            </div>
+            <div style="margin-top:.5rem;">
+              <button type="submit" class="btn btn--primary" style="width:100%;">Open mail om te versturen
+                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
+              </button>
+              <p class="text-muted text-center mt-2" style="font-size:.8rem;">Dit opent jouw mail-app met de gegevens vooringevuld. <strong>Niks wordt opgeslagen op deze site.</strong> Liever direct contact? Bel ons — telefoonnummer staat hierboven.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="section-cream" style="padding-block: clamp(2.5rem, 5vw, 4rem);">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Hoe je ons vindt</span>
+        <h2>Lange Hezelstraat 96A, hartje Nijmegen.</h2>
+      </div>
+      <div class="map-wrap reveal">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Locatie Broodje Dennis — Lange Hezelstraat 96A, Nijmegen"
+          src="https://www.google.com/maps?q=Lange+Hezelstraat+96A,+6511+CN+Nijmegen&output=embed"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-coffee">
+    <div class="container container--narrow text-center">
+      <div class="reveal">
+        <h2 class="h-display"><em>Liever even bellen?</em></h2>
+        <p class="lead" style="color: rgba(251,245,232,0.78); margin: 1.5rem auto 2rem;">Voor losse broodjes hoef je niet te bellen — gewoon binnenlopen. Voor catering wel handig.</p>
+        <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+          <a class="btn btn--accent" href="https://www.facebook.com/broodjebijdennis" target="_blank" rel="noopener">Facebook bericht</a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/broodje_dennis/" target="_blank" rel="noopener">Instagram DM</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer__brand">
+        <div class="footer__brand-row">
+          <span class="footer__brand-name" style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--cream);">Broodje Dennis</span>
+        </div>
+        <p class="footer__tag">Specialiteit-broodjes, verse pistolets &amp; huisgemaakte salades. Lange Hezelstraat 96A, Nijmegen.</p>
+        <div class="socials">
+          <a class="social-btn" href="https://www.instagram.com/broodje_dennis/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          <a class="social-btn" href="https://www.facebook.com/broodjebijdennis" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22V12h3l.5-4H13V5.5c0-1.1.3-1.9 1.9-1.9H17V0h-2.6c-3 0-5.4 1.8-5.4 5.2V8H6v4h3v10h4z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Bezoek</h4><ul><li>Lange Hezelstraat 96A</li><li>6511 CN Nijmegen</li><li><a href="https://www.google.com/maps?q=Lange+Hezelstraat+96A,+Nijmegen" target="_blank" rel="noopener">Open in Maps →</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li>Telefoon: <span style="opacity:.7;">[PLACEHOLDER]</span></li><li>E-mail: <span style="opacity:.7;">[PLACEHOLDER]</span></li><li><a href="contact.html#bestellen">Catering aanvragen</a></li></ul></div>
+      <div class="footer-col"><h4>Menu</h4><ul><li><a href="menu.html">Het broodjesmenu</a></li><li><a href="over.html">Over Dennis</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Broodje Dennis · 15 jaar Nijmegen</span>
+      <span>Lange Hezelstraat 96A, Nijmegen</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

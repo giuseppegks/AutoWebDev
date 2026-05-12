@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact &amp; Route — Coffeeshop Dakota Nijmegen</title>
+  <meta name="description" content="Adres, openingstijden en route naar Coffeeshop Dakota. Lange Hezelstraat 113A, Nijmegen. Dagelijks 09:00 — 00:00.">
+  <meta name="theme-color" content="#2A1812">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="index.html" class="nav__brand" aria-label="Coffeeshop Dakota — naar startpagina">
+        <span class="nav__brand-text">Dakota</span>
+      </a>
+      <button class="nav__toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="nav__menu" id="primary-nav">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="huisregels.html">Huisregels</a></li>
+        <li><a class="nav__link is-active" href="contact.html">Contact</a></li>
+        <li><a class="btn btn--primary nav__cta" href="#kaart">Bekijk op de kaart</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header__inner reveal">
+        <span class="eyebrow">Tot zo</span>
+        <h1>Zo vind je <em>Dakota.</em></h1>
+        <p class="page-header__lead">Lange Hezelstraat 113A, Nijmegen. Op loopafstand van het centrum, het station en het Kronenburgerpark. Dagelijks van 09:00 tot middernacht.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO + CONTACT -->
+  <section>
+    <div class="container">
+      <div class="info-grid">
+
+        <!-- Left: contact info -->
+        <div class="info-block reveal">
+          <div class="info-row">
+            <span class="info-row__label">Bezoekadres</span>
+            <span class="info-row__value">
+              Coffeeshop Dakota<br>
+              Lange Hezelstraat 113A<br>
+              6511 CG Nijmegen
+            </span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Coffeeshop+Dakota+Lange+Hezelstraat+113A+Nijmegen" target="_blank" rel="noopener" style="font-size:.95rem;color:var(--coffee-warm);text-decoration:underline;text-underline-offset:3px;margin-top:.4rem;">Open in Google Maps →</a>
+          </div>
+
+          <div class="info-row">
+            <span class="info-row__label">Telefoon</span>
+            <a class="info-row__value" href="tel:+31243222537">024 322 2537</a>
+          </div>
+
+          <div class="info-row">
+            <span class="info-row__label">Bereikbaarheid</span>
+            <span class="info-row__value">
+              Loopafstand vanaf NS Nijmegen (± 8 min)<br>
+              Parkeren: Kelfkensbos of Wedren in de buurt
+            </span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-row__label">Toegang</span>
+            <span class="info-row__value">
+              Vanaf 18 jaar — legitimatie verplicht (paspoort, ID-kaart of rijbewijs).
+            </span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-row__label">Openingstijden</span>
+            <div class="hours-table">
+              <div class="hours-row" data-day="ma"><span>Maandag</span><span>09:00 — 00:00</span></div>
+              <div class="hours-row" data-day="di"><span>Dinsdag</span><span>09:00 — 00:00</span></div>
+              <div class="hours-row" data-day="wo"><span>Woensdag</span><span>09:00 — 00:00</span></div>
+              <div class="hours-row" data-day="do"><span>Donderdag</span><span>09:00 — 00:00</span></div>
+              <div class="hours-row" data-day="vr"><span>Vrijdag</span><span>09:00 — 00:00</span></div>
+              <div class="hours-row" data-day="za"><span>Zaterdag</span><span>09:00 — 00:00</span></div>
+              <div class="hours-row" data-day="zo"><span>Zondag</span><span>09:00 — 00:00</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: vraag stellen -->
+        <div class="contact-card reveal">
+          <div>
+            <span class="eyebrow">Stuur een berichtje</span>
+            <h2 style="margin-top:.5rem;">Een vraag? <em>Laat het ons weten.</em></h2>
+            <p class="text-muted mt-2" style="font-size:.95rem;">Voor algemene vragen kun je ons bellen of een mailtje sturen. Let op: we geven geen informatie over producten of prijzen via de website — daarvoor ben je welkom in de zaak zelf.</p>
+          </div>
+
+          <form class="form" data-mailto-form novalidate>
+            <div class="form-row">
+              <label for="naam">Naam</label>
+              <input id="naam" name="naam" type="text" required autocomplete="name">
+            </div>
+            <div class="form-row__split">
+              <div class="form-row">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" required autocomplete="email">
+              </div>
+              <div class="form-row">
+                <label for="telefoon">Telefoon (optioneel)</label>
+                <input id="telefoon" name="telefoon" type="tel" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="bericht">Je vraag</label>
+              <textarea id="bericht" name="bericht" rows="5" placeholder="Bijvoorbeeld: openingstijden tijdens feestdagen, route, of een algemene vraag."></textarea>
+            </div>
+            <div style="margin-top:.5rem;">
+              <button type="submit" class="btn btn--primary" style="width:100%;">Open mail om te versturen
+                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
+              </button>
+              <p class="text-muted text-center mt-2" style="font-size:.8rem;">Dit opent jouw mail-app met de gegevens vooringevuld. <strong>Niks wordt opgeslagen op deze site.</strong> Geen mailclient? Bel <a href="tel:+31243222537" style="text-decoration:underline;">024 322 2537</a>.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="section-cream" id="kaart" style="padding-block: clamp(2.5rem, 5vw, 4rem);">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Hoe je ons vindt</span>
+        <h2>Lange Hezelstraat 113A, <em>ten noorden van het Kronenburgerpark.</em></h2>
+      </div>
+      <div class="map-wrap reveal">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Locatie Coffeeshop Dakota — Lange Hezelstraat 113A, Nijmegen"
+          src="https://www.google.com/maps?q=Lange+Hezelstraat+113A,+6511+CG+Nijmegen&output=embed"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-coffee">
+    <div class="container container--narrow text-center">
+      <div class="reveal">
+        <h2 class="h-display"><em>Liever bellen?</em></h2>
+        <p class="lead" style="color: rgba(246,239,227,0.78); margin: 1.5rem auto 2rem;">Geen mailclient bij de hand? Pak gewoon de telefoon. We zijn er elke dag van 09:00 tot 00:00.</p>
+        <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+          <a class="btn btn--accent" href="tel:+31243222537">Bel 024 322 2537</a>
+          <a class="btn btn--ghost" href="huisregels.html">Lees de huisregels</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer__brand">
+        <div class="footer__brand-row">
+          <span class="nav__brand-text" style="font-size:1.6rem;">Dakota</span>
+        </div>
+        <p class="footer__tag">Gemoedelijke coffeeshop aan de Lange Hezelstraat, Nijmegen. 18+ · legitimatie verplicht.</p>
+      </div>
+      <div class="footer-col"><h4>Bezoek</h4><ul><li>Lange Hezelstraat 113A</li><li>6511 CG Nijmegen</li><li><a href="https://www.google.com/maps/search/?api=1&query=Coffeeshop+Dakota+Lange+Hezelstraat+113A+Nijmegen" target="_blank" rel="noopener">Open in Maps →</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+31243222537">024 322 2537</a></li><li><a href="contact.html">Contactpagina</a></li><li>Dagelijks 09:00 — 00:00</li></ul></div>
+      <div class="footer-col"><h4>Informatie</h4><ul><li><a href="huisregels.html">Huisregels</a></li><li><a href="contact.html">Route &amp; openingstijden</a></li><li>Toegang vanaf 18 jaar</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Coffeeshop Dakota · Nijmegen</span>
+      <span>Lange Hezelstraat 113A</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/age-gate.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

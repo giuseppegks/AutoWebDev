@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "note": "Curated Pexels CDN URLs for cafe/bar/coffeeshop sites. Free to hotlink, no API key needed.",
+    "size_suffix": "?auto=compress&cs=tinysrgb&w=1200"
+  },
+  "brown_cafe_bar": [
+    "https://images.pexels.com/photos/31611653/pexels-photo-31611653.jpeg",
+    "https://images.pexels.com/photos/32668410/pexels-photo-32668410.jpeg",
+    "https://images.pexels.com/photos/9510495/pexels-photo-9510495.jpeg",
+    "https://images.pexels.com/photos/3465604/pexels-photo-3465604.jpeg",
+    "https://images.pexels.com/photos/33890228/pexels-photo-33890228.jpeg",
+    "https://images.pexels.com/photos/12008029/pexels-photo-12008029.jpeg",
+    "https://images.pexels.com/photos/2067560/pexels-photo-2067560.jpeg",
+    "https://images.pexels.com/photos/35646566/pexels-photo-35646566.jpeg"
+  ],
+  "beer_glass_bar": [
+    "https://images.pexels.com/photos/15700339/pexels-photo-15700339.jpeg",
+    "https://images.pexels.com/photos/7016420/pexels-photo-7016420.jpeg",
+    "https://images.pexels.com/photos/7016487/pexels-photo-7016487.jpeg",
+    "https://images.pexels.com/photos/5530252/pexels-photo-5530252.jpeg",
+    "https://images.pexels.com/photos/11616064/pexels-photo-11616064.jpeg",
+    "https://images.pexels.com/photos/1267151/pexels-photo-1267151.jpeg",
+    "https://images.pexels.com/photos/12786728/pexels-photo-12786728.jpeg"
+  ],
+  "sandwich_shop": [
+    "https://images.pexels.com/photos/13640378/pexels-photo-13640378.jpeg",
+    "https://images.pexels.com/photos/30811295/pexels-photo-30811295.jpeg",
+    "https://images.pexels.com/photos/18338496/pexels-photo-18338496.jpeg",
+    "https://images.pexels.com/photos/34593405/pexels-photo-34593405.jpeg",
+    "https://images.pexels.com/photos/33995274/pexels-photo-33995274.jpeg",
+    "https://images.pexels.com/photos/10672456/pexels-photo-10672456.jpeg",
+    "https://images.pexels.com/photos/13335061/pexels-photo-13335061.jpeg",
+    "https://images.pexels.com/photos/5216394/pexels-photo-5216394.jpeg",
+    "https://images.pexels.com/photos/19202829/pexels-photo-19202829.jpeg"
+  ],
+  "live_music_venue": [
+    "https://images.pexels.com/photos/17513729/pexels-photo-17513729.jpeg",
+    "https://images.pexels.com/photos/17815566/pexels-photo-17815566.jpeg",
+    "https://images.pexels.com/photos/17116018/pexels-photo-17116018.jpeg",
+    "https://images.pexels.com/photos/5191742/pexels-photo-5191742.jpeg",
+    "https://images.pexels.com/photos/1717079/pexels-photo-1717079.jpeg",
+    "https://images.pexels.com/photos/9010051/pexels-photo-9010051.jpeg",
+    "https://images.pexels.com/photos/19943363/pexels-photo-19943363.jpeg"
+  ],
+  "cozy_lounge": [
+    "https://images.pexels.com/photos/18718691/pexels-photo-18718691.jpeg",
+    "https://images.pexels.com/photos/35816411/pexels-photo-35816411.jpeg",
+    "https://images.pexels.com/photos/35588942/pexels-photo-35588942.jpeg",
+    "https://images.pexels.com/photos/35072849/pexels-photo-35072849.jpeg",
+    "https://images.pexels.com/photos/13443930/pexels-photo-13443930.jpeg",
+    "https://images.pexels.com/photos/32225876/pexels-photo-32225876.jpeg",
+    "https://images.pexels.com/photos/34157688/pexels-photo-34157688.jpeg",
+    "https://images.pexels.com/photos/33944310/pexels-photo-33944310.jpeg",
+    "https://images.pexels.com/photos/17109095/pexels-photo-17109095.jpeg"
+  ],
+  "dutch_cafe": [
+    "https://images.pexels.com/photos/31125264/pexels-photo-31125264.jpeg",
+    "https://images.pexels.com/photos/30360232/pexels-photo-30360232.jpeg",
+    "https://images.pexels.com/photos/17719744/pexels-photo-17719744.jpeg",
+    "https://images.pexels.com/photos/30384660/pexels-photo-30384660.jpeg",
+    "https://images.pexels.com/photos/14267945/pexels-photo-14267945.jpeg",
+    "https://images.pexels.com/photos/29308624/pexels-photo-29308624.jpeg"
+  ]
+}
