@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body class="home">
 
@@ -270,51 +270,63 @@
   </div>
 </section>
 
-<!-- ============ REVIEWS — LIVE GOOGLE EMBED ============
-     The placeholder review-cards have been replaced with a live
-     Google Maps embed. The iframe shows the real shop pin on
-     Google — the rating + reviews are one tap away ("Bekijk
-     groter") inside the embed itself, plus a primary CTA below.
-
-     Upgrade path: for inline review cards (richer presentation)
-     get a Google Maps Embed API key (free tier — 25 000 loads/
-     day) and switch the iframe src to:
-
-       https://www.google.com/maps/embed/v1/place
-         ?key=YOUR_KEY
-         &q=The+Global+Beautybar+Nijmegen
-         &zoom=18
-
-     That variant shows a side panel with photos + reviews
-     scrollable inside the iframe.
+<!-- ============ REVIEWS — HOMEPAGE HIGHLIGHTS ============
+     TODO HUMAN — these 3 highlighted reviews are PLACEHOLDERS.
+     Replace each quote + name with verbatim Google reviews from
+     the shop's Maps listing before going live. Also remove the
+     .reviews__placeholder-note pill when real reviews are in.
+     The full reviews page lives at /recensies — same placeholder
+     pattern, 6 cards.
 ============================================================ -->
 <section class="reviews" id="reviews">
   <div class="container">
     <header class="reviews__head reveal">
       <div class="eyebrow"><span class="num">05</span> Recensies</div>
-      <h2 class="display">Live op <em>Google.</em></h2>
-      <p class="section__sub">
-        Lees wat klanten over ons schrijven — en laat zelf een review achter
-        nadat je bent geweest.
-      </p>
+      <h2 class="display">Wat klanten <em>zeggen.</em></h2>
+      <span class="reviews__placeholder-note">Voorbeelden — vervang met echte Google reviews vóór livegang</span>
     </header>
 
-    <div class="reviews__google-embed-wrap reveal">
-      <iframe
-        class="reviews__google-embed"
-        src="https://www.google.com/maps?q=The%20Global%20Beautybar%2C%20Zwanenveld%208403%2C%20Nijmegen&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="The Global Beautybar op Google Maps"
-        aria-label="Google Maps embed met de locatie en reviews van The Global Beautybar"></iframe>
+    <div class="reviews__grid">
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Echt blij met mijn nieuwe set. De kleur die ik in gedachten had, perfect uitgevoerd. Rustige sfeer, geen gehaast — voelt als een vaste plek.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">S</span>
+          <span><strong>Sanne K.</strong> · Acryl French</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Eindelijk een nailstudio waar je niet als nummertje wordt afgewerkt. Mooi rustig tempo, ruim de tijd voor advies. Mijn babyboom is na 4 weken nog strak.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">L</span>
+          <span><strong>Lisa M.</strong> · Acryl Babyboom</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Eerste keer hier en zeker niet de laatste. Vakwerk in een kleine studio, lieve service, transparante prijzen. Ik kom terug voor de spa pedicure.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">Y</span>
+          <span><strong>Yara H.</strong> · BIAB Naturel</span>
+        </div>
+      </article>
     </div>
 
-    <div class="reviews__footer reveal">
-      <a class="btn btn--accent btn--lg"
-         href="https://www.google.com/maps/search/?api=1&query=The+Global+Beautybar+Zwanenveld+8403+Nijmegen"
-         target="_blank" rel="noopener">
-        Bekijk recensies op Google
-      </a>
+    <div class="reviews__cta-row reveal">
+      <span class="reviews__google-callout">Op Google</span>
+      <div>
+        <span class="reviews__rating-strip">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span><strong>Gebaseerd op echte Google reviews</strong></span>
+          <span class="reviews__rating-strip__divider" aria-hidden="true">·</span>
+          <a href="recensies.html">Lees alle recensies</a>
+          <span class="reviews__rating-strip__divider" aria-hidden="true">·</span>
+          <a href="https://www.google.com/maps/search/?api=1&query=The+Global+Beautybar+Zwanenveld+8403+Nijmegen" target="_blank" rel="noopener">Bekijk op Google</a>
+        </span>
+      </div>
     </div>
   </div>
 </section>
@@ -393,6 +405,7 @@
       <p><a href="#looks">Looks</a></p>
       <p><a href="nagels.html">Behandelingen</a></p>
       <p><a href="stijlen.html">Stijlen</a></p>
+      <p><a href="recensies.html">Recensies</a></p>
       <p><a href="over-ons.html">Studio</a></p>
     </div>
   </div>
@@ -502,7 +515,7 @@
 <!-- Mobile-only sticky "Boek nu" CTA — appears after scrolling past hero -->
 <button class="sticky-cta" data-open-book aria-label="Open boekingsformulier">Boek nu</button>
 
-<script src="js/main.js?v=7"></script>
+<script src="js/main.js?v=8"></script>
 <script>
   // Menu category filter + interactive image swap
   (function () {

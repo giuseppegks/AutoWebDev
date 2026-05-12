@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Stijlen · The Global Beautybar</title>
-  <meta name="description" content="Een doorsnede van het werk van The Global Beautybar Nijmegen — Acryl, BIAB, manicure, pedicure en nailart. Tik op een look om direct te boeken.">
+  <title>Recensies · The Global Beautybar</title>
+  <meta name="description" content="Wat klanten over The Global Beautybar Nijmegen zeggen. Lees verhalen, bekijk de Google-reviews live, of laat zelf een recensie achter.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#FAF7F2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,8 +24,8 @@
     <nav class="nav__links" aria-label="Hoofdnavigatie">
       <a href="index.html#looks">Looks</a>
       <a href="nagels.html">Behandelingen</a>
-      <a href="stijlen.html" class="is-active">Stijlen</a>
-      <a href="recensies.html">Recensies</a>
+      <a href="stijlen.html">Stijlen</a>
+      <a href="recensies.html" class="is-active">Recensies</a>
       <a href="over-ons.html">Studio</a>
     </nav>
     <button class="btn btn--accent nav__cta" data-open-book>Boek nu</button>
@@ -37,150 +37,109 @@
 
 <section class="subhero">
   <div class="container">
-    <div class="eyebrow"><span class="num">03</span> Stijlen</div>
-    <h1 class="display">Het volledige <em>portfolio.</em></h1>
+    <div class="eyebrow"><span class="num">05</span> Recensies</div>
+    <h1 class="display">Wat klanten <em>over ons zeggen.</em></h1>
     <p class="subhero__lede">
-      Bladeren door looks — filter op categorie of tik op een tegel om
-      die direct te reserveren.
+      Een doorsnede van de reviews die we krijgen — plus de live
+      Google Maps-weergave. Ga je liever direct naar Google? Tik op
+      de knop onderaan om jouw eigen recensie achter te laten.
     </p>
   </div>
 </section>
 
-<!-- ============ CATEGORY FILTERS ============ -->
-<section class="featured-looks" style="padding-top: 0;">
+<!-- ============ LIVE GOOGLE EMBED ============ -->
+<section class="reviews" style="padding-top: 40px;">
   <div class="container">
-
-    <div class="gallery__filters" role="tablist" aria-label="Filter op categorie">
-      <button class="gallery__filter is-active" data-filter="all" role="tab" aria-selected="true">Alles</button>
-      <button class="gallery__filter" data-filter="acryl" role="tab">Acryl</button>
-      <button class="gallery__filter" data-filter="biab" role="tab">BIAB</button>
-      <button class="gallery__filter" data-filter="manicure" role="tab">Manicure</button>
-      <button class="gallery__filter" data-filter="pedicure" role="tab">Pedicure</button>
-      <button class="gallery__filter" data-filter="nailart" role="tab">Nailart</button>
-    </div>
-
-    <div class="gallery__masonry" data-gallery>
-
-      <!-- ACRYL -->
-      <a class="gallery__pin" data-category="acryl" data-open-book data-service="acryl-french-nieuw" style="--ratio:3/4">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34871553/pexels-photo-34871553.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Acryl French · <span class="price">€55</span></span>
-      </a>
-      <a class="gallery__pin" data-category="acryl" data-open-book data-service="acryl-babyboom-nieuw" style="--ratio:1/1">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34835303/pexels-photo-34835303.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Acryl Babyboom · <span class="price">€55</span></span>
-      </a>
-      <a class="gallery__pin" data-category="acryl" data-open-book data-service="acryl-naturel-nieuw" style="--ratio:4/5">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34871570/pexels-photo-34871570.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Acryl Naturel · <span class="price">€45</span></span>
-      </a>
-      <a class="gallery__pin" data-category="acryl" data-open-book data-service="acryl-gellak-nieuw" style="--ratio:1/1">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/3997386/pexels-photo-3997386.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Acryl + Gellak · <span class="price">€50</span></span>
-      </a>
-      <a class="gallery__pin" data-category="acryl" data-open-book data-service="acryl-babyboom-opvullen" style="--ratio:3/4">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/3997385/pexels-photo-3997385.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Babyboom Opvullen · <span class="price">€50</span></span>
-      </a>
-      <a class="gallery__pin" data-category="acryl" data-open-book data-service="acryl-french-opvullen" style="--ratio:4/5">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/3997384/pexels-photo-3997384.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">French Opvullen · <span class="price">€50</span></span>
-      </a>
-
-      <!-- BIAB -->
-      <a class="gallery__pin" data-category="biab" data-open-book data-service="biab-french-nieuw" style="--ratio:3/4">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34871560/pexels-photo-34871560.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">BIAB French · <span class="price">€60</span></span>
-      </a>
-      <a class="gallery__pin" data-category="biab" data-open-book data-service="biab-naturel-nieuw" style="--ratio:1/1">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/17280274/pexels-photo-17280274.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">BIAB Naturel · <span class="price">€50</span></span>
-      </a>
-      <a class="gallery__pin" data-category="biab" data-open-book data-service="biab-gellak-nieuw" style="--ratio:4/5">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/3997378/pexels-photo-3997378.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">BIAB + Gellak · <span class="price">€55</span></span>
-      </a>
-      <a class="gallery__pin" data-category="biab" data-open-book data-service="biab-naturel-opvullen" style="--ratio:1/1">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/14396082/pexels-photo-14396082.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">BIAB Opvullen · <span class="price">€45</span></span>
-      </a>
-      <a class="gallery__pin" data-category="biab" data-open-book data-service="biab-french-opvullen" style="--ratio:3/4">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/6135680/pexels-photo-6135680.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">BIAB French Opvullen · <span class="price">€55</span></span>
-      </a>
-
-      <!-- MANICURE -->
-      <a class="gallery__pin" data-category="manicure" data-open-book data-service="mani-gellak" style="--ratio:3/4">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34871614/pexels-photo-34871614.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Gellak · <span class="price">€30</span></span>
-      </a>
-      <a class="gallery__pin" data-category="manicure" data-open-book data-service="mani-klassiek" style="--ratio:4/5">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34671620/pexels-photo-34671620.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Manicure · <span class="price">€15</span></span>
-      </a>
-      <a class="gallery__pin" data-category="manicure" data-open-book data-service="mani-gellak-french" style="--ratio:1/1">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/998405/pexels-photo-998405.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Gellak French · <span class="price">€35</span></span>
-      </a>
-      <a class="gallery__pin" data-category="manicure" data-open-book data-service="mani-met-gellak" style="--ratio:3/4">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34971940/pexels-photo-34971940.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Manicure + Gellak · <span class="price">€35</span></span>
-      </a>
-      <a class="gallery__pin" data-category="manicure" data-open-book data-service="mani-gellak-met-verw" style="--ratio:1/1">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/704815/pexels-photo-704815.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Gellak + Verwijderen · <span class="price">€32,50</span></span>
-      </a>
-
-      <!-- PEDICURE -->
-      <a class="gallery__pin" data-category="pedicure" data-open-book data-service="pedi-spa-french" style="--ratio:4/5">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34885847/pexels-photo-34885847.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Spa Pedicure French · <span class="price">€55</span></span>
-      </a>
-      <a class="gallery__pin" data-category="pedicure" data-open-book data-service="pedi-spa" style="--ratio:3/4">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34885842/pexels-photo-34885842.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Spa Pedicure · <span class="price">€40</span></span>
-      </a>
-      <a class="gallery__pin" data-category="pedicure" data-open-book data-service="pedi-gellak" style="--ratio:1/1">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/36207029/pexels-photo-36207029.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Pedicure Gellak · <span class="price">€30</span></span>
-      </a>
-      <a class="gallery__pin" data-category="pedicure" data-open-book data-service="pedi-spa-gellak" style="--ratio:4/5">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/6135675/pexels-photo-6135675.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Spa Pedicure Gellak · <span class="price">€50</span></span>
-      </a>
-
-      <!-- NAILART -->
-      <a class="gallery__pin" data-category="nailart" data-open-book data-service="extra-nailart" style="--ratio:3/4">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/17471377/pexels-photo-17471377.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Nailart · <span class="price">vanaf €2</span></span>
-      </a>
-      <a class="gallery__pin" data-category="nailart" data-open-book data-service="extra-nailart" style="--ratio:1/1">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/3557600/pexels-photo-3557600.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Nailart · <span class="price">vanaf €2</span></span>
-      </a>
-      <a class="gallery__pin" data-category="nailart" data-open-book data-service="extra-nailart" style="--ratio:4/5">
-        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/5237959/pexels-photo-5237959.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
-        <span class="pin-caption">Nailart · <span class="price">vanaf €2</span></span>
-      </a>
-
-    </div>
-
-    <div class="featured-looks__cta">
-      <a class="insta-chip" href="https://www.instagram.com/theglobalbeautybar" target="_blank" rel="noopener">
-        Volg het werk live — <strong>@theglobalbeautybar →</strong>
-      </a>
+    <div class="reviews__google-embed-wrap reveal">
+      <iframe
+        class="reviews__page-embed"
+        src="https://www.google.com/maps?q=The%20Global%20Beautybar%2C%20Zwanenveld%208403%2C%20Nijmegen&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="The Global Beautybar op Google Maps"
+        aria-label="Google Maps embed met de locatie en reviews"></iframe>
     </div>
   </div>
 </section>
 
-<section class="blush-band">
+<!-- ============ REVIEW CARDS ============
+     TODO HUMAN — these 6 reviews are PLACEHOLDERS. Replace each
+     quote + name with verbatim Google reviews from the shop's
+     Maps listing before going live. Remove the
+     .reviews__placeholder-note pill when real reviews are in.
+============================================================ -->
+<section class="reviews" id="cards" style="padding-top: 30px;">
   <div class="container">
-    <h2 class="display">Eigen idee in gedachten?</h2>
-    <p class="blush-band__lede">
-      We werken graag mee aan een eigen look. Stuur ons een referentie via
-      WhatsApp en we bespreken de mogelijkheden.
-    </p>
-    <a class="btn btn--accent btn--lg" href="https://wa.me/31634565653" target="_blank" rel="noopener">WhatsApp ons</a>
+    <header class="reviews__head reveal">
+      <div class="eyebrow"><span class="num">II.</span> Klanten</div>
+      <h2 class="display">In hun <em>eigen woorden.</em></h2>
+      <span class="reviews__placeholder-note">Voorbeelden — vervang met echte Google reviews vóór livegang</span>
+    </header>
+
+    <div class="reviews__grid reviews__grid--six">
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Echt blij met mijn nieuwe set. De kleur die ik in gedachten had, perfect uitgevoerd. Rustige sfeer, geen gehaast — voelt als een vaste plek.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">S</span>
+          <span><strong>Sanne K.</strong> · Acryl French</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Eindelijk een nailstudio waar je niet als nummertje wordt afgewerkt. Mooi rustig tempo, ruim de tijd voor advies. Mijn babyboom is na 4 weken nog strak.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">L</span>
+          <span><strong>Lisa M.</strong> · Acryl Babyboom</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Eerste keer hier en zeker niet de laatste. Vakwerk in een kleine studio, lieve service, transparante prijzen. Ik kom terug voor de spa pedicure.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">Y</span>
+          <span><strong>Yara H.</strong> · BIAB Naturel</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Spa pedicure met french was een uur waar ik echt naar uitkeek. Hele behandeling rustig opgebouwd, daarna weer naar buiten met de mooiste tenen — top.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">D</span>
+          <span><strong>Demi V.</strong> · Spa Pedicure French</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Gellak french is altijd lastig om écht strak te krijgen — bij The Global Beautybar perfect uitgevoerd. Geen scherpe randjes, kleur is precies wat ik wilde.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">F</span>
+          <span><strong>Famke R.</strong> · Gellak French</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Kwam langs voor een verzorgde manicure met gellak en kreeg ook nog handige tips voor onderhoud thuis. Aanrader voor wie een vaste studio zoekt in Dukenburg.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">R</span>
+          <span><strong>Roos B.</strong> · Manicure + Gellak</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="reviews__cta-row reveal">
+      <span class="reviews__google-callout">Schrijf jouw recensie</span>
+      <a class="btn btn--accent btn--lg"
+         href="https://www.google.com/maps/search/?api=1&query=The+Global+Beautybar+Zwanenveld+8403+Nijmegen"
+         target="_blank" rel="noopener" style="margin-top: 12px;">
+        Schrijf jouw recensie op Google
+      </a>
+    </div>
   </div>
 </section>
 
@@ -215,6 +174,9 @@
     <span><a href="https://www.instagram.com/theglobalbeautybar" target="_blank" rel="noopener">@theglobalbeautybar</a></span>
   </div>
 </footer>
+
+<!-- Mobile-only sticky "Boek nu" CTA -->
+<button class="sticky-cta" data-open-book aria-label="Open boekingsformulier">Boek nu</button>
 
 <!-- ============ BOOKING MODAL ============ -->
 <div class="book" id="book-modal" role="dialog" aria-modal="true" aria-labelledby="book-title" hidden>
@@ -313,25 +275,6 @@
   </div>
 </div>
 
-
-<!-- Mobile-only sticky Boek nu CTA — appears after scrolling past hero -->
-<button class="sticky-cta" data-open-book aria-label="Open boekingsformulier">Boek nu</button>
-
 <script src="js/main.js?v=8"></script>
-<script>
-  // Category filter for the masonry gallery — simple show/hide
-  (function () {
-    const filters = document.querySelectorAll('.gallery__filter');
-    const pins = document.querySelectorAll('[data-gallery] .gallery__pin');
-    filters.forEach(f => f.addEventListener('click', () => {
-      const cat = f.dataset.filter;
-      filters.forEach(x => { x.classList.toggle('is-active', x === f); x.setAttribute('aria-selected', x === f ? 'true' : 'false'); });
-      pins.forEach(p => {
-        const show = cat === 'all' || p.dataset.category === cat;
-        p.classList.toggle('is-hidden', !show);
-      });
-    }));
-  })();
-</script>
 </body>
 </html>
